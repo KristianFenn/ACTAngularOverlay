@@ -1,0 +1,10 @@
+<div *ngIf="encounter === undefined">
+    <p>No data to show.</p>
+</div>
+
+<div *ngIf="encounter !== undefined">
+    <h1>Hello {{encounter.area}}</h1>
+    <div *ngFor="let player of encounter.players">
+        {{player.name}}: {{player.dps}}
+    </div>
+</div>
