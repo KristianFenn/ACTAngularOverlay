@@ -16,8 +16,7 @@ export class OverlayComponent {
 
   constructor(updater: Updater) {
     this.updater = updater;
-    this.updater.notifier.subscribe((data) => 
-      { this.encounter = data; this.firstPlayer = data.players[0] });
+    this.updater.notifier.subscribe((data) => this.encounter = data );
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])
