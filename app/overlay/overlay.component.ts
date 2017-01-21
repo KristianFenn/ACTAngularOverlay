@@ -12,7 +12,6 @@ import { Player } from '../models/player.model'
 export class OverlayComponent {
   encounter: Encounter;
   updater: Updater;
-  firstPlayer: Player;
 
   constructor(updater: Updater) {
     this.updater = updater;
