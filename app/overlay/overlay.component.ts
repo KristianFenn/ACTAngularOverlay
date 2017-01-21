@@ -22,7 +22,9 @@ export class OverlayComponent {
     this.tableFields = [
       new PlayerTableField(10, "class", "Class"),
       new PlayerTableField(30, "name", "Player"),
-      new PlayerTableField(10, "dps", "DPS")
+      new PlayerTableField(10, "dps", "DPS"),
+      new PlayerTableField(10, "deaths", "Deaths"),
+      new PlayerTableField(10, "critPercent", "Crit%")
     ]
   }
 

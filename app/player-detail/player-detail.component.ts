@@ -10,4 +10,8 @@ import { PlayerTableField } from '../models/player-table.model'
 export class PlayerDetailComponent {
     @Input() player: Player;
     @Input() tableFields: PlayerTableField[];
+
+    getIconUrl() {
+        return 'icons/Acn.png';
+    }
 }

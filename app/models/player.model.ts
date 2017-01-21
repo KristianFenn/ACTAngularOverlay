@@ -5,6 +5,8 @@ export class Player {
     class: string;
     dps: number;
     damage: number;
+    deaths: number;
+    critPercent: string;
 
     constructor(name: string) {
         this.name = name;
@@ -12,7 +14,9 @@ export class Player {
 
     updatePlayer(data: ActUpdateCombatant) {
         this.dps = data.encdps;
-        this.class = data.Job;
+        this.class = data.Job.toUpperCase();
         this.damage = data.damage;
+        this.critPercent = data['crithit%'];
+        this.deaths = data.deaths;
     }
 }

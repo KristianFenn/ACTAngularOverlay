@@ -24,4 +24,6 @@ export class ActUpdateCombatant {
     damage: number;
     encdps: number;
     Job: string;
+    'crithit%': string;
+    deaths: number;
 }
