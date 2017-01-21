@@ -14,32 +14,21 @@ export class Updater {
         this.encounter = new Encounter();
         this.notifier = new EventDispatcher<Encounter>();
     }
-
+    
     updateEncounter(data: ActUpdate) {
-        this.encounter.area = data.Encounter.title;
-        
+        this.encounter.updateEncounter(data.Encounter);
+        this.encounter.players = [];
+
         for (let combatant in data.Combatant) {
             let current: ActUpdateCombatant;
             current = data.Combatant[combatant];
 
-            let playerToUpdate = this.encounter.players.find(player => player.name === current.name);
-
-            if (playerToUpdate !== undefined) {
-                console.log("old player");
-                this.updatePlayer(current, playerToUpdate);
-            } else {
-                console.log("new player");
-                let newPlayer = new Player(current.name);
-                this.updatePlayer(current, newPlayer);
-                this.encounter.players.push(newPlayer);
-            }
+            let player = new Player(current.name);
+            player.updatePlayer(current);
+            this.encounter.players.push(player);
         }
 
         this.encounter.players.sort((player) => player.dps);
         this.notifier.dispatch(this.encounter);
-    }
-
-    updatePlayer(data: ActUpdateCombatant, player: Player) {
-        player.dps = data.encdps;
     }
 }

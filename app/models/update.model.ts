@@ -8,10 +8,14 @@ export class ActUpdate {
 }
 
 export class ActUpdateEncounter {
-    title: string;
+    CurrentZoneName: string;
     duration: string;
     damage: string;
     dps: string;
+    maxhit: string;
+    last10dps: number;
+    last30dps: number;
+    last60dps: number;
 }
 
 export class ActUpdateCombatant {
