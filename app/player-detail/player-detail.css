@@ -1,0 +1,15 @@
+.player-table-row {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+}
+
+.player-table-row div {
+	white-space: nowrap;
+    text-align: center;
+    width: 1px;
+
+    font-size: 12px;
+    text-align: center;
+    flex-grow: 1;
+}

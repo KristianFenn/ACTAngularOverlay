@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { OverlayComponent }  from './overlay/overlay.component';
-import { PlayerComponent }  from './player/player.component';
+import { PlayerHeaderComponent }  from './player-header/player-header.component';
+import { PlayerDetailComponent }  from './player-detail/player-detail.component';
 import { Updater } from './service/updater.service';
 
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [ 
     OverlayComponent, 
-    PlayerComponent 
+    PlayerDetailComponent,
+    PlayerHeaderComponent
   ],
   bootstrap:    [ OverlayComponent ],
   providers:    [ Updater ]

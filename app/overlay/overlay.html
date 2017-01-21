@@ -3,6 +3,11 @@
 </div>
 
 <div *ngIf="encounter !== undefined">
-    <p class="overlay-header"><span class="overlay-header-label">Duration:</span> {{encounter.duration}} <span class="overlay-header-label">Area:</span> {{encounter.area}}</p>
-    <player-detail *ngFor="let player of encounter.players" [player]="player"></player-detail>
+    <p class="overlay-header"><span class="overlay-header-label">Duration:</span> {{encounter.duration}}&nbsp;&nbsp;&nbsp;<span class="overlay-header-label">Area:</span> {{encounter.area}}</p>
+    <hr />
+    <div class="player-table-container">
+        <player-header [tableFields]="tableFields"></player-header>
+        <hr />
+        <player-detail *ngFor="let player of encounter.players" [player]="player" [tableFields]="tableFields"></player-detail>
+    </div>
 </div>

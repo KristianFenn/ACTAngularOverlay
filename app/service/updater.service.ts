@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Encounter } from '../models/encounter.model';
 import { Player } from '../models/player.model';
 import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from '../models/update.model';
@@ -28,7 +27,7 @@ export class Updater {
             this.encounter.players.push(player);
         }
 
-        this.encounter.players.sort((player) => player.dps);
+        this.encounter.players.sort((a, b) => b.dps - a.dps);
         this.notifier.dispatch(this.encounter);
     }
 }

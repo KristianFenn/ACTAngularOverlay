@@ -1,0 +1,5 @@
+<div class="player-table-row">
+    <div *ngFor="let field of tableFields" [style.flex-grow]="field.width">
+        {{ player[field.fieldName] }}
+    </div>
+</div>
