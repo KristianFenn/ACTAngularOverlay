@@ -13,7 +13,12 @@ p {
 	overflow: hidden;
 }
 
+body {
+	height: 100%;
+}
+
 html {
+	background-color: grey;
 	background-image: url(handle.png);
 	background-position: bottom right;
 	background-repeat: no-repeat;
