@@ -11,7 +11,7 @@ export class ActUpdateEncounter {
     CurrentZoneName: string;
     duration: string;
     damage: string;
-    dps: string;
+    ENCDPS: number;
     maxhit: string;
     last10dps: number;
     last30dps: number;
@@ -20,10 +20,11 @@ export class ActUpdateEncounter {
 
 export class ActUpdateCombatant {
     name: string;
-    dps: number;
     damage: number;
-    encdps: number;
+    ENCDPS: number;
     Job: string;
     'crithit%': string;
     deaths: number;
+    maxhit: string;
+    misses: number;
 }

@@ -16,7 +16,8 @@ export class Updater {
     
     updateEncounter(data: ActUpdate) {
         this.encounter.updateEncounter(data.Encounter);
-        this.encounter.players = [];
+        let players = new Array<Player>();
+        let topDps = 0;
 
         for (let combatant in data.Combatant) {
             let current: ActUpdateCombatant;
@@ -24,10 +25,14 @@ export class Updater {
 
             let player = new Player(current.name);
             player.updatePlayer(current);
-            this.encounter.players.push(player);
+            players.push(player);
         }
 
-        this.encounter.players.sort((a, b) => b.dps - a.dps);
+        players.sort((a, b) => b.dps - a.dps);
+        topDps = players[0].dps;
+        players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
+
+        this.encounter.players = players;
         this.notifier.dispatch(this.encounter);
     }
 }

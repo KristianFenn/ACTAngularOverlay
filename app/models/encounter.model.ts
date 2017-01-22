@@ -15,5 +15,6 @@ export class Encounter {
     updateEncounter(data: ActUpdateEncounter) {
         this.area = data.CurrentZoneName;
         this.duration = data.duration;
+        this.dps = data.ENCDPS;
     }
 }
