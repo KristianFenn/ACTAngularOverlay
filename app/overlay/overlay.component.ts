@@ -22,8 +22,8 @@ export class OverlayComponent {
     this.tableFields = [
       new PlayerTableField(10, "class", "Class"),
       new PlayerTableField(30, "name", "Player"),
-      new PlayerTableField(30, "maxhit", "Highest Hit"),
       new PlayerTableField(10, "dps", "DPS"),
+      new PlayerTableField(30, "maxhit", "Highest Hit"),
       new PlayerTableField(10, "critPercent", "Crit%"),
       new PlayerTableField(10, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
       new PlayerTableField(10, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
