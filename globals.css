@@ -1,16 +1,16 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
+}
+
+p {
+    font-size: 13px;
+	display: inline;
 	color: #cccccc;
 	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
 	font-weight: 300;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-}
-
-p {
-    font-size: 13px;
-	display: inline;
 }
 
 html {

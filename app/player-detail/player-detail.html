@@ -1,4 +1,4 @@
-<div class="player-table-row" [ngClass]="[player.class]" [class.player-row]="player.name === 'Krumpet Mcface'" [style.background-size]="player.dpsPercent + '% auto'">
+<div class="player-table-row" [ngClass]="player.class" [style.background-size]="player.dpsPercent + '% auto'">
     <div *ngFor="let field of tableFields" [style.flex-grow]="field.width">
         <p [class]="field.cssClass(player[field.fieldName])">{{ player[field.fieldName] }}</p>
     </div>

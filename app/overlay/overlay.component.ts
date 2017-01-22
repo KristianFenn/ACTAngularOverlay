@@ -21,7 +21,7 @@ export class OverlayComponent {
 
     this.tableFields = [
       new PlayerTableField(10, "class", "Class"),
-      new PlayerTableField(30, "name", "Player"),
+      new PlayerTableField(30, "name", "Player", (value) => value === "Krumpet Mcface" ? 'main-player' : ""),
       new PlayerTableField(10, "dps", "DPS"),
       new PlayerTableField(30, "maxhit", "Highest Hit"),
       new PlayerTableField(10, "critPercent", "Crit%"),
