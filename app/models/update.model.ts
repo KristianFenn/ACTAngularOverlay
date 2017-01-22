@@ -27,4 +27,5 @@ export class ActUpdateCombatant {
     deaths: number;
     maxhit: string;
     misses: number;
+    ENCHPS: number;
 }
