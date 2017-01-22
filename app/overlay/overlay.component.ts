@@ -4,11 +4,12 @@ import { Encounter } from '../models/encounter.model'
 import { ActUpdateEvent } from '../models/update.model'
 import { Player } from '../models/player.model'
 import { PlayerTableField } from '../models/player-table.model'
+import { Configuration } from '../config'
 
 @Component({
   selector: 'overlay',
-  templateUrl: 'app/overlay/overlay.html',
-  styleUrls: [ 'app/overlay/overlay.css' ]
+  templateUrl: Configuration.GetThemePath('overlay.html'),
+  styleUrls: [ Configuration.GetThemePath('overlay.css') ]
 })
 export class OverlayComponent {
   encounter: Encounter;

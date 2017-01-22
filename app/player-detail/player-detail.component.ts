@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Player } from '../models/player.model';
 import { PlayerTableField } from '../models/player-table.model'
+import { Configuration } from '../config'
 
 @Component({
     selector: 'player-detail',
-    templateUrl: 'app/player-detail/player-detail.html',
-    styleUrls: [ 'app/player-detail/player-detail.css' ]
+    templateUrl: Configuration.GetThemePath('player-detail.html'),
+    styleUrls: [ Configuration.GetThemePath('player-detail.css') ]
 })
 export class PlayerDetailComponent {
     @Input() player: Player;
