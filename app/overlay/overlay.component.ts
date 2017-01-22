@@ -20,13 +20,13 @@ export class OverlayComponent {
     this.updater.notifier.subscribe((data) => this.encounter = data );
 
     this.tableFields = [
-      new PlayerTableField(10, "class", "Class"),
+      new PlayerTableField(5, "class", "Class"),
       new PlayerTableField(30, "name", "Player", (value) => value === "Krumpet Mcface" ? 'main-player' : ""),
       new PlayerTableField(10, "dps", "DPS"),
       new PlayerTableField(30, "maxhit", "Highest Hit"),
-      new PlayerTableField(10, "critPercent", "Crit%"),
-      new PlayerTableField(10, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
-      new PlayerTableField(10, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
+      new PlayerTableField(5, "critPercent", "Crit%"),
+      new PlayerTableField(5, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
+      new PlayerTableField(5, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
     ];
   }
 

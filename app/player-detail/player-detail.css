@@ -32,21 +32,21 @@
 }
 
 .GLA, .PLD, .MRD, .WAR, .DRK {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(41,112,243,0.5) 100%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(41,112,243,0.5) 98%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
 .CNJ, .WHM, .SCH, .AST {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(107,240,86,0.5) 100%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(107,240,86,0.5) 98%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
 .PGL, .MNK, .LNC, .DRG, .ARC, .BRD, .ROG, .NIN, .ACN, .SMN, .THM, .BLM, .MCH {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(200,3,8,0.5) 100%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(200,3,8,0.5) 98%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
 .CRP, .BSN, .GSM, .LTW, .WVR, .ALC, .CUL, .MIN, .BTN, .FSH {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.5) 100%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.5) 98%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
