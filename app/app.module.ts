@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { OverlayComponent }  from './overlay/overlay.component';
 import { PlayerHeaderComponent }  from './player-header/player-header.component';
 import { PlayerDetailComponent }  from './player-detail/player-detail.component';
+import { ClassIconComponent }  from './class-icon/class-icon.component';
 import { Updater } from './service/updater.service';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { Updater } from './service/updater.service';
   declarations: [ 
     OverlayComponent, 
     PlayerDetailComponent,
-    PlayerHeaderComponent
+    PlayerHeaderComponent,
+    ClassIconComponent
   ],
   bootstrap:    [ OverlayComponent ],
   providers:    [ Updater ]
