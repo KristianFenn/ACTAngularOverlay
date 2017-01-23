@@ -28,4 +28,5 @@ export class ActUpdateCombatant {
     maxhit: string;
     misses: number;
     ENCHPS: string;
+    OverHealPct: string;
 }
