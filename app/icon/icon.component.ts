@@ -10,6 +10,8 @@ import { Configuration } from '../config';
 export class IconComponent {
     @Input() iconName: string;
     @Input() iconSize: number;
+    @Input() float: string = 'none';
+    @Input() margin: string = '-3px';
 
     getIconSrc() {
         let iconPath = "icons/" + this.iconName + ".png";

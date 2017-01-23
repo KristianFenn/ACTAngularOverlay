@@ -1,7 +1,7 @@
 <div class="player-table-row" [ngClass]="player.class" [style.background-size]="player.dpsPercent + '% auto'">
     <div class="dps-container player-table-field flex-10"><p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p></div>
     <div class="player-table-field flex-30">
-        <icon [iconName]="player.class" iconSize="33"></icon>
+        <icon [iconName]="player.class" iconSize="33" float="left" margin="2px"></icon>
         <div><p [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}</p></div>
         <div><p>{{ player.maxhit || 'N/A' }}</p></div>
     </div>
