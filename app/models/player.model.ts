@@ -26,7 +26,7 @@ export class Player {
         let parsePerSecond = (v: string) => v !== "∞" ? parseInt(v) : 0;
 
         this.dps = parsePerSecond(data.ENCDPS);
-        this.class = data.Job.toUpperCase();
+        this.class = data.Job.toUpperCase() || data.name.toUpperCase().replace(' ', '_');
         this.damage = data.damage;
         this.critPercent = data['crithit%'];
         this.deaths = data.deaths;
