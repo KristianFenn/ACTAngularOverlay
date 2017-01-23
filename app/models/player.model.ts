@@ -12,6 +12,7 @@ export class Player {
     maxhit: string;
     dpsPercent: number;
     hps: number;
+    overhealPercent: string;
 
     constructor(name: string) {
         this.name = name;
@@ -32,6 +33,7 @@ export class Player {
         this.maxhit = data.maxhit;
         this.misses = data.misses;
         this.hps = parsePerSecond(data.ENCHPS);
+        this.overhealPercent = data.OverHealPct;
     }
 
 
