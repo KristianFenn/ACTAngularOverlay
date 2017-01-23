@@ -1,16 +1,16 @@
 <div class="player-table-row" [ngClass]="player.class" [style.background-size]="player.dpsPercent + '% auto'">
-    <div [style.flex-grow]="10" class="dps-container player-table-field"><p [ngClass]="{ 'main-player': player.name === 'YOU' }" class="dps-value">{{ player.dps }}</p></div>
-    <div [style.flex-grow]="30" class="player-table-field">
-        <icon [iconName]="player.class" [iconSize]="45"></icon>
-        <p class="after-icon-text" [ngClass]="{ 'main-player': player.name === 'YOU' }">{{ player.name }}</p><br />
-        <p class="after-icon-text">{{ player.maxhit }}</p>
+    <div class="dps-container player-table-field flex-10"><p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p></div>
+    <div class="player-table-field flex-30">
+        <icon [iconName]="player.class" iconSize="33"></icon>
+        <div><p [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}</p></div>
+        <div><p>{{ player.maxhit || 'N/A' }}</p></div>
     </div>
-    <div [style.flex-grow]="10" class="player-table-field">
-        <div><img class="player-table-field-img" src="icons/crit.png" height="17" width="17" /><p class="after-icon-text">{{ player.critPercent }}</p></div>
-        <div><img class="player-table-field-img" src="icons/CNJ.png" height="17" width="17"  /><p class="after-icon-text">{{ player.hps || 'N/A' }}</p></div>
+    <div class="player-table-field flex-10">
+        <div><icon iconName="crit" iconSize="15"></icon><p>{{ player.critPercent }}</p></div>
+        <div><icon iconName="CNJ" iconSize="15"></icon><p>{{ player.hps }}</p></div>
     </div>
-    <div [style.flex-grow]="10" class="player-table-field">  
-        <div><img class="player-table-field-img" src="icons/miss.png" height="17" width="17"  /><p class="after-icon-text" [ngClass]="{ 'text-red': player.misses > 0 }">{{ player.misses }}</p></div>
-        <div><img class="player-table-field-img" src="icons/death.png" height="17" width="17" /><p class="after-icon-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p></div>
+    <div class="player-table-field flex-10">  
+        <div><icon iconName="miss" iconSize="15"></icon><p [ngClass]="{ 'text-red': player.misses > 0 }">{{ player.misses }}</p></div>
+        <div><icon iconName="death" iconSize="15"></icon><p [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p></div>
     </div>
 </div>

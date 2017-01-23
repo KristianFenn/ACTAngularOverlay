@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "keywords": [],
   "author": "",
+  "scripts": {
+    "start": "lite-server"
+  },
   "dependencies": {
     "@angular/common": "~2.4.0",
     "@angular/compiler": "~2.4.0",
@@ -22,7 +25,8 @@
   },
   "devDependencies": {
     "typescript": "~2.0.10",
-    "@types/node": "^6.0.46"
+    "@types/node": "^6.0.46",
+    "lite-server": "^2.2.2"
   },
   "repository": {}
 }

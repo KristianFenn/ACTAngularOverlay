@@ -3,7 +3,6 @@
     flex-direction: row;
     flex-wrap: no-wrap;
 
-	padding: 0px;
 	margin-bottom: 1px;
 }
 
@@ -15,16 +14,11 @@
 .player-table-field {
 	white-space: nowrap;
     width: 1px;
-    padding: 2px 0 2px 0;
 }
 
 .player-table-field p {
-	font-size:15px;
-}
-
-.player-table-field-img {
-	float: left;
-	clear: left;
+	font-size: 14px;
+	padding: 0px;
 }
 
 .dps-container {
@@ -32,11 +26,7 @@
 }
 
 .dps-value {
-	font-size: 30px !important;
-}
-
-.after-icon-text {
-	margin-left: 5px;
+	font-size: 33px !important;
 }
 
 .player-table-row-background {
@@ -66,4 +56,24 @@
 .CRP, .BSN, .GSM, .LTW, .WVR, .ALC, .CUL, .MIN, .BTN, .FSH {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
+}
+
+.flex-5 {
+	flex-grow: 5;
+}
+
+.flex-10 {
+	flex-grow: 10;
+}
+
+.flex-15 {
+	flex-grow: 15;
+}
+
+.flex-20 {
+	flex-grow: 20;
+}
+
+.flex-30 {
+	flex-grow: 30;
 }

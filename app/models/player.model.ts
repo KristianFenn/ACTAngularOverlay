@@ -1,4 +1,5 @@
 import { ActUpdateCombatant } from './update.model'
+import { Configuration } from '../config'
 
 export class Player {
     name: string;
@@ -15,6 +16,10 @@ export class Player {
     constructor(name: string) {
         this.name = name;
     }
+
+    isMainPlayer() {
+        return this.name.toLowerCase() === Configuration.PlayerName.toLowerCase();
+    }
  
     updatePlayer(data: ActUpdateCombatant) {
         let parsePerSecond = (v: string) => v !== "∞" ? parseInt(v) : 0;
@@ -26,6 +31,8 @@ export class Player {
         this.deaths = data.deaths;
         this.maxhit = data.maxhit;
         this.misses = data.misses;
-        this.hps = parsePerSecond(data.ENCDPS);
+        this.hps = parsePerSecond(data.ENCHPS);
     }
+
+
 }
