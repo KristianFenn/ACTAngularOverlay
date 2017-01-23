@@ -21,11 +21,11 @@ export class ActUpdateEncounter {
 export class ActUpdateCombatant {
     name: string;
     damage: number;
-    ENCDPS: number;
+    ENCDPS: string;
     Job: string;
     'crithit%': string;
     deaths: number;
     maxhit: string;
     misses: number;
-    ENCHPS: number;
+    ENCHPS: string;
 }

@@ -17,13 +17,15 @@ export class Player {
     }
  
     updatePlayer(data: ActUpdateCombatant) {
-        this.dps = data.ENCDPS;
+        let parsePerSecond = (v: string) => v !== "∞" ? parseInt(v) : 0;
+
+        this.dps = parsePerSecond(data.ENCDPS);
         this.class = data.Job.toUpperCase();
         this.damage = data.damage;
         this.critPercent = data['crithit%'];
         this.deaths = data.deaths;
         this.maxhit = data.maxhit;
         this.misses = data.misses;
-        this.hps = data.ENCHPS;
+        this.hps = parsePerSecond(data.ENCDPS);
     }
 }
