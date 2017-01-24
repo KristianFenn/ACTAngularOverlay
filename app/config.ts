@@ -6,7 +6,7 @@ export class Configuration {
         return 'themes/' + this.Theme + '/' + fileName;
     }
 
-    static GetGlobalPath(fileName: string) {
-        return 'themes/global/' + fileName;
+    static GetSharedPath(fileName: string) {
+        return 'themes/shared/' + fileName;
     }
 }

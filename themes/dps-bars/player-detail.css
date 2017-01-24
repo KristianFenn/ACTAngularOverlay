@@ -1,23 +1,4 @@
-.player-table-row {
-	display: flex;
-    flex-direction: row;
-    flex-wrap: no-wrap;
-
-	margin-bottom: 1px;
-}
-
-.main-player {
-	color: #DED7BE;
-	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
-}
-
-.player-table-field {
-	white-space: nowrap;
-    width: 1px;
-}
-
-.player-table-field p {
-	font-size: 14px;
+.player-table-text {
 	margin-left: 5px;
 }
 
@@ -27,57 +8,4 @@
 
 .dps-value {
 	font-size: 33px !important;
-}
-
-.player-table-row-background {
-	z-index: -100;
-}
-
-.text-red {
-	color: #ffcdd2 !important;
-	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161 !important;
-}
-
-.GLA, .PLD, .MRD, .WAR, .DRK {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(41,112,243,0.5) 95%,rgba(0,0,0,0) 100%);
-	background-repeat: repeat-y;
-}
-
-.CNJ, .WHM, .SCH, .AST {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(107,240,86,0.5) 95%,rgba(0,0,0,0) 100%);
-	background-repeat: repeat-y;
-}
-
-.PGL, .MNK, .LNC, .DRG, .ARC, .BRD, .ROG, .NIN, .ACN, .SMN, .THM, .BLM, .MCH {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(200,3,8,0.5) 95%,rgba(0,0,0,0) 100%);
-	background-repeat: repeat-y;
-}
-
-.CRP, .BSN, .GSM, .LTW, .WVR, .ALC, .CUL, .MIN, .BTN, .FSH {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.5) 95%,rgba(0,0,0,0) 100%);
-	background-repeat: repeat-y;
-}
-
-.LIMITBREAK {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(243,172,41,0.5) 95%,rgba(0,0,0,0) 100%);
-}
-
-.flex-5 {
-	flex-grow: 5;
-}
-
-.flex-10 {
-	flex-grow: 10;
-}
-
-.flex-15 {
-	flex-grow: 15;
-}
-
-.flex-20 {
-	flex-grow: 20;
-}
-
-.flex-30 {
-	flex-grow: 30;
 }

@@ -9,7 +9,11 @@ import { Configuration } from '../config'
 @Component({
   selector: 'overlay',
   templateUrl: Configuration.GetThemePath('overlay.html'),
-  styleUrls: [ Configuration.GetThemePath('overlay.css') ]
+  styleUrls: [ 
+    Configuration.GetSharedPath('common.css'),
+    Configuration.GetSharedPath('overlay.css'),
+    Configuration.GetThemePath('overlay.css')
+  ]
 })
 export class OverlayComponent {
   encounter: Encounter;
@@ -21,13 +25,13 @@ export class OverlayComponent {
     this.updater.notifier.subscribe((data) => this.encounter = data );
 
     this.tableFields = [
-      new PlayerTableField(5, "class", "Class"),
+      new PlayerTableField(10, "class", "Class"),
       new PlayerTableField(30, "name", "Player", (value) => value === "YOU" ? "main-player" : ""),
       new PlayerTableField(10, "dps", "DPS"),
       new PlayerTableField(30, "maxhit", "Highest Hit"),
-      new PlayerTableField(5, "critPercent", "Crit%"),
-      new PlayerTableField(5, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
-      new PlayerTableField(5, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
+      new PlayerTableField(10, "critPercent", "Crit%"),
+      new PlayerTableField(10, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
+      new PlayerTableField(10, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
     ];
   }
 

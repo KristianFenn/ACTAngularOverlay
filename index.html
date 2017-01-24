@@ -7,13 +7,13 @@
     <script src="node_modules/zone.js/dist/zone.js"></script>
 
     <script src="systemjs.config.js"></script>
-    <link rel="stylesheet" type="text/css" href="globals.css"></link>
+    <link rel="stylesheet" type="text/css" href="overlay.css"></link>
     <script>
       System.import('app').catch(function(err){ console.error(JSON.stringify(err)); });
     </script>
   </head>
 
   <body>
-    <overlay>Loading overlay...</overlay>
+    <overlay><p class="loading-placeholder">Loading overlay...</p></overlay>
   </body>
 </html>

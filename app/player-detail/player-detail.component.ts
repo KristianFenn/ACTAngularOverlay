@@ -6,14 +6,14 @@ import { Configuration } from '../config'
 @Component({
     selector: 'player-detail',
     templateUrl: Configuration.GetThemePath('player-detail.html'),
-    styleUrls: [ Configuration.GetThemePath('player-detail.css') ]
+    styleUrls: [ 
+        Configuration.GetSharedPath('common.css'),
+        Configuration.GetSharedPath('player-detail.css'),
+        Configuration.GetThemePath('player-detail.css') 
+    ]
 })
 export class PlayerDetailComponent {
     @Input() player: Player;
     @Input() tableFields: PlayerTableField[];
     @Input() dpsPercentage: number;
-
-    getIconUrl() {
-        return 'icons/Acn.png';
-    }
 }

@@ -1,0 +1,6 @@
+<div class="player-table-row" [ngClass]="player.class" [style.background-size]="player.dpsPercent + '% auto'">
+    <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-field">
+        <icon *ngIf="field.fieldName === 'class'" [iconName]="player.class" [iconSize]="20"></icon>
+        <p *ngIf="field.fieldName !== 'class'" [ngClass]="field.cssClass(player[field.fieldName])" class="player-table-text">{{ player[field.fieldName] }}</p>
+    </div>
+</div>

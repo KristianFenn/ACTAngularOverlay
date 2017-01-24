@@ -4,8 +4,8 @@ import { Configuration } from '../config';
 
 @Component({
     selector: 'icon',
-    templateUrl: Configuration.GetGlobalPath('icon.html'),
-    styleUrls: [ Configuration.GetGlobalPath('icon.css') ]
+    templateUrl: Configuration.GetSharedPath('icon.html'),
+    styleUrls: [ Configuration.GetSharedPath('icon.css') ]
 })
 export class IconComponent {
     @Input() iconName: string;

@@ -2,33 +2,22 @@
 	display: flex;
     flex-direction: row;
     flex-wrap: no-wrap;
-
-	padding: 0px;
 	margin-bottom: 1px;
+	padding: 1px 0;
+}
+
+.player-table-field {
+	white-space: nowrap;
+    width: 1px;
+}
+
+.player-table-text {
+    font-size: 15px;
 }
 
 .main-player {
 	color: #DED7BE;
 	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
-}
-
-.player-table-row div {
-	white-space: nowrap;
-    text-align: center;
-    width: 1px;
-    padding: 2px 0 2px 0;
-
-    font-size: 12px;
-    text-align: center;
-}
-
-.player-table-row-background {
-	z-index: -100;
-}
-
-.redtext {
-	color: #ffcdd2 !important;
-	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161 !important;
 }
 
 .GLA, .PLD, .MRD, .WAR, .DRK {
@@ -49,4 +38,9 @@
 .CRP, .BSN, .GSM, .LTW, .WVR, .ALC, .CUL, .MIN, .BTN, .FSH {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
+}
+
+.LIMITBREAK {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(243,172,41,0.5) 95%,rgba(0,0,0,0) 100%);
+    background-repeat: repeat-y;
 }
