@@ -28,9 +28,11 @@ export class Updater {
             players.push(player);
         }
 
-        players.sort((a, b) => b.dps - a.dps);
-        topDps = players[0].dps;
-        players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
+        if (players.length !== 0) {
+            players.sort((a, b) => b.dps - a.dps);
+            topDps = players.length > 0 ? players[0].dps : 0;
+            players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
+        }
 
         this.encounter.players = players;
         this.notifier.dispatch(this.encounter);
