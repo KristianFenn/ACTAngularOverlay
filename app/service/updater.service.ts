@@ -30,7 +30,7 @@ export class Updater {
 
         if (players.length !== 0) {
             players.sort((a, b) => b.dps - a.dps);
-            topDps = players.length > 0 ? players[0].dps : 0;
+            topDps = players[0].dps;
             players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
         }
 
