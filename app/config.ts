@@ -6,7 +6,6 @@ export default class Configuration {
 
     static SetOptions(queryString: string) {
         let parsed = qs.parse(queryString) as any;
-        console.log(JSON.stringify(parsed));
         
         if (parsed.playerName) {
             this.PlayerName = parsed.playerName;
