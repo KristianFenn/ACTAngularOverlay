@@ -26,12 +26,12 @@ export class OverlayComponent {
 
     this.tableFields = [
       new PlayerTableField(10, "class", "Class"),
-      new PlayerTableField(30, "name", "Player", (value) => value === "YOU" ? "main-player" : ""),
-      new PlayerTableField(10, "dps", "DPS"),
-      new PlayerTableField(30, "maxhit", "Highest Hit"),
+      new PlayerTableField(30, "name", "Player", (value) => value.isMainPlayer() ? "main-player" : ""),
+      new PlayerTableField(10, "dps", "DPS", (value) => value.isMainPlayer() ? "main-player" : ""),
+      new PlayerTableField(40, "maxhit", "Highest Hit"),
       new PlayerTableField(10, "critPercent", "Crit%"),
-      new PlayerTableField(10, "misses", "Miss", (value) => value > 0 ? "redtext" : "" ),
-      new PlayerTableField(10, "deaths", "Death", (value) => value > 0 ? "redtext" : "" )
+      new PlayerTableField(10, "misses", "Miss", (value) => value.misses > 0 ? "text-red" : "" ),
+      new PlayerTableField(10, "deaths", "Death", (value) => value.deaths > 0 ? "text-red" : "" )
     ];
   }
 

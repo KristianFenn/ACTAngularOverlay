@@ -21,7 +21,7 @@ export class Player {
     isMainPlayer() {
         return this.name.toLowerCase() === Configuration.PlayerName.toLowerCase();
     }
- 
+
     updatePlayer(data: ActUpdateCombatant) {
         let parsePerSecond = (v: string) => v !== "∞" ? parseInt(v) : 0;
 
