@@ -1,4 +1,4 @@
-export class Configuration {
+export default class Configuration {
     static Theme = "dps-bars";
     static PlayerName = "YOU";
 

@@ -1,7 +1,7 @@
 import { ActUpdateCombatant } from './update.model'
-import { Configuration } from '../config'
+import Configuration from '../config'
 
-export class Player {
+export default class Player {
     name: string;
     class: string;
     dps: number;

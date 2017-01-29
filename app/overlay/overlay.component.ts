@@ -1,10 +1,10 @@
 import { Component, HostListener } from '@angular/core'
-import { Updater } from '../service/updater.service'
-import { Encounter } from '../models/encounter.model'
 import { ActUpdateEvent } from '../models/update.model'
-import { Player } from '../models/player.model'
-import { PlayerTableField } from '../models/player-table.model'
-import { Configuration } from '../config'
+import Updater from '../service/updater.service'
+import Encounter from '../models/encounter.model'
+import Player from '../models/player.model'
+import PlayerTableField from '../models/player-table.model'
+import Configuration from '../config'
 
 @Component({
   selector: 'overlay',
@@ -15,7 +15,7 @@ import { Configuration } from '../config'
     Configuration.GetThemePath('overlay.css')
   ]
 })
-export class OverlayComponent {
+export default class OverlayComponent {
   encounter: Encounter;
   updater: Updater;
   tableFields: Array<PlayerTableField>;

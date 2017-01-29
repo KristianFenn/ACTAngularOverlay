@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Encounter } from '../models/encounter.model';
-import { Player } from '../models/player.model';
 import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from '../models/update.model';
-import { EventDispatcher } from '../lib/event.dispatcher';
+import Encounter from '../models/encounter.model';
+import Player from '../models/player.model';
+import EventDispatcher from '../lib/event.dispatcher';
 
 @Injectable()
-export class Updater extends EventDispatcher<Encounter> {
-    encounter: Encounter;
-
+export default class Updater extends EventDispatcher<Encounter> {
     constructor() {
         super();
-        this.encounter = new Encounter();
     }
     
     updateEncounter(data: ActUpdate) {
-        this.encounter.updateEncounter(data.Encounter);
+        let encounter = new Encounter();
+        encounter.updateEncounter(data.Encounter);
         let players = new Array<Player>();
         let topDps = 0;
 
@@ -33,7 +31,7 @@ export class Updater extends EventDispatcher<Encounter> {
             players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
         }
 
-        this.encounter.players = players;
-        this.dispatch(this.encounter);
+        encounter.players = players;
+        this.dispatch(encounter);
     }
 }

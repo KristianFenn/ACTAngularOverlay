@@ -1,6 +1,6 @@
-import { Player } from './player.model'
+import Player from './player.model'
 
-export class PlayerTableField {
+export default class PlayerTableField {
     width: number;
     fieldName: string;
     fieldTitle: string;

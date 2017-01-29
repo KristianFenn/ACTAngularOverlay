@@ -1,7 +1,7 @@
-import { Player } from './player.model';
 import { ActUpdateEncounter } from './update.model'
+import Player from './player.model';
 
-export class Encounter {
+export default class Encounter {
     area: string;
     duration: string;
     dps: number;
