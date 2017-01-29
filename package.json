@@ -17,6 +17,7 @@
     "@angular/router": "~3.4.0",
     "angular-in-memory-web-api": "~0.2.4",
     "core-js": "^2.4.1",
+    "query-string": "^4.3.1",
     "require": "^2.4.20",
     "requirejs": "^2.3.2",
     "rxjs": "5.0.1",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "typescript": "~2.0.10",
     "@types/node": "^6.0.46",
+    "@types/query-string": "^3.0.31",
     "lite-server": "^2.2.2"
   },
   "repository": {}
