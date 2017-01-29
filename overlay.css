@@ -4,12 +4,8 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
-	height: 100%;
-}
-
 html {
-	background-color: grey;
+	background-color: white;
 	background-image: url(handle.png);
 	background-position: bottom right;
 	background-repeat: no-repeat;

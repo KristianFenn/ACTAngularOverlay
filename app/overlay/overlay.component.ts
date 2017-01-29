@@ -22,7 +22,7 @@ export class OverlayComponent {
 
   constructor(updater: Updater) {
     this.updater = updater;
-    this.updater.notifier.subscribe((data) => this.encounter = data );
+    this.updater.subscribe((data) => this.encounter = data );
 
     this.tableFields = [
       new PlayerTableField(10, "class", "Class"),

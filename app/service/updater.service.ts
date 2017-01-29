@@ -5,13 +5,12 @@ import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from '../models/upd
 import { EventDispatcher } from '../lib/event.dispatcher';
 
 @Injectable()
-export class Updater {
+export class Updater extends EventDispatcher<Encounter> {
     encounter: Encounter;
-    notifier: EventDispatcher<Encounter>;
 
     constructor() {
+        super();
         this.encounter = new Encounter();
-        this.notifier = new EventDispatcher<Encounter>();
     }
     
     updateEncounter(data: ActUpdate) {
@@ -35,6 +34,6 @@ export class Updater {
         }
 
         this.encounter.players = players;
-        this.notifier.dispatch(this.encounter);
+        this.dispatch(this.encounter);
     }
 }
