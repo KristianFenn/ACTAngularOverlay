@@ -1,16 +1,18 @@
 <div class="player-table-row" [ngClass]="player.class || player.name" [style.background-size]="player.dpsPercent + '% auto'">
-    <div class="player-table-field dps-container flex-10"><p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p></div>
+    <div class="player-table-field dps-container flex-10">
+        <p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p>
+    </div>
     <div class="player-table-field flex-30">
-        <icon [iconName]="player.class || player.name" iconSize="33" float="left" margin="2px"></icon>
-        <div><p [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}</p></div>
-        <div><p>{{ player.maxhit || 'N/A' }}</p></div>
+        <icon [iconName]="player.class || player.name" iconSize="35" float="left" margin="-1px"></icon>
+        <div><p class="player-table-text" [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}</p></div>
+        <div><p class="player-table-text">{{ player.maxhit || 'N/A' }}</p></div>
     </div>
     <div class="player-table-field flex-15">
-        <div><icon iconName="crit" iconSize="15"></icon><p class="player-table-text">{{ player.critPercent }}</p></div>
-        <div><icon iconName="CNJ" iconSize="15"></icon><p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p></div>
+        <div><icon iconName="crit" iconSize="15" margin="-2px"></icon><p class="player-table-text">{{ player.critPercent }}</p></div>
+        <div><icon iconName="CNJ" iconSize="15" margin="-2px"></icon><p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p></div>
     </div>
     <div class="player-table-field flex-15">  
-        <div><icon iconName="miss" iconSize="15"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.misses > 0 }">{{ player.misses }}</p></div>
-        <div><icon iconName="death" iconSize="15"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p></div>
+        <div><icon iconName="miss" iconSize="15" margin="-2px"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.misses > 0 }">{{ player.misses }}</p></div>
+        <div><icon iconName="death" iconSize="15" margin="-2px"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p></div>
     </div>
 </div>

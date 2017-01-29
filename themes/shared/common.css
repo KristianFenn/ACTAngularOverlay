@@ -36,3 +36,7 @@ p {
 .flex-30 {
 	flex-grow: 30;
 }
+
+.display-outline {
+	border: 1px red dashed;
+}

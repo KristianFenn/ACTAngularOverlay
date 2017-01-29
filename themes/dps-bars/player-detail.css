@@ -2,10 +2,16 @@
 	margin-left: 5px;
 }
 
+.player-table-field {
+	font-size: 13px;
+}
+
 .dps-container {
 	text-align: center;
+	padding: 0px;
 }
 
 .dps-value {
-	font-size: 33px !important;
+	font-size: 33px;
+	line-height: 1;
 }
