@@ -22,13 +22,13 @@
     "requirejs": "^2.3.2",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
-    "zone.js": "^0.7.4"
+    "zone.js": "^0.7.4",
+    "lite-server": "^2.2.2"
   },
   "devDependencies": {
     "typescript": "~2.0.10",
     "@types/node": "^6.0.46",
-    "@types/query-string": "^3.0.31",
-    "lite-server": "^2.2.2"
+    "@types/query-string": "^3.0.31"
   },
   "repository": {}
 }
