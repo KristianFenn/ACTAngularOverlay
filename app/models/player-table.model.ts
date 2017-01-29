@@ -4,7 +4,7 @@ export class PlayerTableField {
     width: number;
     fieldName: string;
     fieldTitle: string;
-    cssClass: (value: any) => string;
+    cssClass: (value: Player) => string;
 
     getClass(player: Player) {
         return this.cssClass(player);
