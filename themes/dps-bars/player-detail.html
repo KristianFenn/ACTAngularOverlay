@@ -1,5 +1,5 @@
 <div class="player-table-row" [ngClass]="player.class || player.name" [style.background-size]="player.dpsPercent + '% auto'">
-    <div class="player-table-field dps-container flex-10">
+    <div class="player-table-field dps-container flex-15">
         <p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p>
     </div>
     <div class="player-table-field flex-30">

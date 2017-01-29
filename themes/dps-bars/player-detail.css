@@ -8,10 +8,13 @@
 
 .dps-container {
 	text-align: center;
-	padding: 0px;
 }
 
 .dps-value {
-	font-size: 33px;
+	font-size: 32px;
 	line-height: 1;
+}
+
+.player-table-row {
+	padding: 2px 0;
 }
