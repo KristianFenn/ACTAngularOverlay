@@ -25,13 +25,14 @@ export default class OverlayComponent {
     this.updater.subscribe((data) => this.encounter = data );
 
     this.tableFields = [
-      new PlayerTableField(10, "class", "Class"),
-      new PlayerTableField(30, "name", "Player", (value) => value.isMainPlayer() ? "main-player" : ""),
-      new PlayerTableField(10, "dps", "DPS", (value) => value.isMainPlayer() ? "main-player" : ""),
-      new PlayerTableField(40, "maxhit", "Highest Hit"),
-      new PlayerTableField(10, "critPercent", "Crit%"),
-      new PlayerTableField(10, "misses", "Miss", (value) => value.misses > 0 ? "text-red" : "" ),
-      new PlayerTableField(10, "deaths", "Death", (value) => value.deaths > 0 ? "text-red" : "" )
+      new PlayerTableField(10, (p) => p.rank,         "Rank"),
+      new PlayerTableField(10, (p) => p.class,        "Class",  null, true),
+      new PlayerTableField(30, (p) => p.name,         "Player", (p) => p.isMainPlayer() ? "main-player" : ""),
+      new PlayerTableField(10, (p) => p.dps,          "DPS",    (p) => p.isMainPlayer() ? "main-player" : ""),
+      new PlayerTableField(40, (p) => p.maxhit,       "Highest Hit"),
+      new PlayerTableField(10, (p) => p.critPercent,  "Crit%"),
+      new PlayerTableField(10, (p) => p.misses,       "Miss",   (p) => p.misses > 0 ? "text-red" : "" ),
+      new PlayerTableField(10, (p) => p.deaths,       "Death",  (p) => p.deaths > 0 ? "text-red" : "" )
     ];
   }
 

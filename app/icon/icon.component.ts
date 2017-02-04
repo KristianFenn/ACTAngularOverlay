@@ -15,7 +15,6 @@ export default class IconComponent {
 
     getIconSrc() {
         let iconPath = "icons/" + this.iconName + ".png";
-        // console.log(iconPath);
         return iconPath;
     }
 }

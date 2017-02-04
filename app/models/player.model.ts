@@ -13,6 +13,7 @@ export default class Player {
     dpsPercent: number;
     hps: number;
     overhealPercent: string;
+    rank: number;
 
     constructor(name: string) {
         this.name = name;

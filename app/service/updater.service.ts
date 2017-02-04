@@ -28,7 +28,7 @@ export default class Updater extends EventDispatcher<Encounter> {
         if (players.length !== 0) {
             players.sort((a, b) => b.dps - a.dps);
             topDps = players[0].dps;
-            players.forEach((p) => p.dpsPercent = (p.dps * (100 / topDps)))
+            players.forEach((p, i) => { p.dpsPercent = (p.dps * (100 / topDps)); p.rank = i + 1; })
         }
 
         encounter.players = players;
