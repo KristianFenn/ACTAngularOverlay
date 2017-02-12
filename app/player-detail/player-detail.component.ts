@@ -5,11 +5,12 @@ import Configuration from '../config'
 
 @Component({
     selector: 'player-detail',
-    templateUrl: Configuration.GetThemePath('player-detail.html'),
+    templateUrl: Configuration.GetLayoutPath('player-detail.html'),
     styleUrls: [ 
         Configuration.GetSharedPath('common.css'),
         Configuration.GetSharedPath('player-detail.css'),
-        Configuration.GetThemePath('player-detail.css') 
+        Configuration.GetLayoutPath('player-detail.css'),
+        Configuration.GetClassTheme(),
     ]
 })
 export default class PlayerDetailComponent {

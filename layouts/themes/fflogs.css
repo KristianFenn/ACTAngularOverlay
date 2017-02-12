@@ -1,0 +1,76 @@
+.GLA, .PLD {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(168, 210, 230, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.MRD, .WAR {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(207, 38, 33, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.DRK {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(224, 52, 220, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.CNJ, .WHM {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(255, 240, 221, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.SCH {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(134, 87, 255, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+
+.AST {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(255, 231, 74, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+
+.PGL, .MNK {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(230, 172, 0, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.LNC, .DRG {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(65, 100, 205, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.ARC, .BRD {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(145, 186, 94, .8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.ROG, .NIN {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(191, 41, 116, 0.8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.ACN, .SMN {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(45, 155, 120, 0.8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.THM, .BLM {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(181, 137, 230, 0.8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.MCH {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(126, 241, 230, 0.8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.CRP, .BSN, .GSM, .LTW, .WVR, .ALC, .CUL, .MIN, .BTN, .FSH {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(67,67,67,0.8) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.LIMIT_BREAK {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(243,172,41,0.8) 95%,rgba(0,0,0,0) 100%);
+    background-repeat: repeat-y;
+}

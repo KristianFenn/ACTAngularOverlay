@@ -8,11 +8,11 @@ import Configuration from '../config'
 
 @Component({
   selector: 'overlay',
-  templateUrl: Configuration.GetThemePath('overlay.html'),
+  templateUrl: Configuration.GetLayoutPath('overlay.html'),
   styleUrls: [ 
     Configuration.GetSharedPath('common.css'),
     Configuration.GetSharedPath('overlay.css'),
-    Configuration.GetThemePath('overlay.css')
+    Configuration.GetLayoutPath('overlay.css')
   ]
 })
 export default class OverlayComponent {

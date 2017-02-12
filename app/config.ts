@@ -1,7 +1,8 @@
 import * as qs from 'query-string';
 
 export default class Configuration {
-    static Theme = "dps-bars";
+    static Theme = "ffxiv";
+    static Layout = "dps-bars";
     static PlayerName = "YOU";
 
     static SetOptions(queryString: string) {
@@ -14,13 +15,22 @@ export default class Configuration {
         if (parsed.theme) {
             this.Theme = parsed.theme;
         }
+
+          if (parsed.layout) {
+            this.Layout = parsed.layout;
+        }
+
     }
 
-    static GetThemePath(fileName: string) {
-        return 'themes/' + this.Theme + '/' + fileName;
+    static GetLayoutPath(fileName: string) {
+        return 'layouts/' + this.Layout + '/' + fileName;
+    }
+
+    static GetClassTheme() {
+        return 'layouts/themes/' + this.Theme + '.css';
     }
 
     static GetSharedPath(fileName: string) {
-        return 'themes/shared/' + fileName;
+        return 'layouts/shared/' + fileName;
     }
 }

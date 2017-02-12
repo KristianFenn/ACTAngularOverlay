@@ -5,8 +5,8 @@ import Configuration from '../config'
 
 @Component({
     selector: 'player-header',
-    templateUrl: Configuration.GetThemePath('player-header.html'),
-    styleUrls: [ Configuration.GetThemePath('player-header.css') ]
+    templateUrl: Configuration.GetLayoutPath('player-header.html'),
+    styleUrls: [ Configuration.GetLayoutPath('player-header.css') ]
 })
 export default class PlayerHeaderComponent {
     @Input() tableFields: PlayerTableField[];
