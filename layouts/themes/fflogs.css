@@ -1,3 +1,7 @@
+p {
+	text-shadow: -1px 0 3px #28586c, 0 1px 3px #28586c, 1px 0 3px #28586c, 0 -1px 3px #28586c;
+}
+
 .GLA, .PLD {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(168, 210, 230, .8) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
