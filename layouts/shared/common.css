@@ -1,15 +1,15 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
-}
-
-p {
-	display: inline;
 	color: #cccccc;
 	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
 	font-weight: 300;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+p {
+	display: inline;
 }
 
 .text-red {
@@ -39,4 +39,8 @@ p {
 
 .display-outline {
 	border: 1px red dashed;
+}
+
+.float-right {
+	float: right;
 }

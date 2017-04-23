@@ -5,8 +5,8 @@ export default class Configuration {
     static Layout = "dps-bars";
     static PlayerName = "YOU";
 
-    static SetOptions(queryString: string) {
-        let parsed = qs.parse(queryString) as any;
+    static SetOptions() {
+        let parsed = this.GetQueryString();
         
         if (parsed.playerName) {
             this.PlayerName = parsed.playerName;
@@ -32,5 +32,26 @@ export default class Configuration {
 
     static GetSharedPath(fileName: string) {
         return 'layouts/shared/' + fileName;
+    }
+
+    private static GetQueryString() {
+        return qs.parse(location.search) as any;
+    }
+
+    static SetLayout(layout: string) {
+        let query = this.GetQueryString();
+        query.layout = layout;
+        this.ReloadWithOptions(query);
+    }
+
+    static SetTheme(theme: string) {
+        let query = this.GetQueryString();
+        query.theme = theme;
+        this.ReloadWithOptions(query);
+    }
+
+    private static ReloadWithOptions(query: any) {
+        var queryString = qs.stringify(query);
+        location.href = location.origin + '?' + queryString;
     }
 }

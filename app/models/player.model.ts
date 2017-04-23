@@ -36,6 +36,4 @@ export default class Player {
         this.hps = parsePerSecond(data.ENCHPS);
         this.overhealPercent = data.OverHealPct;
     }
-
-
 }

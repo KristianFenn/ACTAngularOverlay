@@ -1,14 +1,3 @@
-.overlay-header {
-	font-size: 13px;
-}
-
-.overlay-header-label {
-	color: #DED7BE;
-	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
-	font-weight: 300;
-	white-space: nowrap;
-}
-
 .overlay-container {
 	padding: 5px;
 	background: rgba(0, 0, 0, 0.3);
