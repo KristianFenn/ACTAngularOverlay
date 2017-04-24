@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import OverlayComponent from './overlay/overlay.component';
-import OverlayHeaderComponent from './overlay-header/overlay-header'
-import PlayerHeaderComponent from './player-header/player-header.component';
-import PlayerDetailComponent from './player-detail/player-detail.component';
-import IconComponent from './icon/icon.component';
-import Updater from './service/updater.service';
+import OverlayComponent from './overlay.component';
+import OverlayOptionsComponent from './overlay-options.component';
+import PlayerHeaderComponent from './player-header.component';
+import PlayerDetailComponent from './player-detail.component';
+import IconComponent from './icon.component';
+import Updater from './updater.service';
 
 @NgModule({
   imports:      [ BrowserModule ],
@@ -14,7 +14,7 @@ import Updater from './service/updater.service';
     PlayerDetailComponent,
     PlayerHeaderComponent,
     IconComponent,
-    OverlayHeaderComponent
+    OverlayOptionsComponent
   ],
   bootstrap:    [ OverlayComponent ],
   providers:    [ Updater ]

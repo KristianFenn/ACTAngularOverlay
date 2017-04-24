@@ -1,8 +1,18 @@
 import * as qs from 'query-string';
 
 export default class Configuration {
-    static Theme = "ffxiv";
-    static Layout = "dps-bars";
+    static Themes = [
+        'ffxiv',
+        'fflogs'
+    ];
+
+    static Layouts = [
+        'dps-bars',
+        'table'
+    ];
+
+    static Theme = 'ffxiv';
+    static Layout = 'dps-bars';
     static PlayerName = "YOU";
 
     static SetOptions() {
@@ -38,19 +48,10 @@ export default class Configuration {
         return qs.parse(location.search) as any;
     }
 
-    static SetLayout(layout: string) {
+    static ReloadWithOptions(theme: string, layout: string) {
         let query = this.GetQueryString();
         query.layout = layout;
-        this.ReloadWithOptions(query);
-    }
-
-    static SetTheme(theme: string) {
-        let query = this.GetQueryString();
         query.theme = theme;
-        this.ReloadWithOptions(query);
-    }
-
-    private static ReloadWithOptions(query: any) {
         var queryString = qs.stringify(query);
         location.href = location.origin + '?' + queryString;
     }

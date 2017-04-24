@@ -1,0 +1,17 @@
+<div class="options-container">
+    <div class="option-container">
+        <span class="option-title">Layout:</span>
+        <span class="option-selection" *ngFor="let layout of getLayouts()"> 
+            [ <a class="option" [ngClass]="{ active: isActiveLayout(layout) }" (click)="setLayout(layout)">{{layout}}</a> ]
+        </span>
+    </div>
+    <div class="option-container">
+        <span class="option-title">Theme:</span>
+        <span class="option-selection" *ngFor="let theme of getThemes()"> 
+            [ <a class="option" [ngClass]="{ active: isActiveTheme(theme) }"  (click)="setTheme(theme)">{{theme}}</a> ]
+        </span>
+    </div>
+    <div class="option-container">
+        <button class="options-submit" (click)="reloadWithNewOptions()">Reload with selected options</button>
+    </div>
+</div>

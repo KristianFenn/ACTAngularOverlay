@@ -9,3 +9,22 @@ hr {
 	margin-top: 2px;
 	margin-bottom: 2px;
 }
+
+.overlay-header {
+	font-size: 13px;
+}
+
+.overlay-header-group {
+	display: inline;
+}
+
+.overlay-header-label {
+	color: #DED7BE;
+	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+	font-weight: 300;
+	white-space: nowrap;
+}
+
+.overlay-options {
+	float: right;
+}
