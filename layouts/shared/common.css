@@ -1,7 +1,7 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
 	color: #cccccc;
-	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
+	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 	font-weight: 300;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -19,7 +19,7 @@ a {
 
 a:hover {
 	color: #cccccc;
-	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
+	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 }
 
 button {
@@ -31,9 +31,9 @@ button {
 }
 
 button:hover {
+	border-color: #2C7DA1;
 	color: #cccccc;
-	border-color: #4596ba;
-	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
+	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 }
 
 .text-red {
