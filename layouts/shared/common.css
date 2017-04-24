@@ -13,12 +13,26 @@ p {
 }
 
 a {
-	color: #DED7BE;
-	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+	color: #BBBBBB;
+	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #323232;
 }
 
 a:hover {
 	color: #cccccc;
+	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
+}
+
+button {
+	background: rgba(0, 0, 0, 0.3);
+	border: 2px #003054 solid;
+	border-radius: 5px;
+	color: #BBBBBB;
+	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #323232;
+}
+
+button:hover {
+	color: #cccccc;
+	border-color: #4596ba;
 	text-shadow: -1px 0 3px #4596ba, 0 1px 3px #4596ba, 1px 0 3px #4596ba, 0 -1px 3px #4596ba;
 }
 
