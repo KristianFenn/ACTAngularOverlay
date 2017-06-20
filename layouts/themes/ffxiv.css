@@ -8,7 +8,7 @@
 	background-repeat: repeat-y;
 }
 
-.PGL, .MNK, .LNC, .DRG, .ARC, .BRD, .ROG, .NIN, .ACN, .SMN, .THM, .BLM, .MCH {
+.PGL, .MNK, .LNC, .DRG, .ARC, .BRD, .ROG, .NIN, .ACN, .SMN, .THM, .BLM, .MCH, .RDM, .SAM {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(200,3,8,0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }

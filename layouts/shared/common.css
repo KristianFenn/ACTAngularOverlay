@@ -41,6 +41,19 @@ button:hover {
 	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161 !important;
 }
 
+.text-icon-red {
+	color: #660000;
+	font-weight: bold;
+	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161;
+}
+
+.text-icon-green {
+	color: #006600;
+	font-weight: bold;
+	font-weight: 15 !important;
+	text-shadow: -1px 0 3px #51fc61, 0 1px 3px #51fc61, 1px 0 3px #51fc61, 0 -1px 3px #51fc61;
+}
+
 .flex-5 {
 	flex-grow: 5;
 }

@@ -6,6 +6,7 @@ export default class Player {
     class: string;
     dps: number;
     damage: number;
+    damageFormatted: string;
     deaths: number;
     misses: number;
     critPercent: string;
@@ -29,6 +30,7 @@ export default class Player {
         this.dps = parsePerSecond(data.ENCDPS);
         this.class = data.Job.toUpperCase() || data.name.toUpperCase().replace(' ', '_');
         this.damage = data.damage;
+        this.damageFormatted = this.damage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         this.critPercent = data['crithit%'];
         this.deaths = data.deaths;
         this.maxhit = data.maxhit;

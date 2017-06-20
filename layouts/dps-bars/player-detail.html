@@ -12,7 +12,7 @@
         <div><icon iconName="CNJ" iconSize="15" margin="-2px"></icon><p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p></div>
     </div>
     <div class="player-table-field flex-15">  
-        <div><icon iconName="miss" iconSize="15" margin="-2px"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.misses > 0 }">{{ player.misses }}</p></div>
+        <div><icon iconName="GLA" iconSize="15" margin="-2px"></icon><p class="player-table-text">{{ player.damageFormatted }}</p></div>
         <div><icon iconName="death" iconSize="15" margin="-2px"></icon><p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p></div>
     </div>
 </div>
