@@ -20,6 +20,7 @@ export default class OverlayComponent {
   updater: Updater;
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
+  showOverlay: boolean;
 
   private mainPlayerFn = (p: Player) => p.isMainPlayer() ? 'main-player' : '';
   private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
@@ -40,6 +41,7 @@ export default class OverlayComponent {
     ];
 
     this.showOptions = false;
+    this.showOverlay = true;
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])
@@ -47,7 +49,11 @@ export default class OverlayComponent {
     this.updater.updateEncounter(event.detail);
   }
 
-  optionsClicked() {
+  toggleOptions() {
     this.showOptions = !this.showOptions;
+  }
+
+  toggleHide() {
+    this.showOverlay = !this.showOverlay;
   }
 }

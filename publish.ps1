@@ -17,5 +17,5 @@ if (Test-Path $output) {
 }
 
 foreach ($target in $targets) {
-    Compress-Archive -Path $target -Update -DestinationPath $output -CompressionLevel NoCompression
+    7z a $output $target;
 }
