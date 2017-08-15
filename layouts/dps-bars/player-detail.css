@@ -1,5 +1,5 @@
 .player-table-text {
-	margin-left: 5px;
+	margin: 0 0 0 5px;
 }
 
 .player-table-field {
@@ -17,4 +17,9 @@
 
 .player-table-row {
 	padding: 2px 0;
+}
+
+.icon-container {
+	display: flex;
+	height: 16px;
 }

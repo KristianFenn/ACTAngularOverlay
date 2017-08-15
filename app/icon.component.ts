@@ -11,7 +11,7 @@ export default class IconComponent {
     @Input() iconName: string;
     @Input() iconSize: number;
     @Input() float: string = 'none';
-    @Input() margin: string = '-3px';
+    @Input() margin: string = '0px';
 
     getIconSrc() {
         let iconPath = "icons/" + this.iconName + ".png";
