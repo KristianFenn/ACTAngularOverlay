@@ -18,3 +18,8 @@
 .option-container {
     margin-top: 10px;
 }
+
+.option-scale {
+    max-width: 50px;
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import OverlayComponent from './overlay.component';
 import OverlayOptionsComponent from './overlay-options.component';
 import PlayerHeaderComponent from './player-header.component';
@@ -8,7 +9,7 @@ import IconComponent from './icon.component';
 import Updater from './updater.service';
 
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [ BrowserModule, FormsModule ],
   declarations: [ 
     OverlayComponent, 
     PlayerDetailComponent,

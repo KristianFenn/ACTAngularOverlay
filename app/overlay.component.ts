@@ -11,7 +11,7 @@ import Configuration from './config'
   selector: 'overlay',
   templateUrl: Configuration.GetSharedPath('overlay.html'),
   styleUrls: [ 
-    Configuration.GetSharedPath('common.css'),
+    Configuration.GetSharedPath('common.css'), 
     Configuration.GetSharedPath('overlay.css')
   ]
 })
@@ -21,6 +21,7 @@ export default class OverlayComponent {
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
   showOverlay: boolean;
+  scale: number;
 
   private mainPlayerFn = (p: Player) => p.isMainPlayer() ? 'main-player' : '';
   private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
@@ -42,6 +43,7 @@ export default class OverlayComponent {
 
     this.showOptions = false;
     this.showOverlay = true;
+    this.scale = Configuration.Scale;
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])

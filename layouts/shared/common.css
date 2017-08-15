@@ -23,6 +23,14 @@ a:hover {
 	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 }
 
+input {
+	background: rgba(0, 0, 0, 0.3);
+	border: 2px #003054 solid;
+	border-radius: 5px;
+	color: #BBBBBB;
+	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #32323
+}
+
 button {
 	background: rgba(0, 0, 0, 0.3);
 	border: 2px #003054 solid;

@@ -40,7 +40,7 @@ p {
 }
 
 .SAM {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(106, 93, 90, .5) 95%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(228, 109, 4, .5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
@@ -71,7 +71,7 @@ p {
 }
 
 .RDM {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(207, 89, 151, 0.5) 95%,rgba(0,0,0,0) 100%);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(232, 123, 123, 0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 

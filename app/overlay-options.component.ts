@@ -11,12 +11,14 @@ import Configuration from './config'
     ]
 })
 export default class OverlayOptionsComponent {
+    scale: number;
     layout: string;
     theme: string;
 
     constructor() {
         this.layout = Configuration.Layout;
         this.theme = Configuration.Theme;
+        this.scale = Configuration.Scale * 100;
     }
 
     getLayouts() {
@@ -44,6 +46,6 @@ export default class OverlayOptionsComponent {
     }
 
     reloadWithNewOptions() {
-        Configuration.ReloadWithOptions(this.theme, this.layout);
+        Configuration.ReloadWithOptions(this.theme, this.layout, this.scale * 0.01);
     }
 }

@@ -1,5 +1,12 @@
 import * as qs from 'query-string';
 
+interface QueryString {
+    playerName: string;
+    theme: string;
+    layout: string;
+    scale: number;
+}
+
 export default class Configuration {
     static Themes = [
         'ffxiv',
@@ -14,6 +21,7 @@ export default class Configuration {
     static Theme = 'ffxiv';
     static Layout = 'dps-bars';
     static PlayerName = "YOU";
+    static Scale = 1.0;
 
     static SetOptions() {
         let parsed = this.GetQueryString();
@@ -26,10 +34,13 @@ export default class Configuration {
             this.Theme = parsed.theme;
         }
 
-          if (parsed.layout) {
+        if (parsed.layout) {
             this.Layout = parsed.layout;
         }
 
+        if (parsed.scale) {
+            this.Scale = parsed.scale;
+        }
     }
 
     static GetLayoutPath(fileName: string) {
@@ -45,13 +56,14 @@ export default class Configuration {
     }
 
     private static GetQueryString() {
-        return qs.parse(location.search) as any;
+        return qs.parse(location.search) as any as QueryString;
     }
 
-    static ReloadWithOptions(theme: string, layout: string) {
+    static ReloadWithOptions(theme: string, layout: string, scale: number) {
         let query = this.GetQueryString();
         query.layout = layout;
         query.theme = theme;
+        query.scale = scale;
         var queryString = qs.stringify(query);
         location.href = location.origin + '?' + queryString;
     }

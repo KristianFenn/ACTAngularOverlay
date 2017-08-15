@@ -15,6 +15,8 @@ export default class Player {
     hps: number;
     overhealPercent: string;
     rank: number;
+    directHitPercent: string;
+    critDirectHitPercent: string;
 
     constructor(name: string) {
         this.name = name;
@@ -37,5 +39,7 @@ export default class Player {
         this.misses = data.misses;
         this.hps = parsePerSecond(data.ENCHPS);
         this.overhealPercent = data.OverHealPct;
+        this.critDirectHitPercent = data.CritDirectHitPct;
+        this.directHitPercent = data.DirectHitPct;
     }
 }
