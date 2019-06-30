@@ -17,6 +17,11 @@ p {
 	background-repeat: repeat-y;
 }
 
+.GNB {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(255, 244, 145, .5) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
 .CNJ, .WHM {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(255, 240, 221, .5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
@@ -50,13 +55,23 @@ p {
 	background-repeat: repeat-y;
 }
 
+.ROG, .NIN {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(191, 41, 116, 0.5) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
 .ARC, .BRD {
 	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(145, 186, 94, .5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
-.ROG, .NIN {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(191, 41, 116, 0.5) 95%,rgba(0,0,0,0) 100%);
+.MCH {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(126, 241, 230, 0.5) 95%,rgba(0,0,0,0) 100%);
+	background-repeat: repeat-y;
+}
+
+.DNC {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(252, 147, 141, 0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
@@ -75,8 +90,8 @@ p {
 	background-repeat: repeat-y;
 }
 
-.MCH {
-	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(126, 241, 230, 0.5) 95%,rgba(0,0,0,0) 100%);
+.BLU {
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), linear-gradient(to right, rgba(66, 135, 245, 0.5) 95%,rgba(0,0,0,0) 100%);
 	background-repeat: repeat-y;
 }
 
