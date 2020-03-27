@@ -1,11 +1,12 @@
-import { Component, HostListener, ViewChild, AfterViewInit  } from '@angular/core'
-import { ActUpdateEvent } from './models/update.model'
-import Updater from './updater.service'
-import EventDispatcher from './event.dispatcher'
-import Encounter from './models/encounter.model'
-import Player from './models/player.model'
-import PlayerTableField from './models/player-table.model'
-import Configuration from './config'
+import { Component, HostListener, ViewChild, AfterViewInit  } from '@angular/core';
+import { Http } from '@angular/http';
+import { ActUpdateEvent, ActUpdate } from './models/update.model';
+import Updater from './updater.service';
+import EventDispatcher from './event.dispatcher';
+import Encounter from './models/encounter.model';
+import Player from './models/player.model';
+import PlayerTableField from './models/player-table.model';
+import Configuration from './config';
 
 @Component({
   selector: 'overlay',
@@ -17,17 +18,19 @@ import Configuration from './config'
 })
 export default class OverlayComponent {
   encounter: Encounter;
+  http: Http;
   updater: Updater;
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
   showOverlay: boolean;
-  scale: number;
+  config: Configuration;
 
   private mainPlayerFn = (p: Player) => p.isMainPlayer() ? 'main-player' : '';
   private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
 
-  constructor(updater: Updater) {
+  constructor(updater: Updater, http: Http) {
     this.updater = updater;
+    this.http = http;
     this.updater.subscribe((data) => this.encounter = data );
 
     this.tableFields = [
@@ -36,14 +39,12 @@ export default class OverlayComponent {
       new PlayerTableField(30, (p) => p.name,         "Player", this.mainPlayerFn),
       new PlayerTableField(10, (p) => p.dps,          "DPS",   this.mainPlayerFn),
       new PlayerTableField(40, (p) => p.maxhit,       "Highest Hit"),
-      new PlayerTableField(10, (p) => p.critPercent,  "Crit%"),
-      new PlayerTableField(10, (p) => p.misses,       "Miss",   (p) => this.redTextFn(p.misses) ),
       new PlayerTableField(10, (p) => p.deaths,       "Death",  (p) => this.redTextFn(p.deaths) )
     ];
 
-    this.showOptions = false;
+    this.showOptions = false; 
     this.showOverlay = true;
-    this.scale = Configuration.Scale;
+    this.config = Configuration;
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])
@@ -57,5 +58,19 @@ export default class OverlayComponent {
 
   toggleHide() {
     this.showOverlay = !this.showOverlay;
+  }
+
+  loadAlliance() {
+    this.loadTestData('alliance');
+  }
+
+  loadParty() {
+    this.loadTestData('party');
+  }
+
+  private loadTestData(dataSet: string) {
+    this.http.get(`/app/testdata/${dataSet}.json`).subscribe(data => {
+      this.updater.updateEncounter(data.json());
+    });
   }
 }

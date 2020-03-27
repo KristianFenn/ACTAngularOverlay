@@ -1,5 +1,5 @@
-import { ActUpdateCombatant } from './update.model'
-import Configuration from '../config'
+import { ActUpdateCombatant } from './update.model';
+import Configuration from '../config';
 
 export default class Player {
     name: string;

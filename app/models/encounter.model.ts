@@ -1,4 +1,4 @@
-import { ActUpdateEncounter } from './update.model'
+import { ActUpdateEncounter } from './update.model';
 import Player from './player.model';
 
 export default class Encounter {

@@ -5,6 +5,7 @@ interface QueryString {
     theme: string;
     layout: string;
     scale: number;
+    test: boolean;
 }
 
 export default class Configuration {
@@ -22,6 +23,7 @@ export default class Configuration {
     static Layout = 'dps-bars';
     static PlayerName = "YOU";
     static Scale = 1.0;
+    static Test = false;
 
     static SetOptions() {
         let parsed = this.GetQueryString();
@@ -40,6 +42,10 @@ export default class Configuration {
 
         if (parsed.scale) {
             this.Scale = parsed.scale;
+        }
+
+        if (parsed.test) {
+            this.Test = parsed.test;
         }
     }
 

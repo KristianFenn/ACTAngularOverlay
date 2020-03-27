@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
-import Encounter from './models/encounter.model'
-import Configuration from './config'
+import { Component } from '@angular/core';
+import Encounter from './models/encounter.model';
+import Configuration from './config';
 
 @Component({
     selector: 'overlay-options',
