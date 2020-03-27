@@ -1,0 +1,45 @@
+<div *ngIf="!showTable" class="player-detail-dps-bars" [ngClass]="themeClass">
+    <div class="player-table-row" [ngClass]="player.class || player.name" [style.background-size]="player.dpsPercent + '% auto'">
+        <div class="player-table-field dps-container flex-15">
+            <p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p>
+        </div>
+        <div class="player-table-field flex-30">
+            <icon [iconName]="player.class || player.name" iconSize="35" float="left" margin="-1px"></icon>
+            <div>
+                <p class="player-table-text" [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}</p>
+            </div>
+            <div>
+                <p class="player-table-text">{{ player.maxhit || 'N/A' }}</p>
+            </div>
+        </div>
+        <div class="player-table-field flex-15">
+            <div class="icon-container">
+                <icon iconName="GLA" iconSize="16"></icon>
+                <p class="player-table-text">{{ player.damageFormatted }}</p>
+            </div>
+            <div class="icon-container">
+                <icon iconName="heal" iconSize="16"></icon>
+                <p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p>
+            </div>
+        </div>
+        <div class="player-table-field flex-15">
+            <div class="icon-container">
+                <icon iconName="crit" iconSize="16"></icon>
+                <p class="player-table-text">{{ player.directHitPercent }} | {{ player.critPercent }} |
+                    {{ player.critDirectHitPercent }}</p>
+            </div>
+            <div class="icon-container">
+                <icon iconName="death" iconSize="16"></icon>
+                <p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showTable" class="player-detail-table" [ngClass]="themeClass">
+    <div class="player-table-row" [ngClass]="player.class" [style.background-size]="player.dpsPercent + '% auto'">
+        <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-field">
+            <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="19" margin="-1px 0px -3px 0px"></icon>
+            <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">{{ field.getValue(player) }}</p>
+        </div>
+    </div>
+</div>

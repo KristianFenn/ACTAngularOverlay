@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from './models/update.model';
-import Encounter from './models/encounter.model';
-import Player from './models/player.model';
+import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from '../models/update.model';
+import Encounter from '../models/encounter.model';
+import Player from '../models/player.model';
 import EventDispatcher from './event.dispatcher';
 
 @Injectable()

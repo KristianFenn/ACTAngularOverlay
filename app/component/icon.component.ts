@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import Player from './models/player.model';
-import Configuration from './config';
+import Player from '../models/player.model';
+import Paths from '../path';
 
 @Component({
     selector: 'icon',
-    templateUrl: Configuration.GetSharedPath('icon.html'),
-    styleUrls: [ Configuration.GetSharedPath('icon.css') ]
+    templateUrl: Paths.GetHtml('icon.html'),
+    styleUrls: [ Paths.GetCss('icon.css') ]
 })
 export default class IconComponent {
     @Input() iconName: string;

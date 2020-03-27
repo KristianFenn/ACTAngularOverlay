@@ -1,8 +1,7 @@
 $targets = @(
     '.\icons',
     '.\js',
-    '.\layouts',
-    '.\bs-config.json',
+    '.\assets',
     '.\handle.png',
     '.\index.html',
     '.\overlay.css',

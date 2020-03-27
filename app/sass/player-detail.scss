@@ -1,0 +1,58 @@
+@import 'themes/fflogs.scss';
+@import 'themes/ffxiv.scss';
+
+.player-table-row {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+	margin-bottom: 1px;
+	padding: 1px 0;
+}
+
+.player-table-field {
+	white-space: nowrap;
+    width: 1px;
+    font-size: 15px;
+}
+.main-player {
+	color: #DED7BE;
+	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+}
+
+.player-detail-dps-bars {
+    .player-table-text {
+        margin: 0 0 0 5px;
+    }
+
+    .player-table-field {
+        font-size: 13px;
+    }
+
+    .dps-container {
+        text-align: center;
+    }
+
+    .dps-value {
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    .player-table-row {
+        padding: 2px 0;
+    }
+
+    .icon-container {
+        display: flex;
+        height: 16px;
+    }
+}
+
+.player-detail-table {
+	.player-table-field {
+		text-align: center;
+	}
+	
+	.player-table-row-background {
+		z-index: -100;
+	}	
+}

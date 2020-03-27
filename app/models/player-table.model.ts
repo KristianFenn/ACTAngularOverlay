@@ -15,10 +15,10 @@ export default class PlayerTableField {
         return this.valueFn(player);
     }
 
-    constructor(width: number, valueFn: (player: Player) => any, title: string, cssClass: (player: Player) => string = null, isIcon: boolean = false) {
+    constructor(width: number, title: string, valueFn: (player: Player) => any, cssClass: (player: Player) => string = null, isIcon: boolean = false) {
         this.width = width;
-        this.valueFn = valueFn;
         this.fieldTitle = title;
+        this.valueFn = valueFn;
         this.cssClass = cssClass || ((value) => "");
         this.isIcon = isIcon;
     }
