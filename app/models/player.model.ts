@@ -24,7 +24,7 @@ export default class Player {
     }
 
     isMainPlayer() {
-        return this.name.toLowerCase() === Player.mainPlayerName;
+        return this.name.toLowerCase() === Player.mainPlayerName.toLowerCase();
     }
 
     updatePlayer(data: ActUpdateCombatant) {
