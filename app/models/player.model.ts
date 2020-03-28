@@ -1,5 +1,4 @@
 import { ActUpdateCombatant } from './update.model';
-import Configuration from '../models/config.model';
 
 export default class Player {
     static mainPlayerName: string = "YOU";

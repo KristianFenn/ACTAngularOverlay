@@ -18,8 +18,7 @@
             <p>No data to show.</p>
         </div>
         <div *ngIf="encounter !== undefined">
-            <player-header [config]="config" [playerCount]="playerCount"></player-header>
-            <player-detail *ngFor="let player of encounter.players" [player]="player" [config]="config" [playerCount]="playerCount"></player-detail>
+            <player-detail [players]="encounter.players" [config]="config"></player-detail>
         </div>
     </div>
     <div *ngIf="showOptions">

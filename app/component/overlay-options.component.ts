@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import Encounter from '../models/encounter.model';
-import OverlayConfig, { Layout, Layouts, Theme, Themes } from '../models/config.model';
 import Paths from '../path';
+
+import OverlayConfig, { Layout, Layouts, Theme, Themes } from '../models/config.model';
 import ConfigService from '../service/config.service';
 
 @Component({

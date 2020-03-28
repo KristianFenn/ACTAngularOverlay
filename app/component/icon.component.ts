@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import Player from '../models/player.model';
 import Paths from '../path';
 
 @Component({

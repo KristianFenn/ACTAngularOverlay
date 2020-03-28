@@ -1,16 +1,14 @@
 import { Component, HostListener, ViewChild, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
+import Paths from '../path';
 
 import ConfigService from '../service/config.service';
 import Updater from '../service/updater.service';
-import EventDispatcher from '../service/event.dispatcher';
 
 import OverlayConfig from '../models/config.model';
 import { ActUpdateEvent, ActUpdate } from '../models/update.model';
 import Encounter from '../models/encounter.model';
-import Player from '../models/player.model';
 import PlayerTableField from '../models/player-table.model';
-import Paths from '../path';
 
 @Component({
   selector: 'overlay',

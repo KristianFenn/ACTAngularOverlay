@@ -1,5 +1,3 @@
-import { Theme, Layout } from "./config.model";
-
 export interface QueryString {
     playerName: string;
     theme: string;

@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import Player from '../models/player.model';
-import PlayerTableField from '../models/player-table.model';
-import Configuration, { Theme } from '../models/config.model';
 import Paths from '../path';
+
+import Player from '../models/player.model';
 import OverlayConfig from '../models/config.model';
 
 @Component({
@@ -14,16 +13,15 @@ import OverlayConfig from '../models/config.model';
     ]
 })
 export default class PlayerDetailComponent {
-    @Input() player: Player;
+    @Input() players: Player[];
     @Input() dpsPercentage: number;
-    @Input() playerCount: number;
     @Input() config: OverlayConfig;
 
     showBars() {
-        return this.config.getCurrentLayout(this.playerCount) == 'bars';
+        return this.config.getCurrentLayout(this.players.length) == 'bars';
     }
 
     showTable() {
-        return this.config.getCurrentLayout(this.playerCount) == 'table';
+        return this.config.getCurrentLayout(this.players.length) == 'table';
     }
 }
