@@ -11,10 +11,10 @@ import Paths from '../path';
 
 @Component({
   selector: 'overlay',
-  templateUrl: Paths.GetHtml('overlay.html'),
+  templateUrl: Paths.GetHtml('overlay'),
   styleUrls: [
-    Paths.GetCss('common.css'),
-    Paths.GetCss('overlay.css')
+    Paths.GetCss('common'),
+    Paths.GetCss('overlay')
   ]
 })
 export default class OverlayComponent {

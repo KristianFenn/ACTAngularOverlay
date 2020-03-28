@@ -5,10 +5,10 @@ import Paths from '../path';
 
 @Component({
     selector: 'overlay-options',
-    templateUrl: Paths.GetHtml('overlay-options.html'),
+    templateUrl: Paths.GetHtml('overlay-options'),
     styleUrls: [
-        Paths.GetCss('common.css'),
-        Paths.GetCss('overlay-options.css')
+        Paths.GetCss('common'),
+        Paths.GetCss('overlay-options')
     ]
 })
 export default class OverlayOptionsComponent {

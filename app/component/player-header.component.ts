@@ -6,10 +6,10 @@ import Paths from '../path';
 
 @Component({
     selector: 'player-header',
-    templateUrl: Paths.GetHtml('player-header.html'),
+    templateUrl: Paths.GetHtml('player-header'),
     styleUrls: [
-        Paths.GetCss('common.css'),
-        Paths.GetCss('player-header.css')
+        Paths.GetCss('common'),
+        Paths.GetCss('player-header')
     ]
 })
 export default class PlayerHeaderComponent {

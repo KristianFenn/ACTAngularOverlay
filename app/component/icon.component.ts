@@ -4,8 +4,11 @@ import Paths from '../path';
 
 @Component({
     selector: 'icon',
-    templateUrl: Paths.GetHtml('icon.html'),
-    styleUrls: [ Paths.GetCss('icon.css') ]
+    templateUrl: Paths.GetHtml('icon'),
+    styleUrls: [ 
+        Paths.GetCss('common'),
+        Paths.GetCss('icon') 
+    ]
 })
 export default class IconComponent {
     @Input() iconName: string;

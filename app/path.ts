@@ -1,9 +1,9 @@
 export default class Path {
     static GetHtml(fileName: string) {
-        return 'assets/html/' + fileName;
+        return `assets/html/${fileName}.html`;
     }
 
     static GetCss(filename: string) {
-        return 'assets/css/' + filename;
+        return `assets/css/${filename}.css`;
     }
 }

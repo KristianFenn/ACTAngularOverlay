@@ -6,10 +6,10 @@ import Paths from '../path';
 
 @Component({
     selector: 'player-detail',
-    templateUrl: Paths.GetHtml('player-detail.html'),
+    templateUrl: Paths.GetHtml('player-detail'),
     styleUrls: [ 
-        Paths.GetCss('common.css'),
-        Paths.GetCss('player-detail.css')
+        Paths.GetCss('common'),
+        Paths.GetCss('player-detail')
     ]
 })
 export default class PlayerDetailComponent {
