@@ -3,6 +3,7 @@ import Paths from '../path';
 
 import Player from '../models/player.model';
 import OverlayConfig from '../models/config.model';
+import ConfigService from '../service/config.service';
 
 @Component({
     selector: 'player-detail',
@@ -14,8 +15,11 @@ import OverlayConfig from '../models/config.model';
 })
 export default class PlayerDetailComponent {
     @Input() players: Player[];
-    @Input() dpsPercentage: number;
-    @Input() config: OverlayConfig;
+    config: OverlayConfig;
+
+    constructor(configService: ConfigService) {
+        this.config = configService.getConfiguration();
+    }
 
     showBars() {
         return this.config.getCurrentLayout(this.players.length) == 'bars';

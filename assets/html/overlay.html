@@ -18,11 +18,11 @@
             <p>No data to show.</p>
         </div>
         <div *ngIf="encounter !== undefined">
-            <player-detail [players]="encounter.players" [config]="config"></player-detail>
+            <player-detail [players]="encounter.players"></player-detail>
         </div>
     </div>
     <div *ngIf="showOptions">
-        <overlay-options></overlay-options>
+        <overlay-config (onCloseRequested)="toggleOptions()"></overlay-config>
     </div>
 </div>
 

@@ -2,21 +2,21 @@
     <div class="option-container">
         <span class="option-title">Layout:</span>
         <span class="option-selection" *ngFor="let layout of getLayouts()"> 
-            [ <a class="option" [ngClass]="{ active: isActiveLayout(layout.value) }" (click)="setLayout(layout.value)">{{layout.name}}</a> ]
+            [ <a class="option" [ngClass]="{ active: isActiveLayout(layout) }" (click)="setLayout(layout)">{{layout.name}}</a> ]
         </span>
     </div>
     <div class="option-container">
         <span class="option-title">Theme:</span>
         <span class="option-selection" *ngFor="let theme of getThemes()"> 
-            [ <a class="option" [ngClass]="{ active: isActiveTheme(theme.value) }"  (click)="setTheme(theme.value)">{{theme.name}}</a> ]
+            [ <a class="option" [ngClass]="{ active: isActiveTheme(theme) }"  (click)="setTheme(theme)">{{theme.name}}</a> ]
         </span>
     </div>
     <div class="option-container">
         <span class="option-title">Scale:</span>
-        <input class="option-scale" type="number" [(ngModel)]="scale" />
+        <input class="option-scale" type="number" [(ngModel)]="scalePercent" />
         <span class="option-title">%</span>
     </div>
     <div class="option-container">
-        <button (click)="reloadWithNewOptions()">Reload with selected options</button>
+        <button (click)="setOptions()">Set Options</button>
     </div>
 </div>

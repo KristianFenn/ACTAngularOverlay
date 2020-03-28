@@ -3,11 +3,17 @@ import * as qs from 'query-string';
 
 import OverlayConfig, { Themes, Layouts } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
-import Player from '../models/player.model';
+import { QueryEncoder } from '@angular/http';
 
 @Injectable()
 export default class ConfigService {
+    private static _currentConfig: OverlayConfig;
+
     getConfiguration(): OverlayConfig {
+        if (ConfigService._currentConfig) {
+            return ConfigService._currentConfig;
+        }
+
         var queryString = this.getQueryString();
         var config = new OverlayConfig();
 
@@ -42,10 +48,12 @@ export default class ConfigService {
             config.testMode = true;
         }
 
+        ConfigService._currentConfig = config;
+
         return config;
     }
 
-    reloadWithConfiguration(config: OverlayConfig) {
+    setConfig(config: OverlayConfig) {
         var queryString: QueryString = {
             layout: config.layout.name,
             playerName: config.playerName,
@@ -58,7 +66,7 @@ export default class ConfigService {
             queryString.test = config.test;
         }
 
-        location.href = location.origin + '?' + queryString;
+        history.pushState(null, '', `?${qs.stringify(queryString)}`);
     }
 
     private getQueryString(): QueryString {
