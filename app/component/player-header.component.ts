@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import Player from '../models/player.model';
 import PlayerTableField from '../models/player-table.model';
-import Configuration from '../config';
+import Configuration from '../models/config.model';
 import Paths from '../path';
 
 @Component({
@@ -13,6 +13,14 @@ import Paths from '../path';
     ]
 })
 export default class PlayerHeaderComponent {
-    @Input() showTable: boolean;
-    tableFields = Configuration.TableFields;
+    @Input() playerCount: number;
+    @Input() config: Configuration;
+
+    showBars() {
+        return this.config.getCurrentLayout(this.playerCount) == 'bars';
+    }
+
+    showTable() {
+        return this.config.getCurrentLayout(this.playerCount) == 'table';
+    }
 }

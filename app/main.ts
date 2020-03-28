@@ -1,7 +1,3 @@
-import Configuration from './config';
-
-Configuration.SetOptions();
-
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import * as ng from '@angular/core'
 import AppModule from './app.module';

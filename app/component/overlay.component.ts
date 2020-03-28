@@ -1,12 +1,15 @@
 import { Component, HostListener, ViewChild, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { ActUpdateEvent, ActUpdate } from '../models/update.model';
+
+import ConfigService from '../service/config.service';
 import Updater from '../service/updater.service';
 import EventDispatcher from '../service/event.dispatcher';
+
+import OverlayConfig from '../models/config.model';
+import { ActUpdateEvent, ActUpdate } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import Player from '../models/player.model';
 import PlayerTableField from '../models/player-table.model';
-import Configuration, { Layout } from '../config';
 import Paths from '../path';
 
 @Component({
@@ -18,27 +21,34 @@ import Paths from '../path';
   ]
 })
 export default class OverlayComponent {
+  private configService: ConfigService;
+  private updater: Updater;
+  private http: Http;
   encounter: Encounter;
-  http: Http;
-  updater: Updater;
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
   showOverlay: boolean;
-  config: Configuration;
+  config: OverlayConfig;
   showTable: boolean;
+  playerCount: number;
 
-  constructor(updater: Updater, http: Http) {
+  constructor(updater: Updater, configService: ConfigService, http: Http) {
+    this.configService = configService;
     this.updater = updater;
     this.http = http;
 
     this.updater.subscribe((data) => {
-      this.showTable = Configuration.ShouldShowTable(data.players.length);
+      this.playerCount = data.players.length;
       this.encounter = data;
     });
 
     this.showOptions = false;
     this.showOverlay = true;
-    this.config = Configuration;
+    this.config = configService.getConfiguration();
+
+    if (this.config.test) {
+      this.loadTestData(this.config.test);
+    }
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])

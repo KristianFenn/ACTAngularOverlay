@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import Encounter from '../models/encounter.model';
-import Configuration, { Layout, Theme } from '../config';
+import OverlayConfig, { Layout, Layouts, Theme, Themes } from '../models/config.model';
 import Paths from '../path';
+import ConfigService from '../service/config.service';
 
 @Component({
     selector: 'overlay-options',
@@ -12,48 +13,42 @@ import Paths from '../path';
     ]
 })
 export default class OverlayOptionsComponent {
-    scale: number;
-    layout: Layout;
-    theme: Theme;
+    @Input() config: OverlayConfig;
+    configService: ConfigService;
 
-    constructor() {
-        this.layout = Configuration.Layout;
-        this.theme = Configuration.Theme;
-        this.scale = Configuration.Scale * 100;
+    constructor(configService: ConfigService) {
+        this.configService = configService;
     }
 
     getLayouts() {
-        return [
-            { name: "Bars", value: Layout.Bars }, 
-            { name: "Table", value: Layout.Table }, 
-            { name: "Auto", value: Layout.Auto }
-        ];
+        return Layouts;
     }
 
     getThemes() {
-        return [
-            { name: 'FFXIV', value: Theme.Ffxiv }, 
-            { name: 'FFLOGS', value: Theme.Fflogs }
-        ];
+        return Themes;
     }
 
     isActiveLayout(layout: Layout) {
-        return this.layout == layout;
+        return this.config.layout == layout;
     }
 
     isActiveTheme(theme: Theme) {
-        return this.theme == theme;
+        return this.config.theme == theme;
     }
 
     setLayout(layout: Layout) {
-        this.layout = layout;
+        this.config.layout = layout;
     }
 
     setTheme(theme: Theme) {
-        this.theme = theme;
+        this.config.theme = theme;
+    }
+
+    setScale(scalePercent: number) {
+        this.config.scale = scalePercent / 100;
     }
 
     reloadWithNewOptions() {
-        Configuration.ReloadWithOptions(this.theme, this.layout, this.scale * 0.01);
+        this.configService.reloadWithConfiguration(this.config);
     }
 }

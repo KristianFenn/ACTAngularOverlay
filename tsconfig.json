@@ -6,6 +6,7 @@
     "node_modules/*"
   ],
   "compilerOptions": {
+    "baseUrl": "/",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",

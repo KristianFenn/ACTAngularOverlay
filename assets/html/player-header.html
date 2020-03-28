@@ -1,4 +1,4 @@
-<div class="player-header-table" *ngIf="showTable">
+<div class="player-header-table" *ngIf="showTable()">
     <div class="player-table-header-row">
         <div *ngFor="let field of tableFields" [style.flex-grow]="field.width">
             {{ field.fieldTitle }}

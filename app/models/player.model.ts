@@ -1,7 +1,9 @@
 import { ActUpdateCombatant } from './update.model';
-import Configuration from '../config';
+import Configuration from '../models/config.model';
 
 export default class Player {
+    static mainPlayerName: string = "YOU";
+    
     name: string;
     class: string;
     dps: number;
@@ -23,7 +25,7 @@ export default class Player {
     }
 
     isMainPlayer() {
-        return this.name.toLowerCase() === Configuration.PlayerName.toLowerCase();
+        return this.name.toLowerCase() === Player.mainPlayerName;
     }
 
     updatePlayer(data: ActUpdateCombatant) {

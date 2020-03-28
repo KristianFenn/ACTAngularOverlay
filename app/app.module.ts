@@ -8,6 +8,7 @@ import PlayerHeaderComponent from './component/player-header.component';
 import PlayerDetailComponent from './component/player-detail.component';
 import IconComponent from './component/icon.component';
 import Updater from './service/updater.service';
+import ConfigService from './service/config.service';
 
 @NgModule({
   imports:      [ 
@@ -22,7 +23,12 @@ import Updater from './service/updater.service';
     IconComponent,
     OverlayOptionsComponent
   ],
-  bootstrap:    [ OverlayComponent ],
-  providers:    [ Updater ]
+  bootstrap:    [ 
+    OverlayComponent 
+  ],
+  providers:    [ 
+    Updater,
+    ConfigService 
+  ]
 })
 export default class AppModule { }

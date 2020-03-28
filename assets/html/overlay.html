@@ -1,4 +1,4 @@
-<div class="overlay-container" *ngIf="showOverlay" [style.zoom]="config.Scale">
+<div class="overlay-container" *ngIf="showOverlay" [style.zoom]="config.scale">
     <div class="overlay-header">
         <div class="overlay-header-group" *ngIf="encounter !== undefined">
             <span class="overlay-header-label">Duration:</span> {{encounter.duration}}&nbsp;&nbsp;&nbsp;
@@ -6,8 +6,8 @@
             <span class="overlay-header-label">Area:</span> {{encounter.area}}
         </div>
         <div class="overlay-header-group float-right">
-            <a (click)="loadAlliance()" *ngIf="config.Test">[ Test-A ]</a>
-            <a (click)="loadParty()" *ngIf="config.Test">[ Test-P ]</a>
+            <a (click)="loadAlliance()" *ngIf="config.test">[ Test-A ]</a>
+            <a (click)="loadParty()" *ngIf="config.test">[ Test-P ]</a>
             <a (click)="toggleOptions()">[ ⚙ ]</a>
             <a (click)="toggleHide()">[ - ]</a>
         </div>
@@ -18,8 +18,8 @@
             <p>No data to show.</p>
         </div>
         <div *ngIf="encounter !== undefined">
-            <player-header [showTable]="showTable"></player-header>
-            <player-detail *ngFor="let player of encounter.players" [player]="player" [showTable]="showTable"></player-detail>
+            <player-header [config]="config" [playerCount]="playerCount"></player-header>
+            <player-detail *ngFor="let player of encounter.players" [player]="player" [config]="config" [playerCount]="playerCount"></player-detail>
         </div>
     </div>
     <div *ngIf="showOptions">
