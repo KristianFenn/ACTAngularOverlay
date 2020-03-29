@@ -1,79 +1,141 @@
-@import 'themes/fflogs.scss';
-@import 'themes/ffxiv.scss';
+@import "themes/fflogs.scss";
+@import "themes/ffxiv.scss";
 
-.player-table-row {
-	display: flex;
-    flex-direction: row;
-    flex-wrap: no-wrap;
-	margin-bottom: 1px;
-	padding: 1px 0;
-}
-
-.player-table-field {
-	white-space: nowrap;
-    width: 1px;
-    font-size: 15px;
-}
 .main-player {
-	color: #DED7BE;
-	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+    color: #ded7be;
+    text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
 }
 
-.player-header-table {
-    .player-table-header-row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: no-wrap;
-        margin-bottom: 2px;
+$bars-content-height: 32px;
+$bars-content-margin: 2px;
+$bars-total-height: $bars-content-height + ($bars-content-margin * 2);
+
+.player-bars {
+    .player {
+        height: $bars-total-height;
+        margin-bottom: 3px;
+        font-size: 14px;
+
+        .player-foreground {
+            position: relative;
+            top: -($bars-total-height);
+            margin-top: $bars-content-margin;
+
+            display: flex;
+            height: $bars-content-height;
+            z-index: 1;
+
+            .dps-container {
+                text-align: center;
+
+                .dps-value {
+                    position: relative;
+                    top: -2px;
+                    font-size: 32px;
+                }
+            }
+
+            .player-class-icon {
+                float: left;
+                margin-right: 5px;
+            }
+
+            .player-icon-row {
+                height: 16px;
+
+                p {
+                    position: relative;
+                    top: -3px;
+                }
+            }
+        }
     }
-    
-    .player-table-header-row div {
-        overflow: hidden;
-        white-space: nowrap;
+
+    .player:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+$table-content-height: 19px;
+
+.player-table {
+    .player-table-header {
+        display: flex;
+        margin-bottom: 1px;
         text-align: center;
-        width: 1px;
-    
         font-size: 12px;
-        color: #DED7BE;
-        text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
-        font-weight: 300;
+
+        .player-table-header-field {
+            width: 1px;
+        }
+    }
+
+    .player {
+        height: $table-content-height;
+        margin-bottom: 1px;
+
+        .player-foreground {
+            position: relative;
+            top: -($table-content-height);
+            margin-top: 1px;
+            
+            display: flex;
+            text-align: center;
+
+            .player-table-field {
+                width: 1px;
+            }
+
+            .player-class-icon {
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
     }
 }
 
-.player-detail-dps-bars {
-    .player-table-text {
-        margin: 0 0 0 5px;
-    }
+// .player-table-row {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: no-wrap;
+//     margin-bottom: 1px;
+//     padding: 1px 0;
+//     position: relative;
+// }
 
-    .player-table-field {
-        font-size: 13px;
-    }
+// .player-table-field {
+//     white-space: nowrap;
+//     width: 1px;
+//     font-size: 15px;
+// }
 
-    .dps-container {
-        text-align: center;
-    }
+// .player-header-table {
+//     .player-table-header-row {
+//         display: flex;
+//         flex-direction: row;
+//         flex-wrap: nowrap;
+//         margin-bottom: 2px;
+//     }
 
-    .dps-value {
-        font-size: 32px;
-        line-height: 1;
-    }
+//     .player-table-header-row div {
+//         overflow: hidden;
+//         white-space: nowrap;
+//         text-align: center;
+//         width: 1px;
 
-    .player-table-row {
-        padding: 2px 0;
-    }
+//         font-size: 12px;
+//         color: #ded7be;
+//         text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+//         font-weight: 300;
+//     }
+// }
 
-    .icon-container {
-        display: flex;
-        height: 16px;
-    }
-}
-
-.player-detail-table {
-	.player-table-field {
-		text-align: center;
-	}
-	
-	.player-table-row-background {
-		z-index: -100;
-	}	
-}
+// .player-detail-table {
+//     .player-table-field {
+//         text-align: center;
+//     }
+// }

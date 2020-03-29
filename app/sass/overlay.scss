@@ -3,6 +3,7 @@
 	background: rgba(0, 0, 0, 0.3);
 	height: 100%;
 	width: 100%;
+	z-index: -1000;
 }
 
 hr {
@@ -16,6 +17,12 @@ hr {
 
 .overlay-header-group {
 	display: inline;
+}
+
+.overlay-header-group-right {
+	float: right;
+	margin-top: -3px;
+	margin-right: 1px;
 }
 
 .overlay-header-label {
