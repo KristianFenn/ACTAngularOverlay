@@ -36,10 +36,9 @@ export default class OverlayConfig {
     private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
 
     tableFields = [
-      new PlayerTableField(10, "Rank",  (p) => p.rank, this.mainPlayerFn),
+      new PlayerTableField(10, "DPS", (p) => p.dps, this.mainPlayerFn),
       new PlayerTableField(10, "Class", (p) => p.class, null, true),
       new PlayerTableField(30, "Player", (p) => p.name, this.mainPlayerFn),
-      new PlayerTableField(10, "DPS", (p) => p.dps, this.mainPlayerFn),
       new PlayerTableField(40, "Highest Hit", (p) => p.maxhit),
       new PlayerTableField(10, "Death", (p) => p.deaths, (p) => this.redTextFn(p.deaths))
     ];

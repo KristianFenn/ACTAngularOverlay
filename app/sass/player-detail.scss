@@ -13,7 +13,7 @@ $bars-total-height: $bars-content-height + ($bars-content-margin * 2);
 .player-bars {
     .player {
         height: $bars-total-height;
-        margin-bottom: 3px;
+        margin-bottom: 1px;
         font-size: 14px;
 
         .player-foreground {
@@ -77,18 +77,12 @@ $table-content-height: 19px;
         .player-foreground {
             position: relative;
             top: -($table-content-height);
-            margin-top: 1px;
             
             display: flex;
             text-align: center;
 
             .player-table-field {
                 width: 1px;
-            }
-
-            .player-class-icon {
-                position: relative;
-                top: -1px;
             }
         }
     }
@@ -97,45 +91,3 @@ $table-content-height: 19px;
         margin-bottom: 0px;
     }
 }
-
-// .player-table-row {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: no-wrap;
-//     margin-bottom: 1px;
-//     padding: 1px 0;
-//     position: relative;
-// }
-
-// .player-table-field {
-//     white-space: nowrap;
-//     width: 1px;
-//     font-size: 15px;
-// }
-
-// .player-header-table {
-//     .player-table-header-row {
-//         display: flex;
-//         flex-direction: row;
-//         flex-wrap: nowrap;
-//         margin-bottom: 2px;
-//     }
-
-//     .player-table-header-row div {
-//         overflow: hidden;
-//         white-space: nowrap;
-//         text-align: center;
-//         width: 1px;
-
-//         font-size: 12px;
-//         color: #ded7be;
-//         text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
-//         font-weight: 300;
-//     }
-// }
-
-// .player-detail-table {
-//     .player-table-field {
-//         text-align: center;
-//     }
-// }
