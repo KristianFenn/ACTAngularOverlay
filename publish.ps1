@@ -1,10 +1,7 @@
 $targets = @(
-    '.\icons',
     '.\js',
     '.\assets',
-    '.\handle.png',
     '.\index.html',
-    '.\overlay.css',
     '.\package.json',
     '.\systemjs.config.js'
 );

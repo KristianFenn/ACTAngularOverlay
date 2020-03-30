@@ -8,6 +8,6 @@ export default class Path {
     }
 
     static GetIcon(iconName: string) {
-        return `icons/${iconName}.png`;
+        return `assets/icons/${iconName}.png`;
     }
 }
