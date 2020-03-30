@@ -1,4 +1,0 @@
-TODO:
-
-update config to not need to reload overlay
-update query string serialisation/deserialisation to work with strings or numbers

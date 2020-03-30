@@ -1,9 +1,13 @@
 export default class Path {
-    static GetHtml(fileName: string) {
-        return `assets/html/${fileName}.html`;
+    static GetHtml(htmlName: string) {
+        return `assets/html/${htmlName}.html`;
     }
 
-    static GetCss(filename: string) {
-        return `assets/css/${filename}.css`;
+    static GetCss(cssName: string) {
+        return `assets/css/${cssName}.css`;
+    }
+
+    static GetIcon(iconName: string) {
+        return `icons/${iconName}.png`;
     }
 }

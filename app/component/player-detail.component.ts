@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import Paths from '../path';
 
 import Player from '../models/player.model';
-import OverlayConfig from '../models/config.model';
+import OverlayConfig, { BarsLayout, TableLayout } from '../models/config.model';
 import ConfigService from '../service/config.service';
 
 @Component({
@@ -22,10 +22,14 @@ export default class PlayerDetailComponent {
     }
 
     showBars() {
-        return this.config.getCurrentLayout(this.players.length) == 'bars';
+        return this.config.getCurrentLayout(this.players.length) == BarsLayout;
     }
 
     showTable() {
-        return this.config.getCurrentLayout(this.players.length) == 'table';
+        return this.config.getCurrentLayout(this.players.length) == TableLayout;
+    }
+
+    isMainPlayer(player: Player) {
+        return this.config.isMainPlayer(player);
     }
 }

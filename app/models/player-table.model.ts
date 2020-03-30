@@ -2,8 +2,8 @@ import Player from './player.model';
 
 export default class PlayerTableField {
     width: number;
-    valueFn: (player: Player) => any;
     fieldTitle: string;
+    valueFn: (player: Player) => any;
     cssClass: (value: Player) => string;
     isIcon: boolean;
 

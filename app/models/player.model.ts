@@ -1,8 +1,6 @@
 import { ActUpdateCombatant } from './update.model';
 
 export default class Player {
-    static mainPlayerName: string = "YOU";
-    
     name: string;
     class: string;
     dps: number;
@@ -19,15 +17,8 @@ export default class Player {
     directHitPercent: string;
     critDirectHitPercent: string;
 
-    constructor(name: string) {
-        this.name = name;
-    }
-
-    isMainPlayer() {
-        return this.name.toLowerCase() === Player.mainPlayerName.toLowerCase();
-    }
-
-    updatePlayer(data: ActUpdateCombatant) {
+    constructor(data: ActUpdateCombatant) {
+        this.name = data.name;
         let parsePerSecond = (v: string) => v !== "∞" ? parseInt(v) : 0;
 
         this.dps = parsePerSecond(data.ENCDPS);

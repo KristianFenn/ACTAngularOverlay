@@ -6,14 +6,14 @@
         </div>
         <div class="player-foreground">
             <div class="player-table-field dps-container flex-15">
-                <p [ngClass]="{ 'main-player': player.isMainPlayer() }" class="dps-value">{{ player.dps }}</p>
+                <p [ngClass]="{ 'main-player': isMainPlayer(player) }" class="dps-value">{{ player.dps }}</p>
             </div>
             <div class="flex-30">
                 <div class="player-class-icon">
                     <icon [iconName]="player.class || player.name" iconSize="32"></icon>
                 </div>
                 <div class="player-detail-row">
-                    <p class="player-table-text" [ngClass]="{ 'main-player': player.isMainPlayer() }">{{ player.name }}
+                    <p class="player-table-text" [ngClass]="{ 'main-player': isMainPlayer(player) }">{{ player.name }}
                     </p>
                 </div>
                 <div class="player-detail-row">

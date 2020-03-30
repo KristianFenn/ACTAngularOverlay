@@ -3,12 +3,16 @@ import Player from './player.model';
 
 const AutoSizeThreshold = 10;
 
+export const BarsLayout = 'bars';
+export const TableLayout = 'table';
+export const AutoLayout = 'auto';
+
 export interface Theme {
     name: string;
     class: string;
 }
 
-export interface Layout {
+export class Layout {
     name: string;
     auto: boolean;
 }
@@ -19,20 +23,19 @@ export const Themes: Theme[] = [
 ];
 
 export const Layouts: Layout[] = [
-    { name: 'bars', auto: false },
-    { name: 'table', auto: false },
-    { name: 'auto', auto: true }
+    { name: BarsLayout, auto: false },
+    { name: TableLayout, auto: false },
+    { name: AutoLayout, auto: true }
 ];
 
 export default class OverlayConfig {
     theme = Themes[0];
     layout = Layouts[0];
-    playerName = "YOU";
+    mainPlayerName = "YOU";
     scale = 1.0;
     test = '';
-    testMode = false;
     
-    private mainPlayerFn = (p: Player) => p.isMainPlayer() ? 'main-player' : '';
+    private mainPlayerFn = (p: Player) => this.isMainPlayer(p)  ? 'main-player' : '';
     private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
 
     tableFields = [
@@ -46,12 +49,16 @@ export default class OverlayConfig {
     getCurrentLayout(playerCount: number) {
         if (this.layout.auto) {
             if (playerCount >= AutoSizeThreshold) {
-                return 'table'
+                return TableLayout;
             } else {
-                return 'bars'
+                return BarsLayout;
             }
         }
 
         return this.layout.name;
+    }
+
+    isMainPlayer(player: Player) {
+        return player.name == this.mainPlayerName;
     }
 }

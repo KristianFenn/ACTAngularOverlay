@@ -19,7 +19,6 @@ import PlayerTableField from '../models/player-table.model';
   ]
 })
 export default class OverlayComponent {
-  private configService: ConfigService;
   private updater: Updater;
   private http: Http;
   encounter: Encounter;
@@ -28,17 +27,12 @@ export default class OverlayComponent {
   showOverlay: boolean;
   config: OverlayConfig;
   showTable: boolean;
-  playerCount: number;
 
   constructor(updater: Updater, configService: ConfigService, http: Http) {
-    this.configService = configService;
     this.updater = updater;
     this.http = http;
 
-    this.updater.subscribe((data) => {
-      this.playerCount = data.players.length;
-      this.encounter = data;
-    });
+    this.updater.subscribe((data) => this.encounter = data);
 
     this.showOptions = false;
     this.showOverlay = true;
@@ -47,17 +41,6 @@ export default class OverlayComponent {
     if (this.config.test) {
       this.loadTestData(this.config.test);
     }
-  }
-
-  @HostListener('document:onOverlayDataUpdate', ['$event'])
-  onDataUpdate(event: ActUpdateEvent) {
-    this.updater.updateEncounter(event.detail);
-  }
-
-  private loadTestData(dataSet: string) {
-    this.http.get(`/app/test/${dataSet}.json`).subscribe(data => {
-      this.updater.updateEncounter(data.json());
-    });
   }
 
   toggleOptions() {
@@ -74,5 +57,16 @@ export default class OverlayComponent {
 
   loadParty() {
     this.loadTestData('party');
+  }
+
+  private loadTestData(dataSet: string) {
+    this.http.get(`/app/test/${dataSet}.json`).subscribe(data => {
+      this.updater.updateEncounter(data.json());
+    });
+  }
+
+  @HostListener('document:onOverlayDataUpdate', ['$event'])
+  onDataUpdate(event: ActUpdateEvent) {
+    this.updater.updateEncounter(event.detail);
   }
 }

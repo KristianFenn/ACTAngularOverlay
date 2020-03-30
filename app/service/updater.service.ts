@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ActUpdate, ActUpdateEncounter, ActUpdateCombatant } from '../models/update.model';
+
+import EventDispatcher from './event.dispatcher';
+import ConfigService from './config.service';
+
+import { ActUpdate, ActUpdateCombatant } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import Player from '../models/player.model';
-import EventDispatcher from './event.dispatcher';
+import OverlayConfig from '../models/config.model';
 
 @Injectable()
 export default class Updater extends EventDispatcher<Encounter> {
-    constructor() {
+    config: OverlayConfig;
+
+    constructor(configService: ConfigService) {
         super();
+
+        this.config = configService.getConfiguration();
     }
     
     updateEncounter(data: ActUpdate) {
@@ -20,8 +28,7 @@ export default class Updater extends EventDispatcher<Encounter> {
             let current: ActUpdateCombatant;
             current = data.Combatant[combatant];
 
-            let player = new Player(current.name);
-            player.updatePlayer(current);
+            let player = new Player(current);
             players.push(player);
         }
 

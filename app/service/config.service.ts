@@ -4,6 +4,7 @@ import * as qs from 'query-string';
 import OverlayConfig, { Themes, Layouts } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
 import { QueryEncoder } from '@angular/http';
+import Player from '../models/player.model';
 
 @Injectable()
 export default class ConfigService {
@@ -45,7 +46,10 @@ export default class ConfigService {
 
         if (queryString.test) {
             config.test = queryString.test;
-            config.testMode = true;
+        }
+
+        if (queryString.playerName) {
+            config.mainPlayerName = queryString.playerName;
         }
 
         ConfigService._currentConfig = config;
@@ -56,13 +60,13 @@ export default class ConfigService {
     setConfig(config: OverlayConfig) {
         var queryString: QueryString = {
             layout: config.layout.name,
-            playerName: config.playerName,
+            playerName: config.mainPlayerName,
             scale: config.scale,
             theme: config.theme.name,
             test: undefined
         };
 
-        if (config.testMode) {
+        if (config.test) {
             queryString.test = config.test;
         }
 
