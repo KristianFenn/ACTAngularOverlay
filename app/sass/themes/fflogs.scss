@@ -24,7 +24,8 @@
         @include player-row-background(255, 240, 221);
     }
 
-    .SCH {
+    .SCH,
+    .Fairy {
         @include player-row-background(134, 87, 255);
     }
 
@@ -65,7 +66,8 @@
     }
 
     .ACN,
-    .SMN {
+    .SMN,
+    .Egi {
         @include player-row-background(45, 155, 120);
     }
 
@@ -97,5 +99,13 @@
 
     .LIMIT_BREAK {
         @include player-row-background(243, 172, 41);
+    }
+
+    .Chocobo {
+        @include player-row-background(219, 180, 87);
+    }
+
+    .Unknown {
+        @include player-row-background(87, 87, 87);
     }
 }

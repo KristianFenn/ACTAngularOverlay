@@ -13,6 +13,7 @@
     .CNJ,
     .WHM,
     .SCH,
+    .Fairy,
     .AST {
         @include player-row-background(107, 240, 86);
     }
@@ -27,6 +28,7 @@
     .NIN,
     .ACN,
     .SMN,
+    .Egi,
     .THM,
     .BLM,
     .MCH,
@@ -52,5 +54,13 @@
 
     .LIMIT_BREAK {
         @include player-row-background(243, 172, 41);
+    }
+
+    .Chocobo {
+        @include player-row-background(219, 180, 87);
+    }
+
+    .Unknown {
+        @include player-row-background(87, 87, 87);
     }
 }
