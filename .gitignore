@@ -4,3 +4,4 @@ js/
 *.log
 publish.zip
 assets/css/
+app/test/
