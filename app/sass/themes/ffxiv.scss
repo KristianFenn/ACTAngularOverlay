@@ -14,7 +14,8 @@
     .WHM,
     .SCH,
     .Fairy,
-    .AST {
+    .AST,
+    .SGE {
         @include player-row-background(107, 240, 86);
     }
 
@@ -22,19 +23,20 @@
     .MNK,
     .LNC,
     .DRG,
-    .ARC,
-    .BRD,
     .ROG,
     .NIN,
+    .SAM,
+    .RPR,
+    .ARC,
+    .BRD,
+    .MCH,
+    .DNC,
+    .THM,
+    .BLM,
     .ACN,
     .SMN,
     .Egi,
-    .THM,
-    .BLM,
-    .MCH,
     .RDM,
-    .SAM,
-    .DNC,
     .BLU {
         @include player-row-background(200, 3, 8);
     }

@@ -13,9 +13,8 @@ export const SummonerPetNames: string[] = [
     "Emerald Carbuncle"
 ];
 
-
 export const AllClasses = [
-    "GLD",
+    "GLA",
     "PLD",
     "MRD",
     "WAR",
@@ -25,6 +24,7 @@ export const AllClasses = [
     "WHM",
     "SCH",
     "AST",
+    "SGE",
     "PGL",
     "MNK",
     "LNC",
@@ -32,6 +32,7 @@ export const AllClasses = [
     "ROG",
     "NIN",
     "SAM",
+    "RPR",
     "ARC",
     "BRD",
     "MCH",

@@ -33,13 +33,13 @@
         @include player-row-background(255, 231, 74);
     }
 
+    .SGE {
+        @include player-row-background(128, 160, 240);
+    }
+
     .PGL,
     .MNK {
         @include player-row-background(230, 172, 0);
-    }
-
-    .SAM {
-        @include player-row-background(228, 109, 4);
     }
 
     .LNC,
@@ -50,6 +50,14 @@
     .ROG,
     .NIN {
         @include player-row-background(191, 41, 116);
+    }
+
+    .SAM {
+        @include player-row-background(228, 109, 4);
+    }
+
+    .RPR {
+        @include player-row-background(150, 90, 144);
     }
 
     .ARC,
