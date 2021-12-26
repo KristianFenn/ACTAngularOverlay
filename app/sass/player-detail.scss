@@ -77,12 +77,18 @@ $table-content-height: 19px;
         .player-foreground {
             position: relative;
             top: -($table-content-height);
+            margin-top: 1px;
             
             display: flex;
             text-align: center;
 
             .player-table-field {
                 width: 1px;
+
+                .player-class-icon {
+                    position: relative;
+                    top: -1px;
+                }
             }
         }
     }
