@@ -2,7 +2,7 @@ export interface QueryString {
     playerName: string;
     theme: string;
     layout: string;
-    scale: number;
+    scale: string;
     test: string;
-    autohide: number;
+    autohide: string;
 }

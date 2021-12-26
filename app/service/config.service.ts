@@ -51,11 +51,13 @@ export default class ConfigService {
         }
 
         if (queryString.scale) {
-            if (isNaN(queryString.scale)) {
+            let scale = parseInt(queryString.scale);
+
+            if (isNaN(scale)) {
                 console.error(`Specified scale '${queryString.scale}' is not a number`);
             }
             else {
-                config.scale = queryString.scale;
+                config.scale = scale;
             }
         }
 
@@ -68,7 +70,13 @@ export default class ConfigService {
         }
 
         if (queryString.autohide) {
-            config.autohide = queryString.autohide;
+            let autoHide = parseInt(queryString.autohide);
+
+            if (isNaN(autoHide)) {
+                console.error(`Specified autohide interval '${queryString.scale}' is not a number`);
+            } else {
+                config.autohide = autoHide;
+            }
         }
 
         return config;
@@ -78,10 +86,10 @@ export default class ConfigService {
         var queryString: QueryString = {
             layout: config.layout.name,
             playerName: config.mainPlayerName,
-            scale: config.scale,
+            scale: config.scale.toString(),
             theme: config.theme.name,
             test: undefined,
-            autohide: config.autohide
+            autohide: config.autohide.toString()
         };
 
         if (config.test) {
