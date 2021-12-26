@@ -7,7 +7,7 @@
     .WAR,
     .DRK,
     .GNB {
-        @include player-row-background(41, 112, 243);
+        @include player-row-background(20, 44, 227);
     }
 
     .CNJ,
@@ -16,7 +16,7 @@
     .Fairy,
     .AST,
     .SGE {
-        @include player-row-background(107, 240, 86);
+        @include player-row-background(19, 191, 25);
     }
 
     .PGL,
@@ -38,7 +38,7 @@
     .Egi,
     .RDM,
     .BLU {
-        @include player-row-background(200, 3, 8);
+        @include player-row-background(173, 0, 0);
     }
 
     .CRP,
