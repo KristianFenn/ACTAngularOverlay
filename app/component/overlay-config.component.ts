@@ -17,7 +17,7 @@ export default class OverlayConfigComponent {
 
     config: OverlayConfig;
     configService: ConfigService;
-    scalePercent: number;
+    fontSize: number;
     theme: Theme;
     layout: Layout;
     autohide: number;
@@ -25,7 +25,7 @@ export default class OverlayConfigComponent {
     constructor(configService: ConfigService) {
         this.configService = configService;
         this.config = configService.getConfiguration();
-        this.scalePercent = this.config.scale * 100;
+        this.fontSize = this.config.fontSize;
         this.theme = this.config.theme;
         this.layout = this.config.layout;
         this.autohide = this.config.autohide;
@@ -56,7 +56,7 @@ export default class OverlayConfigComponent {
     }
 
     setOptions() {
-        this.config.scale = this.scalePercent / 100;
+        this.config.fontSize = this.fontSize;
         this.config.theme = this.theme;
         this.config.layout = this.layout;
         this.config.autohide = this.autohide;

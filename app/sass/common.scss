@@ -1,7 +1,8 @@
+@import 'mixins.scss';
+
 * {
+	@include ffxiv-text(#cccccc, #2C7DA1);
     font-family: Helvetica, Arial, sans-serif;
-	color: #cccccc;
-	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 	font-weight: 300;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -34,53 +35,44 @@ p {
 }
 
 a {
-	color: #BBBBBB;
-	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #323232;
+	@include ffxiv-text(#BBBBBB, #323232);
 }
 
 a:hover {
-	color: #cccccc;
-	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
+	@include ffxiv-text(#cccccc, #2C7DA1);
 }
 
 input {
+	@include ffxiv-text(#BBBBBB, #323232);
 	background: rgba(0, 0, 0, 0.3);
 	border: 2px #003054 solid;
 	border-radius: 5px;
-	color: #BBBBBB;
-	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #323232;
 }
 
 button {
 	background: rgba(0, 0, 0, 0.3);
 	border: 2px #003054 solid;
 	border-radius: 5px;
-	color: #BBBBBB;
-	text-shadow: -1px 0 2px #323232, 0 1px 2px #323232, 1px 0 2px #323232, 0 -1px 2px #323232;
 }
 
 button:hover {
+	@include ffxiv-text(#cccccc, #2C7DA1);
 	border-color: #2C7DA1;
-	color: #cccccc;
-	text-shadow: -1px 0 3px #2C7DA1, 0 1px 3px #2C7DA1, 1px 0 3px #2C7DA1, 0 -1px 3px #2C7DA1;
 }
 
 .text-red {
-	color: #ffcdd2 !important;
-	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161 !important;
+	@include ffxiv-text(#ffcdd2, #fc5161);
 }
 
 .text-icon-red {
-	color: #660000;
+	@include ffxiv-text(#660000, #fc5161);
 	font-weight: bold;
-	text-shadow: -1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161;
 }
 
 .text-icon-green {
-	color: #006600;
+	@include ffxiv-text(#006600, #51fc61);
 	font-weight: bold;
 	font-weight: 15 !important;
-	text-shadow: -1px 0 3px #51fc61, 0 1px 3px #51fc61, 1px 0 3px #51fc61, 0 -1px 3px #51fc61;
 }
 
 .flex-5 {

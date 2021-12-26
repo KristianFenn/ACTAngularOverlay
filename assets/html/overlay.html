@@ -1,8 +1,8 @@
-<div class="overlay-container" *ngIf="showOverlay" [style.zoom]="config.scale">
+<div class="overlay-container" *ngIf="showOverlay" [style.font-size.px]="fontSize">
     <div class="overlay-header clearfix">
         <div class="overlay-header-group-right">
-            <a (click)="loadAlliance()" *ngIf="config.test">[ Test-A ]</a>
-            <a (click)="loadParty()" *ngIf="config.test">[ Test-P ]</a>
+            <a (click)="loadAlliance()" *ngIf="testMode">[ Test-A ]</a>
+            <a (click)="loadParty()" *ngIf="testMode">[ Test-P ]</a>
             <a (click)="toggleOptions()">[ ⚙ ]</a>
             <a (click)="toggleHide()">[ - ]</a>
         </div>

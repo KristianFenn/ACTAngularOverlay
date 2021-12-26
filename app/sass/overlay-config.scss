@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 .option-title {
     margin-right: 10px;
 }
@@ -7,8 +9,7 @@
 }
 
 .option.active {
-    color: #DED7BE;
-	text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+    @include ffxiv-text(#DED7BE, #795516);
 }
 
 .options-container {
@@ -19,7 +20,12 @@
     margin-top: 10px;
 }
 
-.option-scale {
+.option-number {
     max-width: 50px;
     text-align: center;
+    font-size: 1em;
+}
+
+.option-button {
+    font-size: 1em;
 }

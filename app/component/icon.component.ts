@@ -11,7 +11,7 @@ import Path from '../path';
 })
 export default class IconComponent {
     @Input() iconName: string;
-    @Input() iconSize: number;
+    @Input() iconSize: string;
 
     getIconSrc() {
         return Path.GetIcon(this.iconName);

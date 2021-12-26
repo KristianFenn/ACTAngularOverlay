@@ -50,14 +50,14 @@ export default class ConfigService {
             }
         }
 
-        if (queryString.scale) {
-            let scale = parseInt(queryString.scale);
+        if (queryString.fontSize) {
+            let fontSize = parseInt(queryString.fontSize);
 
-            if (isNaN(scale)) {
-                console.error(`Specified scale '${queryString.scale}' is not a number`);
+            if (isNaN(fontSize)) {
+                console.error(`Specified font size '${queryString.fontSize}' is not a number`);
             }
             else {
-                config.scale = scale;
+                config.fontSize = fontSize;
             }
         }
 
@@ -73,7 +73,7 @@ export default class ConfigService {
             let autoHide = parseInt(queryString.autohide);
 
             if (isNaN(autoHide)) {
-                console.error(`Specified autohide interval '${queryString.scale}' is not a number`);
+                console.error(`Specified autohide interval '${queryString.fontSize}' is not a number`);
             } else {
                 config.autohide = autoHide;
             }
@@ -86,7 +86,7 @@ export default class ConfigService {
         var queryString: QueryString = {
             layout: config.layout.name,
             playerName: config.mainPlayerName,
-            scale: config.scale.toString(),
+            fontSize: config.fontSize.toString(),
             theme: config.theme.name,
             test: undefined,
             autohide: config.autohide.toString()

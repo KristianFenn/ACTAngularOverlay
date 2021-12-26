@@ -10,7 +10,7 @@
             </div>
             <div class="flex-30">
                 <div class="player-class-icon">
-                    <icon [iconName]="player.class || player.name" iconSize="32"></icon>
+                    <icon [iconName]="player.class || player.name" iconSize="2.4"></icon>
                 </div>
                 <div class="player-detail-row">
                     <p class="player-table-text" [ngClass]="{ 'main-player': isMainPlayer(player) }">{{ player.name }}
@@ -23,21 +23,21 @@
 
             <div class="flex-15">
                 <div class="player-icon-row">
-                    <icon iconName="GLA" iconSize="16"></icon>
+                    <icon iconName="GLA" iconSize="1"></icon>
                     <p class="player-table-text">{{ player.damageFormatted }}</p>
                 </div>
                 <div class="player-icon-row">
-                    <icon iconName="heal" iconSize="16"></icon>
+                    <icon iconName="heal" iconSize="1"></icon>
                     <p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p>
                 </div>
             </div>
             <div class="flex-15">
                 <div class="player-icon-row">
-                    <icon iconName="death" iconSize="16"></icon>
+                    <icon iconName="death" iconSize="1"></icon>
                     <p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p>
                 </div>
                 <div class="player-icon-row">
-                    <icon iconName="crit" iconSize="16"></icon>
+                    <icon iconName="crit" iconSize="1"></icon>
                     <p class="player-table-text">{{ player.directHitPercent }} | {{ player.critPercent }} |
                         {{ player.critDirectHitPercent }}</p>
                 </div>
@@ -61,7 +61,7 @@
         <div class="player-foreground">
             <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-field">
                 <div class="player-class-icon">
-                    <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="19"></icon>
+                    <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="1.2"></icon>
                 </div>
                 <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">
                     {{ field.getValue(player) }}</p>

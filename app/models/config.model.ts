@@ -32,7 +32,7 @@ export default class OverlayConfig {
     theme = Themes[0];
     layout = Layouts[0];
     mainPlayerName = "YOU";
-    scale = 1.0;
+    fontSize = 16;
     test = '';
     autohide = 0;
     

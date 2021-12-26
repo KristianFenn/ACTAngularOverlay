@@ -27,13 +27,13 @@ export default class OverlayComponent {
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
   showOverlay: boolean;
-  config: OverlayConfig;
   showTable: boolean;
+  fontSize: number;
+  testMode: boolean;
 
   constructor(updater: Updater, configService: ConfigService, http: Http, autohideService: AutoHideService) {
     this.updater = updater;
     this.http = http;
-    this.config = configService.getConfiguration();
     this.autohideService = autohideService;
 
     this.autohideService.onShouldShowChanged.subscribe(
@@ -46,10 +46,17 @@ export default class OverlayComponent {
 
     this.showOptions = false;
     this.showOverlay = true;
+    this.testMode = false;
 
-    if (this.config.test) {
-      this.loadTestData(this.config.test);
+    let config = configService.getConfiguration();
+    this.fontSize = config.fontSize
+
+    if (config.test) {
+      this.testMode = true;
+      this.loadTestData(config.test);
     }
+
+    configService.onConfigChanged.subscribe(config => this.fontSize = config.fontSize);
   }
 
   toggleOptions() {
