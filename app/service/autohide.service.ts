@@ -6,14 +6,12 @@ import OverlayConfig from "../models/config.model";
 
 @Injectable()
 export default class AutoHideService {
-    onShouldHide: EventDispatcher<void>;
-    onShouldShow: EventDispatcher<void>;
+    onShouldShowChanged: EventDispatcher<boolean>;
     autohideDelay: number;
-    timeoutHandle: number;
+    timeoutHandle: NodeJS.Timer;
 
     constructor(configService: ConfigService) {
-        this.onShouldShow = new EventDispatcher<void>();
-        this.onShouldHide = new EventDispatcher<void>();
+        this.onShouldShowChanged = new EventDispatcher<boolean>();
 
         let config = configService.getConfiguration();
         this.configureAutohide(config);
@@ -23,30 +21,44 @@ export default class AutoHideService {
         });
     }
 
-    configureAutohide(config: OverlayConfig) {
-        // check we actually have something to reconfigure first.
-        if (config.autohide != this.autohideDelay) {
-            this.autohideDelay = config.autohide;
+    pauseAutohide() {
+        this.clearTimeout();
+    }
 
+    resumeAutohide() {
+        this.setupAutohide();
+    
+        this.onShouldShowChanged.dispatch(true);
+    }
+
+    resetAutohideTimer() {
+        if (this.timeoutHandle) {
             this.setupAutohide();
+    
+            this.onShouldShowChanged.dispatch(true);
         }
     }
 
-    resetAutohide() {
-        this.setupAutohide();
+    private configureAutohide(config: OverlayConfig) {
+        this.autohideDelay = config.autohide;
 
-        this.onShouldShow.dispatch(null);
+        this.setupAutohide();
     }
 
     private setupAutohide() {
-        if (this.timeoutHandle) {
-            window.clearTimeout(this.timeoutHandle);
-        }
+        this.clearTimeout();
 
         if (this.autohideDelay) {
-            this.timeoutHandle = window.setTimeout(() => 
-                this.onShouldHide.dispatch(null), 
+            this.timeoutHandle = setTimeout(() => 
+                this.onShouldShowChanged.dispatch(false), 
                 this.autohideDelay * 1000);
+        }
+    }
+
+    private clearTimeout() {
+        if (this.timeoutHandle) {
+            clearTimeout(this.timeoutHandle);
+            this.timeoutHandle = null;
         }
     }
 }

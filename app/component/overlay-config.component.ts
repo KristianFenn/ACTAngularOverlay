@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import Paths from '../path';
 
 import OverlayConfig, { Layout, Layouts, Theme, Themes } from '../models/config.model';

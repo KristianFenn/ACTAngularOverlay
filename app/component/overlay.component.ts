@@ -36,12 +36,12 @@ export default class OverlayComponent {
     this.config = configService.getConfiguration();
     this.autohideService = autohideService;
 
-    this.autohideService.onShouldShow.subscribe(() => this.showOverlay = true);
-    this.autohideService.onShouldHide.subscribe(() => this.showOverlay = false);
-
+    this.autohideService.onShouldShowChanged.subscribe(
+      shouldShow => this.showOverlay = shouldShow);
+      
     this.updater.subscribe((data) => {
       this.encounter = data;
-      this.autohideService.resetAutohide();
+      this.autohideService.resetAutohideTimer();
     });
 
     this.showOptions = false;
@@ -54,11 +54,22 @@ export default class OverlayComponent {
 
   toggleOptions() {
     this.showOptions = !this.showOptions;
-    this.autohideService.resetAutohide();
+
+    if (this.showOptions) {
+      this.autohideService.pauseAutohide();
+    } else {
+      this.autohideService.resumeAutohide();
+    }
   }
 
   toggleHide() {
     this.showOverlay = !this.showOverlay;
+
+    if (this.showOverlay) {
+      this.autohideService.resumeAutohide();
+    } else {
+      this.autohideService.pauseAutohide();
+    }
   }
 
   loadAlliance() {
