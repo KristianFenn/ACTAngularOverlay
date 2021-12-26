@@ -21,7 +21,7 @@ export default class Player {
 
     constructor(data: ActUpdateCombatant) {
         this.name = data.name;
-        this.class = data.Job.toUpperCase() || data.name.toUpperCase().replace(' ', '_');
+        this.class = (data.Job.toUpperCase() || data.name.toUpperCase()).replace(' ', '_');
         
         // is this a pet?
         if (this.name.includes('(')) {
@@ -50,6 +50,7 @@ export default class Player {
         this.directHitPercent = data.DirectHitPct;
 
         if (AllClasses.indexOf(this.class) < 0) {
+            console.error(`Unexpected class: ${this.class}`)
             this.class = "Unknown";
         }
     }
