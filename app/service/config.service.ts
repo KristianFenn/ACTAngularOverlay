@@ -3,18 +3,30 @@ import * as qs from 'query-string';
 
 import OverlayConfig, { Themes, Layouts } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
-import { QueryEncoder } from '@angular/http';
-import Player from '../models/player.model';
+import EventDispatcher from './event.dispatcher';
 
 @Injectable()
 export default class ConfigService {
     private static _currentConfig: OverlayConfig;
+    onConfigChanged: EventDispatcher<OverlayConfig>;
+
+    constructor() {
+        this.onConfigChanged = new EventDispatcher<OverlayConfig>();
+    }
 
     getConfiguration(): OverlayConfig {
         if (ConfigService._currentConfig) {
             return ConfigService._currentConfig;
         }
 
+        var config = this.parseConfigFromQs();
+
+        ConfigService._currentConfig = config;
+
+        return config;
+    }
+
+    private parseConfigFromQs() {
         var queryString = this.getQueryString();
         var config = new OverlayConfig();
 
@@ -22,7 +34,8 @@ export default class ConfigService {
             let layout = Layouts.find(l => l.name == queryString.layout);
             if (layout) {
                 config.layout = layout;
-            } else {
+            }
+            else {
                 console.error(`Invalid layout '${queryString.layout}' specified in query string`);
             }
         }
@@ -31,7 +44,8 @@ export default class ConfigService {
             let theme = Themes.find(t => t.name == queryString.theme);
             if (theme) {
                 config.theme = theme;
-            } else {
+            }
+            else {
                 console.error(`Invalid theme '${queryString.theme}' specified in query string`);
             }
         }
@@ -39,7 +53,8 @@ export default class ConfigService {
         if (queryString.scale) {
             if (isNaN(queryString.scale)) {
                 console.error(`Specified scale '${queryString.scale}' is not a number`);
-            } else {
+            }
+            else {
                 config.scale = queryString.scale;
             }
         }
@@ -52,7 +67,9 @@ export default class ConfigService {
             config.mainPlayerName = queryString.playerName;
         }
 
-        ConfigService._currentConfig = config;
+        if (queryString.autohide) {
+            config.autohide = queryString.autohide;
+        }
 
         return config;
     }
@@ -63,7 +80,8 @@ export default class ConfigService {
             playerName: config.mainPlayerName,
             scale: config.scale,
             theme: config.theme.name,
-            test: undefined
+            test: undefined,
+            autohide: config.autohide
         };
 
         if (config.test) {
@@ -71,6 +89,10 @@ export default class ConfigService {
         }
 
         history.pushState(null, '', `?${qs.stringify(queryString)}`);
+
+        ConfigService._currentConfig = config;
+
+        this.onConfigChanged.dispatch(config);
     }
 
     private getQueryString(): QueryString {

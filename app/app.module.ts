@@ -8,6 +8,7 @@ import PlayerDetailComponent from './component/player-detail.component';
 import IconComponent from './component/icon.component';
 import Updater from './service/updater.service';
 import ConfigService from './service/config.service';
+import AutoHideService from './service/autohide.service';
 
 @NgModule({
   imports:      [ 
@@ -26,7 +27,8 @@ import ConfigService from './service/config.service';
   ],
   providers:    [ 
     Updater,
-    ConfigService 
+    ConfigService,
+    AutoHideService
   ]
 })
 export default class AppModule { }

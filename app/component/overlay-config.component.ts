@@ -20,6 +20,7 @@ export default class OverlayConfigComponent {
     scalePercent: number;
     theme: Theme;
     layout: Layout;
+    autohide: number;
 
     constructor(configService: ConfigService) {
         this.configService = configService;
@@ -27,6 +28,7 @@ export default class OverlayConfigComponent {
         this.scalePercent = this.config.scale * 100;
         this.theme = this.config.theme;
         this.layout = this.config.layout;
+        this.autohide = this.config.autohide;
     }
 
     getLayouts() {
@@ -57,6 +59,7 @@ export default class OverlayConfigComponent {
         this.config.scale = this.scalePercent / 100;
         this.config.theme = this.theme;
         this.config.layout = this.layout;
+        this.config.autohide = this.autohide;
         this.configService.setConfig(this.config);
         this.onCloseRequested.emit();
     }

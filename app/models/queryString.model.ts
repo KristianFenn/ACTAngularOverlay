@@ -4,4 +4,5 @@ export interface QueryString {
     layout: string;
     scale: number;
     test: string;
+    autohide: number;
 }

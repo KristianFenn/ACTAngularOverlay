@@ -34,6 +34,7 @@ export default class OverlayConfig {
     mainPlayerName = "YOU";
     scale = 1.0;
     test = '';
+    autohide = 0;
     
     private mainPlayerFn = (p: Player) => this.isMainPlayer(p)  ? 'main-player' : '';
     private redTextFn = (v: number) => v > 0 ? 'text-red' : '';
@@ -45,6 +46,7 @@ export default class OverlayConfig {
       new PlayerTableField(40, "Highest Hit", (p) => p.maxhit),
       new PlayerTableField(10, "Death", (p) => p.deaths, (p) => this.redTextFn(p.deaths))
     ];
+
 
     getCurrentLayout(playerCount: number) {
         if (this.layout.auto) {

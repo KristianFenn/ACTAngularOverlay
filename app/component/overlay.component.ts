@@ -6,9 +6,10 @@ import ConfigService from '../service/config.service';
 import Updater from '../service/updater.service';
 
 import OverlayConfig from '../models/config.model';
-import { ActUpdateEvent, ActUpdate } from '../models/update.model';
+import { ActUpdateEvent } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import PlayerTableField from '../models/player-table.model';
+import AutoHideService from '../service/autohide.service';
 
 @Component({
   selector: 'overlay',
@@ -21,6 +22,7 @@ import PlayerTableField from '../models/player-table.model';
 export default class OverlayComponent {
   private updater: Updater;
   private http: Http;
+  private autohideService: AutoHideService;
   encounter: Encounter;
   tableFields: Array<PlayerTableField>;
   showOptions: boolean;
@@ -28,15 +30,22 @@ export default class OverlayComponent {
   config: OverlayConfig;
   showTable: boolean;
 
-  constructor(updater: Updater, configService: ConfigService, http: Http) {
+  constructor(updater: Updater, configService: ConfigService, http: Http, autohideService: AutoHideService) {
     this.updater = updater;
     this.http = http;
+    this.config = configService.getConfiguration();
+    this.autohideService = autohideService;
 
-    this.updater.subscribe((data) => this.encounter = data);
+    this.autohideService.onShouldShow.subscribe(() => this.showOverlay = true);
+    this.autohideService.onShouldHide.subscribe(() => this.showOverlay = false);
+
+    this.updater.subscribe((data) => {
+      this.encounter = data;
+      this.autohideService.resetAutohide();
+    });
 
     this.showOptions = false;
     this.showOverlay = true;
-    this.config = configService.getConfiguration();
 
     if (this.config.test) {
       this.loadTestData(this.config.test);
@@ -45,6 +54,7 @@ export default class OverlayComponent {
 
   toggleOptions() {
     this.showOptions = !this.showOptions;
+    this.autohideService.resetAutohide();
   }
 
   toggleHide() {

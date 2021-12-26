@@ -17,6 +17,11 @@
         <span class="option-title">%</span>
     </div>
     <div class="option-container">
+        <span class="option-title">Autohide:</span>
+        <input class="option-scale" type="number" [(ngModel)]="autohide" />
+        <span class="option-title">seconds</span>
+    </div>
+    <div class="option-container">
         <button (click)="setOptions()">Set Options</button>
     </div>
 </div>
