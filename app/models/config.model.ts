@@ -47,7 +47,6 @@ export default class OverlayConfig {
       new PlayerTableField(10, "Death", (p) => p.deaths, (p) => this.redTextFn(p.deaths))
     ];
 
-
     getCurrentLayout(playerCount: number) {
         if (this.layout.auto) {
             if (playerCount >= AutoSizeThreshold) {

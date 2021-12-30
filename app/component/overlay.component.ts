@@ -43,6 +43,8 @@ export default class OverlayComponent {
       this.encounter = data;
       this.autohideService.resetAutohideTimer();
     });
+    
+    configService.onConfigChanged.subscribe(config => this.fontSize = config.fontSize);
 
     this.showOptions = false;
     this.showOverlay = true;
@@ -56,7 +58,6 @@ export default class OverlayComponent {
       this.loadTestData(config.test);
     }
 
-    configService.onConfigChanged.subscribe(config => this.fontSize = config.fontSize);
   }
 
   toggleOptions() {

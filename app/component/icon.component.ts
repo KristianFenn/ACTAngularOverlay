@@ -16,4 +16,8 @@ export default class IconComponent {
     getIconSrc() {
         return Path.GetIcon(this.iconName);
     }
+
+    getIconSize() {
+        return `${this.iconSize}em`;
+    }
 }
