@@ -1,9 +1,7 @@
 $targets = @(
     '.\js',
     '.\assets',
-    '.\index.html',
-    '.\package.json',
-    '.\systemjs.config.js'
+    '.\index.html'
 );
 
 $output = '.\publish.zip'
