@@ -3,6 +3,7 @@ import Paths from '../path';
 
 import OverlayConfig, { Layout, Layouts, Theme, Themes } from '../models/config.model';
 import ConfigService from '../service/config.service';
+import { version } from '../../version.json';
 
 @Component({
     selector: 'overlay-config',
@@ -21,6 +22,7 @@ export default class OverlayConfigComponent {
     theme: Theme;
     layout: Layout;
     autohide: number;
+    version: string;
 
     constructor(configService: ConfigService) {
         this.configService = configService;
@@ -29,6 +31,7 @@ export default class OverlayConfigComponent {
         this.theme = this.config.theme;
         this.layout = this.config.layout;
         this.autohide = this.config.autohide;
+        this.version = version;
     }
 
     getLayouts() {
