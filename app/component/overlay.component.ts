@@ -1,15 +1,17 @@
-import { Component, HostListener, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Http } from '@angular/http';
+import { Title } from '@angular/platform-browser';
 import Paths from '../path';
 
 import ConfigService from '../service/config.service';
 import Updater from '../service/updater.service';
 
-import OverlayConfig from '../models/config.model';
 import { ActUpdateEvent } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import PlayerTableField from '../models/player-table.model';
 import AutoHideService from '../service/autohide.service';
+import { Observable } from 'rxjs/Observable';
+import { version } from '../../version.json';
 
 @Component({
   selector: 'overlay',
@@ -30,11 +32,13 @@ export default class OverlayComponent {
   showTable: boolean;
   fontSize: number;
   testMode: boolean;
+  version: Observable<Response>;
 
-  constructor(updater: Updater, configService: ConfigService, http: Http, autohideService: AutoHideService) {
+  constructor(updater: Updater, configService: ConfigService, http: Http, autohideService: AutoHideService, titleService: Title) {
     this.updater = updater;
     this.http = http;
     this.autohideService = autohideService;
+    titleService.setTitle(`McParser ver ${version}`)
 
     this.autohideService.onShouldShowChanged.subscribe(
       shouldShow => this.showOverlay = shouldShow);

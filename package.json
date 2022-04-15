@@ -27,6 +27,8 @@
   "devDependencies": {
     "@types/node": "^6.0.46",
     "@types/query-string": "^3.0.31",
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.0",
     "sass": "^1.26.3",
     "ts-loader": "^9.2.8",
     "typescript": "~4.6.3",

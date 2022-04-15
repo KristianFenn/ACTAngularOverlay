@@ -1,15 +1,14 @@
 $targets = @(
     '.\js',
     '.\assets',
-    '.\index.html'
+    '.\index.html',
+    '.\favicon.ico'
 );
 
-$output = '.\publish.zip'
+$dest = "\\SERVER\Sites\McParser";
 
-if (Test-Path $output) {
-    Remove-Item $output;
-}
+Get-ChildItem $dest | Remove-Item -Recurse -Force
 
 foreach ($target in $targets) {
-    7z a $output $target;
+    Copy-Item $target -Destination $dest -Recurse
 }
