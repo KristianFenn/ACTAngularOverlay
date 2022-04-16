@@ -3,7 +3,7 @@ import Paths from '../path';
 
 import OverlayConfig, { Layout, Theme } from '../models/config.model';
 import ConfigService from '../service/config.service';
-import { version } from '../../version.json';
+import { version, description } from '../../version.json';
 
 @Component({
     selector: 'overlay-config',
@@ -21,7 +21,8 @@ export default class OverlayConfigComponent {
     fontSize: number;
     theme: Theme;
     autohide: number;
-    version: string;
+    versionNumber: string;
+    versionDescription: string;
     partyLayout: Layout;
     allianceLayout: Layout;
 
@@ -33,7 +34,8 @@ export default class OverlayConfigComponent {
         this.partyLayout = this.config.partyLayout;
         this.allianceLayout = this.config.allianceLayout;
         this.autohide = this.config.autohide;
-        this.version = version;
+        this.versionNumber = version;
+        this.versionDescription = description;
     }
 
     getLayouts() {
