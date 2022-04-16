@@ -111,7 +111,8 @@ $pills-total-height: $pills-content-height + ($pills-content-margin * 2);
     display: grid;
     flex-wrap: wrap;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.3em;
+    gap: 0.1em;
+    margin-top: 0.2em;
 
     .player {
         height: $pills-total-height;
