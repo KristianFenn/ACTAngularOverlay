@@ -1,6 +1,6 @@
 @import "themes/fflogs.scss";
 @import "themes/ffxiv.scss";
-@import 'mixins.scss';
+@import "mixins.scss";
 
 .main-player {
     @include ffxiv-text(#ded7be, #795516);
@@ -81,7 +81,7 @@ $table-content-height: 1.3em;
             position: relative;
             top: -($table-content-height);
             margin-top: 0.1em;
-            
+
             display: flex;
             text-align: center;
 
@@ -100,5 +100,39 @@ $table-content-height: 1.3em;
 
     &:last-child {
         margin-bottom: 0px;
+    }
+}
+
+$pills-content-height: 2.2em;
+$pills-content-margin: 0.1em;
+$pills-total-height: $pills-content-height + ($pills-content-margin * 2);
+
+.player-pills {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3em;
+
+    .player {
+        height: $pills-total-height;
+
+        .player-foreground {
+            position: relative;
+            top: -($pills-total-height);
+            margin: $pills-content-margin;
+
+            .player-class-icon {
+                float: left;
+                margin-right: 0.2em;
+                position: relative;
+                top: -0.15em;
+            }
+        }
+
+        .player-background {
+            .player-background-solid {
+                width: 100%;
+            }
+        }
     }
 }

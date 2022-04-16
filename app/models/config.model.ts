@@ -5,7 +5,8 @@ const AutoSizeThreshold = 10;
 
 export enum Layout {
     Bars = "bars",
-    Table = "table"
+    Table = "table",
+    Pills = "pills"
 }
 
 export enum Theme {

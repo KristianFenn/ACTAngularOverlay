@@ -29,6 +29,10 @@ export default class PlayerDetailComponent {
         return this.config.getCurrentLayout(this.players.length) == Layout.Table;
     }
 
+    showPills() {
+        return this.config.getCurrentLayout(this.players.length) == Layout.Pills;
+    }
+
     getThemeClass() {
         return `theme-${this.config.theme}`;
     }
