@@ -1,4 +1,4 @@
-<div *ngIf="showBars()" class="player-bars" [ngClass]="config.theme.class">
+<div *ngIf="showBars()" class="player-bars" [ngClass]="getThemeClass()">
     <div *ngFor="let player of players" class="player" [ngClass]="player.class || player.name">
         <div class="player-background">
             <div class="player-background-solid" [style.width]="player.dpsPercent + '%'"></div>
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div class="player-table" *ngIf="showTable()" [ngClass]="config.theme.class">
+<div class="player-table" *ngIf="showTable()" [ngClass]="getThemeClass()">
     <div class="player-table-header">
         <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-header-field">
             {{ field.fieldTitle }}

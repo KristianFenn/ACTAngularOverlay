@@ -3,34 +3,20 @@ import Player from './player.model';
 
 const AutoSizeThreshold = 10;
 
-export const BarsLayout = 'bars';
-export const TableLayout = 'table';
-export const AutoLayout = 'auto';
-
-export interface Theme {
-    name: string;
-    class: string;
+export enum Layout {
+    Bars = "bars",
+    Table = "table"
 }
 
-export class Layout {
-    name: string;
-    auto: boolean;
+export enum Theme {
+    FFXIV = "ffxiv",
+    FFLogs = "fflogs"
 }
-
-export const Themes: Theme[] = [
-    { name: 'ffxiv', class: 'theme-ffxiv' },
-    { name: 'fflogs', class: 'theme-fflogs' },
-];
-
-export const Layouts: Layout[] = [
-    { name: BarsLayout, auto: false },
-    { name: TableLayout, auto: false },
-    { name: AutoLayout, auto: true }
-];
 
 export default class OverlayConfig {
-    theme = Themes[0];
-    layout = Layouts[0];
+    theme = Theme.FFXIV;
+    partyLayout = Layout.Bars;
+    allianceLayout = Layout.Table;
     mainPlayerName = "YOU";
     fontSize = 16;
     test = '';
@@ -48,15 +34,11 @@ export default class OverlayConfig {
     ];
 
     getCurrentLayout(playerCount: number) {
-        if (this.layout.auto) {
-            if (playerCount >= AutoSizeThreshold) {
-                return TableLayout;
-            } else {
-                return BarsLayout;
-            }
+        if (playerCount >= AutoSizeThreshold) {
+            return this.allianceLayout;
+        } else {
+            return this.partyLayout;
         }
-
-        return this.layout.name;
     }
 
     isMainPlayer(player: Player) {

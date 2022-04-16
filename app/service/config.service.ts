@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as qs from 'query-string';
 
-import OverlayConfig, { Themes, Layouts } from "../models/config.model";
+import OverlayConfig, { Theme, Layout } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
 import EventDispatcher from './event.dispatcher';
 
@@ -30,20 +30,27 @@ export default class ConfigService {
         var queryString = this.getQueryString();
         var config = new OverlayConfig();
 
-        if (queryString.layout) {
-            let layout = Layouts.find(l => l.name == queryString.layout);
-            if (layout) {
-                config.layout = layout;
+        if (queryString.partyLayout) {
+            if (Object.values<string>(Layout).includes(queryString.partyLayout)) {
+                config.partyLayout = <Layout>queryString.partyLayout;
             }
             else {
-                console.error(`Invalid layout '${queryString.layout}' specified in query string`);
+                console.error(`Invalid layout '${queryString.partyLayout}' specified in query string`);
+            }
+        }
+
+        if (queryString.allianceLayout) {
+            if (Object.values<string>(Layout).includes(queryString.allianceLayout)) {
+                config.allianceLayout = <Layout>queryString.allianceLayout;
+            }
+            else {
+                console.error(`Invalid layout '${queryString.allianceLayout}' specified in query string`);
             }
         }
 
         if (queryString.theme) {
-            let theme = Themes.find(t => t.name == queryString.theme);
-            if (theme) {
-                config.theme = theme;
+            if (Object.values<string>(Theme).includes(queryString.theme)) {
+                config.theme = <Theme>queryString.theme;
             }
             else {
                 console.error(`Invalid theme '${queryString.theme}' specified in query string`);
@@ -84,10 +91,11 @@ export default class ConfigService {
 
     setConfig(config: OverlayConfig) {
         var queryString: QueryString = {
-            layout: config.layout.name,
+            partyLayout: config.partyLayout,
+            allianceLayout: config.allianceLayout,
             playerName: config.mainPlayerName,
             fontSize: config.fontSize.toString(),
-            theme: config.theme.name,
+            theme: config.theme,
             test: undefined,
             autohide: config.autohide.toString()
         };
