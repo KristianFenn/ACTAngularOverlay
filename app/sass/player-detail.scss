@@ -104,13 +104,13 @@ $table-content-height: 1.3em;
 }
 
 $pills-content-height: 2.2em;
-$pills-content-margin: 0.1em;
+$pills-content-margin: 0.15em;
 $pills-total-height: $pills-content-height + ($pills-content-margin * 2);
 
 .player-pills {
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.1em;
     margin-top: 0.2em;
 
@@ -121,12 +121,23 @@ $pills-total-height: $pills-content-height + ($pills-content-margin * 2);
             position: relative;
             top: -($pills-total-height);
             margin: $pills-content-margin;
+            display: flex;
 
             .player-class-icon {
                 float: left;
                 margin-right: 0.2em;
                 position: relative;
-                top: -0.15em;
+                top: -($pills-content-margin);
+            }
+
+            .dps-container {
+                text-align: center;
+
+                .dps-value {
+                    font-size: 2em;
+                    position: relative;
+                    top: -0.02em;
+                }
             }
         }
 

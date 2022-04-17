@@ -107,3 +107,8 @@ button:hover {
 .float-right {
 	float: right;
 }
+
+.ellipsis-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
