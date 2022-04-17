@@ -1,0 +1,95 @@
+<div *ngIf="showBars()" class="player-bars" [ngClass]="getThemeClass()">
+    <div *ngFor="let player of players" class="player" [ngClass]="player.class || player.name">
+        <div class="player-background">
+            <div class="player-background-solid" [style.width]="player.dpsPercent + '%'"></div>
+            <div class="player-background-fade"></div>
+        </div>
+        <div class="player-foreground">
+            <div class="player-table-field dps-container flex-15">
+                <p [ngClass]="{ 'main-player': isMainPlayer(player) }" class="dps-value">{{ player.dps }}</p>
+            </div>
+            <div class="flex-30">
+                <div class="player-class-icon">
+                    <icon [iconName]="player.class || player.name" [iconSize]="2.4"></icon>
+                </div>
+                <div class="player-detail-row">
+                    <p class="player-table-text" [ngClass]="{ 'main-player': isMainPlayer(player) }">{{ player.name }}
+                    </p>
+                </div>
+                <div class="player-detail-row">
+                    <p class="player-table-text">{{ player.maxhit || 'N/A' }}</p>
+                </div>
+            </div>
+
+            <div class="flex-15">
+                <div class="player-icon-row">
+                    <icon iconName="DPS" [iconSize]="1"></icon>
+                    <p class="player-table-text">{{ player.damageFormatted }}</p>
+                </div>
+                <div class="player-icon-row">
+                    <icon iconName="heal" [iconSize]="1"></icon>
+                    <p class="player-table-text">{{ player.hps }} ({{ player.overhealPercent }})</p>
+                </div>
+            </div>
+            <div class="flex-15">
+                <div class="player-icon-row">
+                    <icon iconName="death" [iconSize]="1"></icon>
+                    <p class="player-table-text" [ngClass]="{ 'text-red': player.deaths > 0 }">{{ player.deaths }}</p>
+                </div>
+                <div class="player-icon-row">
+                    <icon iconName="crit" [iconSize]="1"></icon>
+                    <p class="player-table-text">{{ player.directHitPercent }} | {{ player.critPercent }} |
+                        {{ player.critDirectHitPercent }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="player-table" *ngIf="showTable()" [ngClass]="getThemeClass()">
+    <div class="player-table-header">
+        <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-header-field">
+            {{ field.fieldTitle }}
+        </div>
+    </div>
+
+    <div class="player" *ngFor="let player of players" [ngClass]="player.class">
+        <div class="player-background">
+            <div class="player-background-solid" [style.width]="player.dpsPercent + '%'"></div>
+            <div class="player-background-fade"></div>
+        </div>
+        <div class="player-foreground">
+            <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-field">
+                <div class="player-class-icon">
+                    <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="1.2"></icon>
+                </div>
+                <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">
+                    {{ field.getValue(player) }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="player-pills" *ngIf="showPills()" [ngClass]="getThemeClass()">
+    <div class="player" *ngFor="let player of players" [ngClass]="player.class">
+        <div class="player-background">
+            <div class="player-background-solid"></div>
+        </div>
+        <div class="player-foreground">
+            <div class="dps-container flex-15">
+                <p [ngClass]="{ 'main-player': isMainPlayer(player) }" class="dps-value">{{ player.dps }}</p>
+            </div>
+            <div class="flex-30">
+                <div class="player-class-icon">
+                    <icon [iconName]="player.class" [iconSize]="2.4"></icon>
+                </div>
+                <div class="ellipsis-overflow">
+                    <p [ngClass]="{ 'main-player': isMainPlayer(player) }">{{ player.name }}</p>
+                </div>
+                <div class="ellipsis-overflow">
+                    <p>{{ player.maxhit || 'N/A' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

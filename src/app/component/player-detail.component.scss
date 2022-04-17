@@ -1,0 +1,148 @@
+@import "../styles/mixins.scss";
+
+.main-player {
+    @include ffxiv-text(#ded7be, #795516);
+}
+
+$bars-content-height: 2.2em;
+$bars-content-margin: 0.1em;
+$bars-total-height: $bars-content-height + ($bars-content-margin * 2);
+
+.player-bars {
+    .player {
+        height: $bars-total-height;
+        margin-bottom: 1px;
+
+        .player-foreground {
+            position: relative;
+            top: -($bars-total-height);
+            margin-top: $bars-content-margin;
+
+            display: flex;
+            height: $bars-content-height;
+            z-index: 1;
+
+            .dps-container {
+                text-align: center;
+
+                .dps-value {
+                    font-size: 2.2em;
+                    position: relative;
+                    top: -0.08em;
+                }
+            }
+
+            .player-class-icon {
+                float: left;
+                margin-right: 0.1em;
+                position: relative;
+                top: -0.15em;
+                height: 2.4em;
+                width: 2.4em;
+            }
+
+            .player-icon-row {
+                height: 1.2em;
+
+                p {
+                    position: relative;
+                    top: -0.15em;
+                }
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+$table-content-height: 1.3em;
+
+.player-table {
+    .player-table-header {
+        display: flex;
+        margin-bottom: 1px;
+        text-align: center;
+        font-size: 0.8em;
+
+        .player-table-header-field {
+            width: 1px;
+        }
+    }
+
+    .player {
+        height: $table-content-height;
+        margin-bottom: 1px;
+
+        .player-foreground {
+            position: relative;
+            top: -($table-content-height);
+            margin-top: 0.1em;
+
+            display: flex;
+            text-align: center;
+
+            .player-table-field {
+                width: 1px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                .player-class-icon {
+                    position: relative;
+                    top: -0.1em;
+                }
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+$pills-content-height: 2.2em;
+$pills-content-margin: 0.15em;
+$pills-total-height: $pills-content-height + ($pills-content-margin * 2);
+
+.player-pills {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.1em;
+    margin-top: 0.2em;
+
+    .player {
+        height: $pills-total-height;
+
+        .player-foreground {
+            position: relative;
+            top: -($pills-total-height);
+            margin: $pills-content-margin;
+            display: flex;
+
+            .player-class-icon {
+                float: left;
+                margin-right: 0.2em;
+                position: relative;
+                top: -($pills-content-margin);
+            }
+
+            .dps-container {
+                text-align: center;
+
+                .dps-value {
+                    font-size: 2em;
+                    position: relative;
+                    top: -0.02em;
+                }
+            }
+        }
+
+        .player-background {
+            .player-background-solid {
+                width: 100%;
+            }
+        }
+    }
+}

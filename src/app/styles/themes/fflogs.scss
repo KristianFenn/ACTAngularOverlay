@@ -1,0 +1,119 @@
+@import 'themes.scss';
+
+.theme-fflogs {
+    .GLA,
+    .PLD {
+        @include player-row-background(168, 210, 230);
+    }
+
+    .MRD,
+    .WAR {
+        @include player-row-background(207, 38, 33);
+    }
+
+    .DRK {
+        @include player-row-background(224, 52, 220);
+    }
+
+    .GNB {
+        @include player-row-background(121, 109, 48);
+    }
+
+    .CNJ,
+    .WHM {
+        @include player-row-background(255, 240, 221);
+    }
+
+    .SCH,
+    .Fairy {
+        @include player-row-background(134, 87, 255);
+    }
+
+    .AST {
+        @include player-row-background(255, 231, 74);
+    }
+
+    .SGE {
+        @include player-row-background(128, 160, 240);
+    }
+
+    .PGL,
+    .MNK {
+        @include player-row-background(230, 172, 0);
+    }
+
+    .LNC,
+    .DRG {
+        @include player-row-background(65, 100, 205);
+    }
+
+    .ROG,
+    .NIN {
+        @include player-row-background(191, 41, 116);
+    }
+
+    .SAM {
+        @include player-row-background(228, 109, 4);
+    }
+
+    .RPR {
+        @include player-row-background(150, 90, 144);
+    }
+
+    .ARC,
+    .BRD {
+        @include player-row-background(145, 186, 94);
+    }
+
+    .MCH {
+        @include player-row-background(126, 241, 230);
+    }
+
+    .DNC {
+        @include player-row-background(226, 176, 175);
+    }
+
+    .ACN,
+    .SMN,
+    .Egi {
+        @include player-row-background(45, 155, 120);
+    }
+
+    .THM,
+    .BLM {
+        @include player-row-background(181, 137, 230);
+    }
+
+    .RDM {
+        @include player-row-background(232, 123, 123);
+    }
+
+    .BLU {
+        @include player-row-background(66, 135, 245);
+    }
+
+    .CRP,
+    .BSN,
+    .GSM,
+    .LTW,
+    .WVR,
+    .ALC,
+    .CUL,
+    .MIN,
+    .BTN,
+    .FSH {
+        @include player-row-background(67, 67, 67);
+    }
+
+    .LIMIT_BREAK {
+        @include player-row-background(243, 172, 41);
+    }
+
+    .Chocobo {
+        @include player-row-background(219, 180, 87);
+    }
+
+    .Unknown {
+        @include player-row-background(87, 87, 87);
+    }
+}
