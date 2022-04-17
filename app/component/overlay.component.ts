@@ -1,11 +1,11 @@
 import { Component, HostListener } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import Paths from '../path';
 
 import ConfigService from '../service/config.service';
 import Updater from '../service/updater.service';
 
-import { ActUpdateEvent } from '../models/update.model';
+import { ActUpdateEvent, ActUpdate } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import PlayerTableField from '../models/player-table.model';
 import AutoHideService from '../service/autohide.service';
@@ -21,7 +21,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export default class OverlayComponent {
   private updater: Updater;
-  private http: Http;
+  private httpClient: HttpClient;
   private autohideService: AutoHideService;
   encounter: Encounter;
   tableFields: Array<PlayerTableField>;
@@ -32,9 +32,9 @@ export default class OverlayComponent {
   testMode: boolean;
   version: Observable<Response>;
 
-  constructor(updater: Updater, configService: ConfigService, http: Http, autohideService: AutoHideService) {
+  constructor(updater: Updater, configService: ConfigService, httpClient: HttpClient, autohideService: AutoHideService) {
     this.updater = updater;
-    this.http = http;
+    this.httpClient = httpClient;
     this.autohideService = autohideService;
 
     this.autohideService.onShouldShowChanged.subscribe(
@@ -90,8 +90,8 @@ export default class OverlayComponent {
   }
 
   private loadTestData(dataSet: string) {
-    this.http.get(`/app/test/${dataSet}.json`).subscribe(data => {
-      this.updater.updateEncounter(data.json());
+    this.httpClient.get<ActUpdate>(`/app/test/${dataSet}.json`).subscribe(data => {
+      this.updater.updateEncounter(data);
     });
   }
 
