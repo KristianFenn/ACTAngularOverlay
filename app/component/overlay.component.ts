@@ -9,7 +9,7 @@ import { ActUpdateEvent, ActUpdate } from '../models/update.model';
 import Encounter from '../models/encounter.model';
 import PlayerTableField from '../models/player-table.model';
 import AutoHideService from '../service/autohide.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'overlay',
