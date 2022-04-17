@@ -5,6 +5,7 @@ export interface ActUpdateEvent {
 export interface ActUpdate {
     Encounter: ActUpdateEncounter;
     Combatant: any;
+    isActive: string | undefined;
 }
 
 export interface ActUpdateEncounter {

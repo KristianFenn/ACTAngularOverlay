@@ -8,8 +8,13 @@ import Encounter from '../models/encounter.model';
 import Player from '../models/player.model';
 import OverlayConfig from '../models/config.model';
 
+export interface OverlayUpdateEvent {
+    active: boolean;
+    encounter: Encounter;
+}
+
 @Injectable()
-export default class Updater extends EventDispatcher<Encounter> {
+export default class Updater extends EventDispatcher<OverlayUpdateEvent> {
     config: OverlayConfig;
 
     constructor(configService: ConfigService) {
@@ -18,8 +23,7 @@ export default class Updater extends EventDispatcher<Encounter> {
         this.config = configService.getConfiguration();
     }
     
-    updateEncounter(data: ActUpdate) {
-        let encounter = new Encounter();
+    updateEncounter(data: ActUpdate, encounter: Encounter) {
         encounter.updateEncounter(data.Encounter);
         let players = new Array<Player>();
         let topDps = 0;
@@ -39,6 +43,14 @@ export default class Updater extends EventDispatcher<Encounter> {
         }
 
         encounter.players = players;
-        this.dispatch(encounter);
+
+        let active = true;
+
+        // compatibility with older overlay plugin
+        if (data.isActive) {
+            active = data.isActive == 'true';
+        }
+
+        this.dispatch({ encounter, active });
     }
 }

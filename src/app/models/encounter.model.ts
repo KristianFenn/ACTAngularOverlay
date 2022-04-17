@@ -7,7 +7,6 @@ export default class Encounter {
     dps: number;
     maxhit: string;
     players: Array<Player>;
-    encounterSource: string;
 
     constructor() {
         this.players = new Array<Player>();
@@ -15,13 +14,11 @@ export default class Encounter {
         this.duration = "";
         this.dps = 0;
         this.maxhit = "";
-        this.encounterSource = "default";
     }
 
     updateEncounter(data: ActUpdateEncounter) {
         this.area = data.CurrentZoneName;
         this.duration = data.duration;
         this.dps = data.ENCDPS;
-        this.encounterSource = "updated";
     }
 }

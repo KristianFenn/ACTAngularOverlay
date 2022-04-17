@@ -17,7 +17,7 @@ export default class OverlayComponent {
   private updater: Updater;
   private httpClient: HttpClient;
   private autohideService: AutoHideService;
-  encounter: Encounter | null;
+  encounter: Encounter;
   showOptions: boolean;
   showOverlay: boolean;
   fontSize: number;
@@ -27,14 +27,16 @@ export default class OverlayComponent {
     this.updater = updater;
     this.httpClient = httpClient;
     this.autohideService = autohideService;
-    this.encounter = null;
+    this.encounter = new Encounter();
 
     this.autohideService.onShouldShowChanged.subscribe(
       shouldShow => this.showOverlay = shouldShow);
       
     this.updater.subscribe((data) => {
-      this.encounter = data;
-      this.autohideService.resetAutohideTimer();
+      this.encounter = data.encounter;
+      if (data.active) {
+        this.autohideService.resetAutohideTimer();
+      }
     });
     
     configService.onConfigChanged.subscribe(config => this.fontSize = config.fontSize);
@@ -83,12 +85,12 @@ export default class OverlayComponent {
 
   private loadTestData(dataSet: string) {
     this.httpClient.get<ActUpdate>(`/assets/test/${dataSet}.json`).subscribe((data: ActUpdate) => {
-      this.updater.updateEncounter(data);
+      this.updater.updateEncounter(data, this.encounter);
     });
   }
 
   @HostListener('document:onOverlayDataUpdate', ['$event'])
   onDataUpdate(event: ActUpdateEvent) {
-    this.updater.updateEncounter(event.detail);
+    this.updater.updateEncounter(event.detail, this.encounter);
   }
 }
