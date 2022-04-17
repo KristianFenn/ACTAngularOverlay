@@ -7,6 +7,7 @@ $targets = @(
 
 Write-Host "Compiling";
 npx webpack;
+npm run sass;
 
 $dest = "\\SERVER\Sites\McParser";
 
