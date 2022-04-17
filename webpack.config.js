@@ -16,7 +16,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './template.html',
+            template: './app/template.html',
             hash: true
         }),
     ],
@@ -24,7 +24,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-        filename: 'js/main.js',
-        path: path.resolve(__dirname, '.'),
+        filename: 'main.bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     }
 };

@@ -4,9 +4,9 @@
   "keywords": [],
   "author": "",
   "scripts": {
-    "start": "http-server -p 8081",
-    "sass": "sass app/sass:assets/css",
-    "sass-watch": "sass --watch app/sass:assets/css"
+    "start": "http-server .\\dist -p 8081",
+    "sass": "sass app/sass:dist/assets/css",
+    "sass-watch": "sass --watch app/sass:dist/assets/css"
   },
   "dependencies": {
     "@angular/animations": "^8.2.14",

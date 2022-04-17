@@ -90,7 +90,7 @@ export default class OverlayComponent {
   }
 
   private loadTestData(dataSet: string) {
-    this.httpClient.get<ActUpdate>(`/app/test/${dataSet}.json`).subscribe(data => {
+    this.httpClient.get<ActUpdate>(`/test/${dataSet}.json`).subscribe(data => {
       this.updater.updateEncounter(data);
     });
   }

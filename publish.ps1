@@ -1,9 +1,7 @@
-$targets = @(
-    '.\js',
-    '.\assets',
-    '.\index.html',
-    '.\favicon.ico'
-);
+Write-Host "Cleaning"
+Get-ChildItem .\dist | Remove-Item -Recurse -Force
+Get-Item ".\app\assets" | Copy-Item -Destination ".\dist\assets" -Recurse -Force
+Copy-Item ".\app\favicon.ico" -Destination ".\dist\favicon.ico"
 
 Write-Host "Compiling";
 npx webpack;
@@ -14,9 +12,9 @@ $dest = "\\SERVER\Sites\McParser";
 Write-Host "Deleting old files";
 Get-ChildItem $dest | Remove-Item -Recurse -Force
 
-foreach ($target in $targets) {
+foreach ($target in Get-ChildItem .\dist) {
     Write-Host "Copying ${target}";
-    Copy-Item $target -Destination $dest -Recurse
+    Copy-Item $target.FullName -Destination $dest -Recurse
 }
 
 Write-Host "Published!";

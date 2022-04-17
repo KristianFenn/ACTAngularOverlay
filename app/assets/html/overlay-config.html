@@ -1,0 +1,36 @@
+<div class="options-container">
+    <div class="option-container">
+        <span class="option-title">Party Layout:</span>
+        <span class="option-selection" *ngFor="let layout of getLayouts()"> 
+            [ <a class="option" [ngClass]="{ active: isActivePartyLayout(layout) }" (click)="setPartyLayout(layout)">{{layout}}</a> ]
+        </span>
+    </div>
+    <div class="option-container">
+        <span class="option-title">Alliance Layout:</span>
+        <span class="option-selection" *ngFor="let layout of getLayouts()"> 
+            [ <a class="option" [ngClass]="{ active: isActiveAllianceLayout(layout) }" (click)="setAllianceLayout(layout)">{{layout}}</a> ]
+        </span>
+    </div>
+    <div class="option-container">
+        <span class="option-title">Theme:</span>
+        <span class="option-selection" *ngFor="let theme of getThemes()"> 
+            [ <a class="option" [ngClass]="{ active: isActiveTheme(theme) }"  (click)="setTheme(theme)">{{theme}}</a> ]
+        </span>
+    </div>
+    <div class="option-container">
+        <span class="option-title">Font Size:</span>
+        <input class="option-number" type="number" [(ngModel)]="fontSize" />
+        <span class="option-title">px</span>
+    </div>
+    <div class="option-container">
+        <span class="option-title">Autohide:</span>
+        <input class="option-number" type="number" [(ngModel)]="autohide" />
+        <span class="option-title">seconds</span>
+    </div>
+    <div class="option-container">
+        <button class="option-button" (click)="setOptions()">Set Options</button>
+    </div>
+    <div class="option-container">
+        <span class="option-title">McParser version {{versionNumber}} ({{versionDescription}})</span>
+    </div>
+</div>
