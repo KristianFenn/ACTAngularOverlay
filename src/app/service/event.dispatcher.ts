@@ -1,4 +1,4 @@
-export default class EventDispatcher<TData> {
+export class EventDispatcher<TData> {
     private _subscriptions: Array<(data: TData) => void> = new Array<(data: TData) => void>();
  
     subscribe(fn: (data: TData) => void): void {

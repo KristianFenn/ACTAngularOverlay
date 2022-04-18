@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import OverlayConfig, { Layout, Theme } from '../models/config.model';
-import ConfigService from '../service/config.service';
+import { OverlayConfig, Layout, Theme } from '../models/config.model';
+import { ConfigService } from '../service/config.service';
 import version from '../../version.json';
 
 @Component({
@@ -9,7 +9,7 @@ import version from '../../version.json';
     templateUrl: 'overlay-config.component.html',
     styleUrls: [ 'overlay-config.component.scss' ]
 })
-export default class OverlayConfigComponent {
+export class OverlayConfigComponent {
     @Output() onCloseRequested: EventEmitter<any> = new EventEmitter();
 
     config: OverlayConfig;

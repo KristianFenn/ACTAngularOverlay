@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import EventDispatcher from './event.dispatcher';
-import ConfigService from './config.service';
+import { EventDispatcher } from './event.dispatcher';
+import { ConfigService } from './config.service';
 
 import { ActUpdate, ActUpdateCombatant } from '../models/update.model';
-import Encounter from '../models/encounter.model';
-import Player from '../models/player.model';
-import OverlayConfig from '../models/config.model';
+import { Encounter } from '../models/encounter.model';
+import { Player } from '../models/player.model';
+import { OverlayConfig } from '../models/config.model';
 
 export interface OverlayUpdateEvent {
     active: boolean;
@@ -14,7 +14,7 @@ export interface OverlayUpdateEvent {
 }
 
 @Injectable()
-export default class Updater extends EventDispatcher<OverlayUpdateEvent> {
+export class Updater extends EventDispatcher<OverlayUpdateEvent> {
     config: OverlayConfig;
 
     constructor(configService: ConfigService) {

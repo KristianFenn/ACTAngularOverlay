@@ -1,16 +1,17 @@
 @import '../styles/mixins.scss';
+@import '../styles/colors.scss';
 
 .overlay-container {
 	padding: 5px;
-	background: rgba(0, 0, 0, 0.3);
+	background: $inactive-background;
 	height: 100%;
-	width: 100%;
 	z-index: -1000;
 }
 
 hr {
 	margin-top: 2px;
 	margin-bottom: 2px;
+	color: $main-color;
 }
 
 .overlay-header {
@@ -28,7 +29,7 @@ hr {
 }
 
 .overlay-header-label {
-	@include ffxiv-text(#DED7BE, #795516);
+	@include ffxiv-text($highlight-color, $highlight-shadow);
 	font-weight: 300;
 	white-space: nowrap;
 }

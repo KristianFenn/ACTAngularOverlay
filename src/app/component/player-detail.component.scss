@@ -1,7 +1,8 @@
 @import "../styles/mixins.scss";
+@import "../styles/colors.scss";
 
 .main-player {
-    @include ffxiv-text(#ded7be, #795516);
+    @include ffxiv-text($highlight-color, $highlight-shadow);
 }
 
 $bars-content-height: 2.2em;

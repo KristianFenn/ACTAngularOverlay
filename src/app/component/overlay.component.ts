@@ -1,19 +1,19 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import ConfigService from '../service/config.service';
-import Updater from '../service/updater.service';
+import { ConfigService } from '../service/config.service';
+import { Updater } from '../service/updater.service';
 
 import { ActUpdateEvent, ActUpdate } from '../models/update.model';
-import Encounter from '../models/encounter.model';
-import AutoHideService from '../service/autohide.service';
+import { Encounter } from '../models/encounter.model';
+import { AutoHideService } from '../service/autohide.service';
 
 @Component({
   selector: 'overlay',
   templateUrl: './overlay.component.html',
   styleUrls: [ './overlay.component.scss' ]
 })
-export default class OverlayComponent {
+export class OverlayComponent {
   private updater: Updater;
   private httpClient: HttpClient;
   private autohideService: AutoHideService;

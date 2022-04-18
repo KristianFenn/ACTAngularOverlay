@@ -37,6 +37,16 @@
           }
         }
       }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "npm: build",
+      "detail": "ng build"
     }
   ]
 }

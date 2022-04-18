@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import * as qs from 'query-string';
 
-import OverlayConfig, { Theme, Layout } from "../models/config.model";
+import { OverlayConfig, Theme, Layout } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
-import EventDispatcher from './event.dispatcher';
+import { EventDispatcher } from './event.dispatcher';
 
 @Injectable()
-export default class ConfigService {
+export class ConfigService {
     private static _currentConfig: OverlayConfig;
     onConfigChanged: EventDispatcher<OverlayConfig>;
 

@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import Player from '../models/player.model';
-import OverlayConfig, { Layout } from '../models/config.model';
-import ConfigService from '../service/config.service';
+import { Player } from '../models/player.model';
+import { OverlayConfig, Layout } from '../models/config.model';
+import { ConfigService } from '../service/config.service';
 
 @Component({
     selector: 'player-detail',
     templateUrl: 'player-detail.component.html',
     styleUrls: [ 'player-detail.component.scss' ]
 })
-export default class PlayerDetailComponent {
+export class PlayerDetailComponent {
     @Input() players: Player[];
     config: OverlayConfig;
 

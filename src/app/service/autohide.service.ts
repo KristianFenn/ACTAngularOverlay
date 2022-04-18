@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 
-import EventDispatcher from "./event.dispatcher";
-import ConfigService from "./config.service";
-import OverlayConfig from "../models/config.model";
+import { EventDispatcher } from "./event.dispatcher";
+import { ConfigService } from "./config.service";
+import { OverlayConfig } from "../models/config.model";
 
 @Injectable()
-export default class AutoHideService {
+export class AutoHideService {
     onShouldShowChanged: EventDispatcher<boolean>;
     autohideDelay: number;
     timeoutHandle: NodeJS.Timeout | null;

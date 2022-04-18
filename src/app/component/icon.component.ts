@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
     templateUrl: './icon.component.html',
     styleUrls: [ './icon.component.scss' ]
 })
-export default class IconComponent {
+export class IconComponent {
     @Input() iconName: string;
     @Input() iconSize: number;
 

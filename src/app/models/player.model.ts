@@ -1,7 +1,7 @@
 import { ActUpdateCombatant } from './update.model';
 import { SummonerPetNames, ScholarPetNames, AllClasses } from './player.contants';
 
-export default class Player {
+export class Player {
     name: string;
     class: string;
     dps: number;

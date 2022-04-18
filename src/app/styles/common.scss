@@ -1,9 +1,10 @@
 @import 'themes/fflogs.scss';
 @import 'themes/ffxiv.scss';
 @import 'mixins.scss';
+@import 'colors.scss';
 
-* {
-	@include ffxiv-text(#cccccc, #2C7DA1);
+.overlay {
+	@include ffxiv-text($main-color, $main-shadow);
     font-family: Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	white-space: nowrap;
@@ -36,46 +37,43 @@ p {
 	display: inline;
 }
 
-a {
-	@include ffxiv-text(#BBBBBB, #323232);
+.overlay a {
+	@include ffxiv-text($inactive-color, $inactive-shadow);
 }
 
 a:hover {
-	@include ffxiv-text(#cccccc, #2C7DA1);
+	@include ffxiv-text($main-color, $main-shadow);
 }
 
 input {
-	@include ffxiv-text(#BBBBBB, #323232);
-	background: rgba(0, 0, 0, 0.3);
-	border: 2px #003054 solid;
+	@include ffxiv-text($inactive-color, $inactive-shadow);
+	background: $inactive-background;
+	border: 2px $inactive-shadow solid;
 	border-radius: 5px;
 	margin-right: 5px;
 }
 
+input:focus, input:focus-visible, input:focus-within {
+	@include ffxiv-text($main-color, $main-shadow);
+	border: 2px $main-shadow solid;
+	outline: none;
+}
+
+
 button {
-	background: rgba(0, 0, 0, 0.3);
-	border: 2px #003054 solid;
+	@include ffxiv-text($inactive-color, $inactive-shadow);
+	background: $inactive-background;
+	border: 2px $inactive-shadow solid;
 	border-radius: 5px;
 }
 
 button:hover {
-	@include ffxiv-text(#cccccc, #2C7DA1);
-	border-color: #2C7DA1;
+	@include ffxiv-text($main-color, $main-shadow);
+	border-color: $main-shadow;
 }
 
 .text-red {
-	@include ffxiv-text(#ffcdd2, #fc5161);
-}
-
-.text-icon-red {
-	@include ffxiv-text(#660000, #fc5161);
-	font-weight: bold;
-}
-
-.text-icon-green {
-	@include ffxiv-text(#006600, #51fc61);
-	font-weight: bold;
-	font-weight: 15 !important;
+	@include ffxiv-text($error-color, $error-shadow);
 }
 
 .flex-5 {
@@ -101,10 +99,6 @@ button:hover {
 .flex-30 {
 	flex-grow: 30;
 	width: 1px;
-}
-
-.display-outline {
-	border: 1px red dashed;
 }
 
 .float-right {

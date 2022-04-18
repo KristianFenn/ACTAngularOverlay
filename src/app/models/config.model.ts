@@ -1,5 +1,5 @@
-import PlayerTableField from './player-table.model';
-import Player from './player.model';
+import { PlayerTableField } from './player-table.model';
+import { Player } from './player.model';
 
 const AutoSizeThreshold = 10;
 
@@ -14,7 +14,7 @@ export enum Theme {
     FFLogs = "fflogs"
 }
 
-export default class OverlayConfig {
+export class OverlayConfig {
     theme = Theme.FFXIV;
     partyLayout = Layout.Bars;
     allianceLayout = Layout.Table;
