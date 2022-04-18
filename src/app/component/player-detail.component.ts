@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Player } from '../models/player.model';
 import { OverlayConfig, Layout } from '../models/config.model';
-import { ConfigService } from '../service/config.service';
+import { IConfigService } from '../service/config.service';
 
 @Component({
     selector: 'player-detail',
@@ -12,7 +12,7 @@ export class PlayerDetailComponent {
     @Input() players: Player[];
     config: OverlayConfig;
 
-    constructor(configService: ConfigService) {
+    constructor(configService: IConfigService) {
         this.config = configService.getConfiguration();
         this.players = [];
     }

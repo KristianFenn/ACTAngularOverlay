@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { ConfigService } from '../service/config.service';
+import { IConfigService } from '../service/config.service';
 import { Updater } from '../service/updater.service';
 
 import { ActUpdateEvent, ActUpdate } from '../models/update.model';
@@ -23,7 +23,7 @@ export class OverlayComponent {
   fontSize: number;
   testMode: boolean;
 
-  constructor(updater: Updater, configService: ConfigService, httpClient: HttpClient, autohideService: AutoHideService) {
+  constructor(updater: Updater, configService: IConfigService, httpClient: HttpClient, autohideService: AutoHideService) {
     this.updater = updater;
     this.httpClient = httpClient;
     this.autohideService = autohideService;

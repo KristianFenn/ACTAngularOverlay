@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 import { OverlayConfig, Layout, Theme } from '../models/config.model';
-import { ConfigService } from '../service/config.service';
+import { IConfigService } from '../service/config.service';
 import version from '../../version.json';
 
 @Component({
@@ -13,7 +13,7 @@ export class OverlayConfigComponent {
     @Output() onCloseRequested: EventEmitter<any> = new EventEmitter();
 
     config: OverlayConfig;
-    configService: ConfigService;
+    configService: IConfigService;
     fontSize: number;
     theme: Theme;
     autohide: number;
@@ -22,7 +22,7 @@ export class OverlayConfigComponent {
     partyLayout: Layout;
     allianceLayout: Layout;
 
-    constructor(configService: ConfigService) {
+    constructor(configService: IConfigService) {
         this.configService = configService;
         this.config = configService.getConfiguration();
         this.fontSize = this.config.fontSize;

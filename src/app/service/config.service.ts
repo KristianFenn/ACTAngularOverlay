@@ -5,12 +5,18 @@ import { OverlayConfig, Theme, Layout } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
 import { EventDispatcher } from './event.dispatcher';
 
-@Injectable()
-export class ConfigService {
+export abstract class IConfigService {
+    abstract onConfigChanged: EventDispatcher<OverlayConfig>;
+    abstract getConfiguration(): OverlayConfig;
+    abstract setConfig(config: OverlayConfig): void;
+}
+
+export class ConfigService extends IConfigService {
     private static _currentConfig: OverlayConfig;
     onConfigChanged: EventDispatcher<OverlayConfig>;
 
     constructor() {
+        super();
         this.onConfigChanged = new EventDispatcher<OverlayConfig>();
     }
 
@@ -26,7 +32,7 @@ export class ConfigService {
         return config;
     }
 
-    private parseConfigFromQs() {
+    private parseConfigFromQs(): OverlayConfig {
         var queryString = this.getQueryString();
         var config = new OverlayConfig();
 

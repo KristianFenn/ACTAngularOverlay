@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { EventDispatcher } from './event.dispatcher';
-import { ConfigService } from './config.service';
+import { IConfigService } from './config.service';
 
 import { ActUpdate, ActUpdateCombatant } from '../models/update.model';
 import { Encounter } from '../models/encounter.model';
@@ -17,7 +17,7 @@ export interface OverlayUpdateEvent {
 export class Updater extends EventDispatcher<OverlayUpdateEvent> {
     config: OverlayConfig;
 
-    constructor(configService: ConfigService) {
+    constructor(configService: IConfigService) {
         super();
 
         this.config = configService.getConfiguration();

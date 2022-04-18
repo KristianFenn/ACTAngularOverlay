@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { EventDispatcher } from "./event.dispatcher";
-import { ConfigService } from "./config.service";
+import { IConfigService } from "./config.service";
 import { OverlayConfig } from "../models/config.model";
 
 @Injectable()
@@ -10,7 +10,7 @@ export class AutoHideService {
     autohideDelay: number;
     timeoutHandle: NodeJS.Timeout | null;
 
-    constructor(configService: ConfigService) {
+    constructor(configService: IConfigService) {
         this.onShouldShowChanged = new EventDispatcher<boolean>();
         this.autohideDelay = 0;
         this.timeoutHandle = null;
