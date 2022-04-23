@@ -4,7 +4,6 @@ param(
 
 Write-Host "Compiling";
 $buildOutput = & ng build 2>&1;
-
 $errors = $buildOutput -match "Error";
 if ($errors.Length -gt 0) {
     Write-Host "Build failed.";
@@ -24,9 +23,7 @@ $dest = "\\SERVER\Sites\McParser";
 Write-Host "Deleting old files";
 Get-ChildItem $dest | Remove-Item -Recurse -Force -WhatIf:$WhatIf
 
-foreach ($target in Get-ChildItem ".\dist") {
-    Write-Host "Copying ${target}";
-    Copy-Item $target.FullName -Destination $dest -Recurse -WhatIf:$WhatIf
-}
+Write-Host "Copying new files";
+Get-ChildItem '.\dist' | Copy-Item -Destination $dest -Recurse -WhatIf:$WhatIf
 
 Write-Host "Published!";
