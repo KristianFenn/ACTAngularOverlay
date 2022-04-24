@@ -10,8 +10,8 @@ import { IEncounter, Encounter } from '../models/encounter.model';
 
 @Component({
   selector: 'overlay',
-  templateUrl: './overlay.component.html',
-  styleUrls: [ './overlay.component.scss' ]
+  templateUrl: 'overlay.component.html',
+  styleUrls: [ 'overlay.component.scss' ]
 })
 export class OverlayComponent {
   private updater: IUpdater;

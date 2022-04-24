@@ -20,8 +20,7 @@ describe('Overlay Config', () => {
             onConfigChanged: new EventDispatcher<OverlayConfig>(),
             getConfiguration: () => overlayConfig,
             setConfig: () => {},
-            getCurrentLayout: () => Layout.Bars,
-            isMainPlayer: () => true
+            getCurrentLayout: () => Layout.Bars
         };
 
         TestBed.configureTestingModule({ 

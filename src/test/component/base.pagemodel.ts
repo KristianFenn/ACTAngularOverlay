@@ -4,10 +4,12 @@ import { DebugElement } from '@angular/core';
 import { HttpBackend } from '@angular/common/http';
 
 export class BasePageModel<T> {
-    private _fixture: ComponentFixture<T>;
+    protected _fixture: ComponentFixture<T>;
+    private _queryRoot: DebugElement;
 
-    constructor(fixture: ComponentFixture<T>) {
+    constructor(fixture: ComponentFixture<T>, root?: DebugElement) {
         this._fixture = fixture;
+        this._queryRoot = root || fixture.debugElement;
     }
 
     async waitForUpdates() {
@@ -16,7 +18,7 @@ export class BasePageModel<T> {
     }
 
     protected elementVisible(testId: string): boolean {
-        const element = this._fixture.debugElement.query(Via.TestId(testId));
+        const element = this._queryRoot.query(Via.TestId(testId));
         
         if (element) {
             return !(element.nativeElement as HTMLElement).hidden;
@@ -26,7 +28,7 @@ export class BasePageModel<T> {
     }
     
     protected getElementByTestId(testId: string): DebugElement {
-        const element = this._fixture.debugElement.query(Via.TestId(testId));
+        const element = this._queryRoot.query(Via.TestId(testId));
 
         if (!element) {
             throw `Could not find any element with testId ${testId}`;
@@ -36,7 +38,7 @@ export class BasePageModel<T> {
     }
 
     protected getElementsByTestClass(testClass: string): DebugElement[] {
-        const elements = this._fixture.debugElement.queryAll(Via.TestClass(testClass));
+        const elements = this._queryRoot.queryAll(Via.TestClass(testClass));
 
         if (!elements) {
             throw `Could not find any elements with testClass ${testClass}`;
@@ -54,6 +56,13 @@ export class BasePageModel<T> {
         }
 
         return text;
+    }
+
+    protected elementHasClassByTestId(testId: string, className: string): boolean {
+        const element = this.getElementByTestId(testId);
+        const hasClass = element.classes[className];
+
+        return !!hasClass;
     }
 
     protected clickElement(element: DebugElement): void {

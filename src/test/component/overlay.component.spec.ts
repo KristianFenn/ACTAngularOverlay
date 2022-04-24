@@ -46,7 +46,6 @@ describe('Overlay', () => {
         mockConfigService = {
             getConfiguration: () => config,
             getCurrentLayout: () => Layout.Bars,
-            isMainPlayer: () => true,
             onConfigChanged: new EventDispatcher<OverlayConfig>(),
             setConfig: () => { }
         };

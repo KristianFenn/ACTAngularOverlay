@@ -13,7 +13,6 @@ export abstract class IConfigService {
     abstract getConfiguration(): OverlayConfig;
     abstract setConfig(config: OverlayConfig): void;
     abstract getCurrentLayout(playerCount: number): Layout;
-    abstract isMainPlayer(player: Player): boolean;
 }
 
 @Injectable()
@@ -130,10 +129,6 @@ export class ConfigService extends IConfigService {
         } else {
             return this._currentConfig!.partyLayout;
         }
-    }
-
-    isMainPlayer(player: Player) {
-        return player.name == this._currentConfig?.mainPlayerName;
     }
     
     private getQueryString(): QueryString {

@@ -1,11 +1,11 @@
-<div *ngIf="showBars()" [ngClass]="getThemeClass()">
-    <player-detail-bars [players]="players"></player-detail-bars>
+<div *ngIf="showBars()" [ngClass]="getThemeClass()" data-test-id="player-detail-bars-container">
+    <player-detail-bars [players]="players" data-test-id="player-detail-bars"></player-detail-bars>
 </div>
 
-<div *ngIf="showTable()" [ngClass]="getThemeClass()">
-   <player-detail-table [players]="players"></player-detail-table>
+<div *ngIf="showTable()" [ngClass]="getThemeClass()" data-test-id="player-detail-table-container">
+   <player-detail-table [players]="players" data-test-id="player-detail-table"></player-detail-table>
 </div>
 
-<div *ngIf="showPills()" [ngClass]="getThemeClass()">
-    <player-detail-pills [players]="players"></player-detail-pills>
+<div *ngIf="showPills()" [ngClass]="getThemeClass()" data-test-id="player-detail-pills-container">
+    <player-detail-pills [players]="players" data-test-id="player-detail-pills"></player-detail-pills>
 </div>

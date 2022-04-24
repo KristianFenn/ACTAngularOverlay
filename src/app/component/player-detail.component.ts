@@ -15,8 +15,9 @@ export class PlayerDetailComponent {
 
     constructor(configService: IConfigService) {
         this.configService = configService;
-        const config = this.configService.getConfiguration();
         this.players = [];
+        
+        const config = this.configService.getConfiguration();
         this.theme = config.theme;
         
         configService.onConfigChanged.subscribe(
@@ -37,9 +38,5 @@ export class PlayerDetailComponent {
 
     getThemeClass() {
         return `theme-${this.theme}`;
-    }
-
-    isMainPlayer(player: Player) {
-        return this.configService.isMainPlayer(player);
     }
 }
