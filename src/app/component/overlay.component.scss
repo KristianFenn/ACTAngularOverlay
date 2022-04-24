@@ -15,20 +15,19 @@ hr {
 }
 
 .overlay-header-container {
+	justify-content: flex-start;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 }
 
 .overlay-header-group {
-	display: inline-flex;
-	flex-grow: 20;
+	margin-right: auto;
 }
 
 .overlay-header-group-right {
-	align-content: flex-end;
-	margin-top: -3px;
-	margin-right: 1px;
+	margin-left: auto;
+	margin-top: -2px;
+	justify-self: flex-end;
 }
 
 .overlay-header {
