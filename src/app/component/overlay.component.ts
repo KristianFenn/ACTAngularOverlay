@@ -39,7 +39,8 @@ export class OverlayComponent {
       }
     });
     
-    configService.onConfigChanged.subscribe(config => this.fontSize = config.fontSize);
+    configService.onConfigChanged.subscribe(config => 
+      this.fontSize = config.fontSize);
 
     this.showOptions = false;
     this.showOverlay = true;

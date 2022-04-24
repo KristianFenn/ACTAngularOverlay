@@ -4,30 +4,37 @@ import * as qs from 'query-string';
 import { OverlayConfig, Theme, Layout } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
 import { EventDispatcher } from './event.dispatcher';
+import { Player } from '../models/player.model';
+import { PlayerTableField } from '../models/player-table.model';
+
+const AutoSizeThreshold = 10;
 
 export abstract class IConfigService {
     abstract onConfigChanged: EventDispatcher<OverlayConfig>;
     abstract getConfiguration(): OverlayConfig;
     abstract setConfig(config: OverlayConfig): void;
+    abstract getCurrentLayout(playerCount: number): Layout;
+    abstract isMainPlayer(player: Player): boolean;
 }
 
 export class ConfigService extends IConfigService {
-    private static _currentConfig: OverlayConfig;
+    private _currentConfig: OverlayConfig | null;
     onConfigChanged: EventDispatcher<OverlayConfig>;
 
     constructor() {
         super();
         this.onConfigChanged = new EventDispatcher<OverlayConfig>();
+        this._currentConfig = null;
     }
 
     getConfiguration(): OverlayConfig {
-        if (ConfigService._currentConfig) {
-            return ConfigService._currentConfig;
+        if (this._currentConfig) {
+            return this._currentConfig;
         }
 
         var config = this.parseConfigFromQs();
 
-        ConfigService._currentConfig = config;
+        this._currentConfig = config;
 
         return config;
     }
@@ -112,11 +119,23 @@ export class ConfigService extends IConfigService {
 
         history.pushState(null, '', `?${qs.stringify(queryString)}`);
 
-        ConfigService._currentConfig = config;
+        this._currentConfig = config;
 
         this.onConfigChanged.dispatch(config);
     }
 
+    getCurrentLayout(playerCount: number) {
+        if (playerCount >= AutoSizeThreshold) {
+            return this._currentConfig!.allianceLayout;
+        } else {
+            return this._currentConfig!.partyLayout;
+        }
+    }
+
+    isMainPlayer(player: Player) {
+        return player.name == this._currentConfig?.mainPlayerName;
+    }
+    
     private getQueryString(): QueryString {
         return qs.parse(location.search) as any as QueryString;
     }

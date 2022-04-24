@@ -3,6 +3,7 @@ import { ComponentFixture } from '@angular/core/testing';
 import { OverlayConfigComponent } from 'src/app/component/overlay-config.component';
 import { Via } from '../Via';
 import { Layout, Theme } from 'src/app/models/config.model';
+import { BasePageModel } from './base.pagemodel';
 
 const partyOptionsTestClass = 'config-party-layout-option';
 const allainceOptionsTestClass = 'config-alliance-layout-option';
@@ -11,19 +12,13 @@ const fontSizeTestId = 'config-font-size';
 const autohideTestId = 'config-autohide';
 const setOptionsTestId = 'config-set-options';
 
-export class OverlayConfigPageModel {
-    private _fixture: ComponentFixture<OverlayConfigComponent>;
-    
+export class OverlayConfigComponentPageModel extends BasePageModel<OverlayConfigComponent> {
     constructor(fixture: ComponentFixture<OverlayConfigComponent>) {
-        this._fixture = fixture;
+        super(fixture);
     }
-
-    private getOptionsElements(testClass: string): DebugElement[] {
-        return this._fixture.debugElement.queryAll(Via.TestClass(testClass));
-    }
-
+    
     private getOptionElement(testClass: string, optionName: string): DebugElement {
-        const option = this.getOptionsElements(testClass)
+        const option = this.getElementsByTestClass(testClass)
             .filter(ele => ele.nativeElement.text == optionName);
         
         if (option.length > 1) {
@@ -34,12 +29,12 @@ export class OverlayConfigPageModel {
     }
 
     private getOptionsElementsText(testClass: string): string[] {
-        return this.getOptionsElements(testClass)
+        return this.getElementsByTestClass(testClass)
             .map(de => de.nativeElement.text);
     }
 
     private getSelectedOptionElement(testClass: string): DebugElement {
-        const selected = this.getOptionsElements(testClass)
+        const selected = this.getElementsByTestClass(testClass)
             .filter(layoutEle => layoutEle.classes["active"]);
 
         if (selected.length > 1) {
@@ -51,10 +46,7 @@ export class OverlayConfigPageModel {
 
     private clickOptionElement(testClass: string, optionName: string) {
         const options = this.getOptionElement(testClass, optionName);
-
-        options.triggerEventHandler('click', {});
-        
-        this._fixture.detectChanges();
+        this.clickElement(options);
     }
 
     private getSelectedOptionText(testClass: string): string {
@@ -98,30 +90,8 @@ export class OverlayConfigPageModel {
         this.clickOptionElement(themeOptionsTestClass, option);
     }
 
-    private getInputElement(testId: string): DebugElement {
-        return this._fixture.debugElement.query(Via.TestId(testId));
-    }
-
-    private incrementNumberInput(testId: string): void {
-        let element = this.getInputElement(testId).nativeElement as HTMLInputElement;
-        element.stepUp();
-        element.dispatchEvent(new Event('input'));
-    }
-
-    private decrementNumberInput(testId: string): void {
-        let element = this.getInputElement(testId).nativeElement as HTMLInputElement;
-        element.stepDown();
-        element.dispatchEvent(new Event('input'));
-    }
-
-    private setInputValue(testId: string, value: string): void {
-        let element = this.getInputElement(testId).nativeElement as HTMLInputElement;
-        element.value = value;
-        element.dispatchEvent(new Event('input'));
-    }
-
     getFontSize(): number {
-        return parseInt(this.getInputElement(fontSizeTestId).nativeElement.value);
+        return parseInt(this.getElementByTestId(fontSizeTestId).nativeElement.value);
     }
 
     incrementFontSize(): void {
@@ -137,7 +107,7 @@ export class OverlayConfigPageModel {
     }
 
     getAutohide(): number {
-        return parseInt(this.getInputElement(autohideTestId).nativeElement.value);
+        return parseInt(this.getElementByTestId(autohideTestId).nativeElement.value);
     }
 
     incrementAutohide(): void {
@@ -150,5 +120,9 @@ export class OverlayConfigPageModel {
 
     setAutohide(value: number) {
         this.setInputValue(autohideTestId, value.toString());
+    }
+
+    clickSetOptions() {
+        this.clickElementByTestId(setOptionsTestId);
     }
 }

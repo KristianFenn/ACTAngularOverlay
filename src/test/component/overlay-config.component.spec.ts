@@ -1,18 +1,17 @@
-import { ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
-
-import { OverlayConfigComponent } from '../../app/component/overlay-config.component';
-import { IConfigService } from '../../app/service/config.service';
-import { EventDispatcher } from '../../app/service/event.dispatcher';
-import { OverlayConfig, Layout, Theme } from '../../app/models/config.model';
-import { OverlayConfigPageModel } from './overlay-config.component.pagemodel';
+import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
+import { OverlayConfigComponent } from 'src/app/component/overlay-config.component';
+import { IConfigService } from 'src/app/service/config.service';
+import { EventDispatcher } from 'src/app/service/event.dispatcher';
+import { OverlayConfig, Layout, Theme } from 'src/app/models/config.model';
+import { OverlayConfigComponentPageModel } from './overlay-config.component.pagemodel';
+
 describe('Overlay Config', () => {
-    let fixture: ComponentFixture<OverlayConfigComponent>;
     let targetViewModel: OverlayConfigComponent;
     let mockConfigService: IConfigService;
     let overlayConfig: OverlayConfig;
-    let pageModel: OverlayConfigPageModel;
+    let pageModel: OverlayConfigComponentPageModel;
 
     beforeEach(async () => {
         overlayConfig = new OverlayConfig();
@@ -20,7 +19,9 @@ describe('Overlay Config', () => {
         mockConfigService = {
             onConfigChanged: new EventDispatcher<OverlayConfig>(),
             getConfiguration: () => overlayConfig,
-            setConfig: () => {}
+            setConfig: () => {},
+            getCurrentLayout: () => Layout.Bars,
+            isMainPlayer: () => true
         };
 
         TestBed.configureTestingModule({ 
@@ -28,13 +29,13 @@ describe('Overlay Config', () => {
             providers: [{ provide: IConfigService, useValue: mockConfigService }],
             declarations: [ OverlayConfigComponent ]
         });
-        fixture = TestBed.createComponent(OverlayConfigComponent);
+        const fixture = TestBed.createComponent(OverlayConfigComponent);
         targetViewModel = fixture.componentInstance;
         
         fixture.detectChanges();
         await fixture.whenStable();
 
-        pageModel = new OverlayConfigPageModel(fixture);
+        pageModel = new OverlayConfigComponentPageModel(fixture);
     });
 
     it('should create', () => {
@@ -259,6 +260,50 @@ describe('Overlay Config', () => {
 
             expect(targetViewModel.autohide)
                 .toBe(30);
+        });
+    });
+
+    describe('set options', () => {
+        it('should call service with default config', () => {
+            spyOn(mockConfigService, 'setConfig');
+
+            pageModel.clickSetOptions();
+
+            const expected = new OverlayConfig
+            expected.theme = Theme.FFXIV;
+            expected.partyLayout = Layout.Bars;
+            expected.allianceLayout = Layout.Table;
+            expected.autohide = 0;
+            expected.fontSize = 16;
+            expected.mainPlayerName = "YOU";
+            expected.test = "";
+
+            expect(mockConfigService.setConfig)
+                .toHaveBeenCalledOnceWith(expected);
+        });
+
+        it('should call service with updated options', () => {
+            pageModel.clickThemeOption(Theme.FFLogs);
+            pageModel.clickPartyLayoutOption(Layout.Table);
+            pageModel.clickAllianceLayoutOption(Layout.Pills);
+            pageModel.setAutohide(30);
+            pageModel.setFontSize(12);
+
+            spyOn(mockConfigService, 'setConfig');
+
+            pageModel.clickSetOptions();
+
+            const expected = new OverlayConfig
+            expected.theme = Theme.FFLogs;
+            expected.partyLayout = Layout.Table;
+            expected.allianceLayout = Layout.Pills;
+            expected.autohide = 30;
+            expected.fontSize = 12;
+            expected.mainPlayerName = "YOU";
+            expected.test = "";
+
+            expect(mockConfigService.setConfig)
+                .toHaveBeenCalledOnceWith(expected);
         });
     });
 });

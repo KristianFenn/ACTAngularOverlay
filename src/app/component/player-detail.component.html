@@ -48,7 +48,7 @@
 
 <div class="player-table" *ngIf="showTable()" [ngClass]="getThemeClass()">
     <div class="player-table-header">
-        <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-header-field">
+        <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-header-field">
             {{ field.fieldTitle }}
         </div>
     </div>
@@ -59,7 +59,7 @@
             <div class="player-background-fade"></div>
         </div>
         <div class="player-foreground">
-            <div *ngFor="let field of config.tableFields" [style.flex-grow]="field.width" class="player-table-field">
+            <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-field">
                 <div class="player-class-icon">
                     <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="1.2"></icon>
                 </div>
