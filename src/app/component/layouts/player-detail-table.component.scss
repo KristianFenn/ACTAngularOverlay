@@ -1,0 +1,45 @@
+@import 'layout.shared.scss';
+
+$table-content-height: 1.3em;
+
+.player-table {
+    .player-table-header {
+        display: flex;
+        margin-bottom: 1px;
+        text-align: center;
+        font-size: 0.8em;
+
+        .player-table-header-field {
+            width: 1px;
+        }
+    }
+
+    .player {
+        height: $table-content-height;
+        margin-bottom: 1px;
+
+        .player-foreground {
+            position: relative;
+            top: -($table-content-height);
+            margin-top: 0.1em;
+
+            display: flex;
+            text-align: center;
+
+            .player-table-field {
+                width: 1px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                .player-class-icon {
+                    position: relative;
+                    top: -0.1em;
+                }
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}

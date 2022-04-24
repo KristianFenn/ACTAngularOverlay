@@ -1,0 +1,60 @@
+@import 'layout.shared.scss';
+
+$bars-content-height: 2.2em;
+$bars-content-margin: 0.1em;
+$bars-total-height: $bars-content-height + ($bars-content-margin * 2);
+
+.player-bars {
+    .player {
+        height: $bars-total-height;
+        margin-bottom: 1px;
+
+        .player-foreground {
+            position: relative;
+            top: -($bars-total-height);
+            margin-top: $bars-content-margin;
+
+            display: flex;
+            height: $bars-content-height;
+            z-index: 1;
+
+            .dps-container {
+                text-align: center;
+
+                .dps-value {
+                    font-size: 2.2em;
+                    position: relative;
+                    top: -0.08em;
+                }
+            }
+
+            .player-class-icon {
+                float: left;
+                margin-right: 0.1em;
+                position: relative;
+                top: -0.15em;
+                height: 2.4em;
+                width: 2.4em;
+            }
+
+            .player-icon-row {
+                height: 1.2em;
+
+                icon {
+                    position: relative;
+                    top: -0.05em;
+                    margin-right: 0.25em;
+                }
+
+                p {
+                    position: relative;
+                    top: -0.15em;
+                }
+            }
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}

@@ -10,8 +10,7 @@ import { OverlayComponentPageModel } from './overlay.component.pagemodel';
 import { EventDispatcher } from 'src/app/service/event.dispatcher';
 import { OverlayConfig, Theme, Layout } from 'src/app/models/config.model';
 import { ActUpdate } from 'src/app/models/update.model';
-import { Encounter, IEncounter } from 'src/app/models/encounter.model';
-import { Player } from 'src/app/models/player.model';
+import { IEncounter } from 'src/app/models/encounter.model';
 
 describe('Overlay', () => {
     let mockUpdater: IUpdater;
@@ -335,8 +334,7 @@ describe('Overlay', () => {
                 dps: 20000,
                 duration: '01:40',
                 maxhit: 'Woah - 35k',
-                players: [
-                    { 
+                players: [{ 
                         name: 'Dude McFace', 
                         maxhit: 'Woah - 35k', 
                         dps: 20000, 

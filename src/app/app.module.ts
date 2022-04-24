@@ -9,6 +9,9 @@ import { IconComponent } from './component/icon.component';
 import { IUpdater, Updater } from './service/updater.service';
 import { IConfigService, ConfigService } from './service/config.service';
 import { IAutoHideService, AutoHideService } from './service/autohide.service';
+import { PlayerDetailBarsComponent } from './component/layouts/player-detail-bars.component';
+import { PlayerDetailTableComponent } from './component/layouts/player-detail-table.component';
+import { PlayerDetailPillsComponent } from './component/layouts/player-detail-pills.component';
 
 @NgModule({
   imports:      [ 
@@ -20,7 +23,10 @@ import { IAutoHideService, AutoHideService } from './service/autohide.service';
     OverlayComponent, 
     PlayerDetailComponent,
     IconComponent,
-    OverlayConfigComponent
+    OverlayConfigComponent,
+    PlayerDetailBarsComponent,
+    PlayerDetailTableComponent,
+    PlayerDetailPillsComponent
   ],
   bootstrap:    [ 
     OverlayComponent 
