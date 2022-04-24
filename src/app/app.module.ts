@@ -6,9 +6,9 @@ import { OverlayComponent } from './component/overlay.component';
 import { OverlayConfigComponent } from './component/overlay-config.component';
 import { PlayerDetailComponent } from './component/player-detail.component';
 import { IconComponent } from './component/icon.component';
-import { Updater } from './service/updater.service';
-import { ConfigService, IConfigService } from './service/config.service';
-import { AutoHideService } from './service/autohide.service';
+import { IUpdater, Updater } from './service/updater.service';
+import { IConfigService, ConfigService } from './service/config.service';
+import { IAutoHideService, AutoHideService } from './service/autohide.service';
 
 @NgModule({
   imports:      [ 
@@ -26,9 +26,9 @@ import { AutoHideService } from './service/autohide.service';
     OverlayComponent 
   ],
   providers:    [ 
-    Updater,
+    { provide: IUpdater, useClass: Updater },
     { provide: IConfigService, useClass: ConfigService },
-    AutoHideService
+    { provide: IAutoHideService, useClass: AutoHideService }
   ]
 })
 export default class AppModule { }

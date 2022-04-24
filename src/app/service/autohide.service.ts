@@ -4,13 +4,22 @@ import { EventDispatcher } from "./event.dispatcher";
 import { IConfigService } from "./config.service";
 import { OverlayConfig } from "../models/config.model";
 
+export abstract class IAutoHideService {
+    abstract onShouldShowChanged: EventDispatcher<boolean>;
+    abstract pauseAutohide(): void;
+    abstract resumeAutohide(): void;
+    abstract resetAutohideTimer(): void;
+}
+
 @Injectable()
-export class AutoHideService {
+export class AutoHideService extends IAutoHideService {
+    private autohideDelay: number;
     onShouldShowChanged: EventDispatcher<boolean>;
-    autohideDelay: number;
     timeoutHandle: NodeJS.Timeout | null;
 
     constructor(configService: IConfigService) {
+        super();
+        
         this.onShouldShowChanged = new EventDispatcher<boolean>();
         this.autohideDelay = 0;
         this.timeoutHandle = null;

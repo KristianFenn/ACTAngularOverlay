@@ -1,4 +1,4 @@
-export interface ActUpdateEvent {
+export interface ActUpdateEvent extends Event {
     detail: ActUpdate;
 }
 
@@ -14,9 +14,6 @@ export interface ActUpdateEncounter {
     damage: string;
     ENCDPS: number;
     maxhit: string;
-    last10dps: number;
-    last30dps: number;
-    last60dps: number;
 }
 
 export interface ActUpdateCombatant {

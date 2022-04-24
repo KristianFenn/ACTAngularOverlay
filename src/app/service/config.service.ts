@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
 import * as qs from 'query-string';
+import { Injectable } from '@angular/core';
 
 import { OverlayConfig, Theme, Layout } from "../models/config.model";
 import { QueryString } from "../models/queryString.model";
 import { EventDispatcher } from './event.dispatcher';
 import { Player } from '../models/player.model';
-import { PlayerTableField } from '../models/player-table.model';
 
 const AutoSizeThreshold = 10;
 
@@ -17,6 +16,7 @@ export abstract class IConfigService {
     abstract isMainPlayer(player: Player): boolean;
 }
 
+@Injectable()
 export class ConfigService extends IConfigService {
     private _currentConfig: OverlayConfig | null;
     onConfigChanged: EventDispatcher<OverlayConfig>;

@@ -14,26 +14,30 @@ hr {
 	color: $main-color;
 }
 
-.overlay-header {
-	font-size: 1em;
+.overlay-header-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .overlay-header-group {
-	display: inline;
+	display: inline-flex;
+	flex-grow: 20;
 }
 
 .overlay-header-group-right {
-	float: right;
+	align-content: flex-end;
 	margin-top: -3px;
 	margin-right: 1px;
+}
+
+.overlay-header {
+	margin-right: 1em;
 }
 
 .overlay-header-label {
 	@include ffxiv-text($highlight-color, $highlight-shadow);
 	font-weight: 300;
 	white-space: nowrap;
-}
-
-.overlay-options {
-	float: right;
+	margin-right: 0.25em;
 }

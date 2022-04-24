@@ -1,6 +1,14 @@
 import { ActUpdateEncounter } from './update.model';
 import { Player } from './player.model';
 
+export interface IEncounter {
+    area: string;
+    duration: string;
+    dps: number;
+    maxhit: string;
+    players: Array<Player>;
+}
+
 export class Encounter {
     area: string;
     duration: string;

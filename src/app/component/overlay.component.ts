@@ -2,11 +2,11 @@ import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { IConfigService } from '../service/config.service';
-import { Updater } from '../service/updater.service';
+import { IUpdater } from '../service/updater.service';
+import { IAutoHideService } from '../service/autohide.service';
 
 import { ActUpdateEvent, ActUpdate } from '../models/update.model';
-import { Encounter } from '../models/encounter.model';
-import { AutoHideService } from '../service/autohide.service';
+import { IEncounter, Encounter } from '../models/encounter.model';
 
 @Component({
   selector: 'overlay',
@@ -14,16 +14,17 @@ import { AutoHideService } from '../service/autohide.service';
   styleUrls: [ './overlay.component.scss' ]
 })
 export class OverlayComponent {
-  private updater: Updater;
+  private updater: IUpdater;
   private httpClient: HttpClient;
-  private autohideService: AutoHideService;
-  encounter: Encounter;
+  private autohideService: IAutoHideService;
+  encounter: IEncounter;
   showOptions: boolean;
   showOverlay: boolean;
   fontSize: number;
   testMode: boolean;
 
-  constructor(updater: Updater, configService: IConfigService, httpClient: HttpClient, autohideService: AutoHideService) {
+  constructor(
+    updater: IUpdater, configService: IConfigService, httpClient: HttpClient, autohideService: IAutoHideService) {
     this.updater = updater;
     this.httpClient = httpClient;
     this.autohideService = autohideService;
@@ -32,7 +33,7 @@ export class OverlayComponent {
     this.autohideService.onShouldShowChanged.subscribe(
       shouldShow => this.showOverlay = shouldShow);
       
-    this.updater.subscribe((data) => {
+    this.updater.onEncounterUpdated.subscribe((data) => {
       this.encounter = data.encounter;
       if (data.active) {
         this.autohideService.resetAutohideTimer();
@@ -46,14 +47,13 @@ export class OverlayComponent {
     this.showOverlay = true;
     this.testMode = false;
 
-    let config = configService.getConfiguration();
+    const config = configService.getConfiguration();
     this.fontSize = config.fontSize
 
     if (config.test) {
       this.testMode = true;
       this.loadTestData(config.test);
     }
-
   }
 
   toggleOptions() {
@@ -82,6 +82,10 @@ export class OverlayComponent {
 
   loadParty() {
     this.loadTestData('party');
+  }
+
+  getDpsFormatted() {
+    return this.encounter.dps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   private loadTestData(dataSet: string) {

@@ -26,8 +26,6 @@ if ($errors.Length -gt 0) {
     exit;
 }
 
-
-
 $dest = "\\SERVER\Sites\McParser";
 
 Write-Host "Deleting old files";
