@@ -230,7 +230,7 @@ describe('Bars Layout', () => {
 
         it('should have correct healing', () => {
             expect(playerPageModel.getHealing())
-                .toBe('1200 (30%)');
+                .toBe('1,200 (30%)');
         });
 
         it('should have correct deaths', () => {

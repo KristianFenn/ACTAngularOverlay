@@ -27,7 +27,7 @@
                 </div>
                 <div class="player-icon-row">
                     <icon iconName="heal" [iconSize]="1"></icon>
-                    <p class="player-table-text" data-test-id="player-bar-healing">{{ player.hps }} ({{ player.overhealPercent }})</p>
+                    <p class="player-table-text" data-test-id="player-bar-healing">{{ player.hps | number }} ({{ player.overhealPercent }})</p>
                 </div>
             </div>
             <div class="flex-15">
