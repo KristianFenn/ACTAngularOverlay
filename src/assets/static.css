@@ -4,8 +4,7 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.overlay-static {
-	background-color: white;
+html {
 	background-image: url('/assets/handle.png');
 	background-position: bottom right;
 	background-repeat: no-repeat;
@@ -16,5 +15,5 @@
 }
 
 body {
-	margin: 0px;
+	margin: 0;
 }
