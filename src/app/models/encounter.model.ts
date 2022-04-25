@@ -18,10 +18,10 @@ export class Encounter {
 
     constructor() {
         this.players = new Array<Player>();
-        this.area = "";
-        this.duration = "";
+        this.area = '';
+        this.duration = '';
         this.dps = 0;
-        this.maxhit = "";
+        this.maxhit = '';
     }
 
     updateEncounter(data: ActUpdateEncounter) {

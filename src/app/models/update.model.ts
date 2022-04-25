@@ -24,7 +24,7 @@ export interface ActUpdateCombatant {
     'crithit%': string;
     deaths: number;
     maxhit: string;
-    "MAXHIT-*": string;
+    'MAXHIT-*': string;
     misses: number;
     ENCHPS: string;
     OverHealPct: string;

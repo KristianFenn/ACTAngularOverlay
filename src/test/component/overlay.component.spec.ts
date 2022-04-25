@@ -41,7 +41,7 @@ describe('Overlay', () => {
             autohide: 0,
             mainPlayerName: 'YOU',
             test: ''
-        }
+        };
 
         mockConfigService = {
             getConfiguration: () => config,
@@ -115,7 +115,7 @@ describe('Overlay', () => {
                     .toBe(false);
             });
 
-            it('should hide test options if no test is specified', async () => {
+            it('should hide test options if no test is specified', () => {
                 expect(pageModel.testButtonsVisible())
                     .toBeFalse();
             });
@@ -148,7 +148,7 @@ describe('Overlay', () => {
                     .toHaveBeenCalledOnceWith(mockUpdate, targetViewModel.encounter);
             });
     
-            it('should display test options if test is specified', async () => {
+            it('should display test options if test is specified', () => {
                 expect(pageModel.testButtonsVisible())
                     .toBeTrue();
             });
@@ -241,8 +241,8 @@ describe('Overlay', () => {
         });
 
         it('should toggle autohide when config is shown and hidden', () => {
-            spyOn(mockAutohideService, "pauseAutohide");
-            spyOn(mockAutohideService, "resumeAutohide");
+            spyOn(mockAutohideService, 'pauseAutohide');
+            spyOn(mockAutohideService, 'resumeAutohide');
 
             expect(targetViewModel.showOptions)
                 .toBeFalse();
@@ -263,7 +263,7 @@ describe('Overlay', () => {
                 .toBeFalse();
         
             expect(mockAutohideService.resumeAutohide)
-                .toHaveBeenCalledTimes(1)
+                .toHaveBeenCalledTimes(1);
         });
 
         it('should toggle hidden state when toggle hide is clicked', () => {
@@ -302,8 +302,8 @@ describe('Overlay', () => {
         });
 
         it('should toggle autohide when overlay is hidden and shown', () => {
-            spyOn(mockAutohideService, "pauseAutohide");
-            spyOn(mockAutohideService, "resumeAutohide");
+            spyOn(mockAutohideService, 'pauseAutohide');
+            spyOn(mockAutohideService, 'resumeAutohide');
 
             expect(targetViewModel.showOverlay)
                 .toBeTrue();
@@ -324,7 +324,7 @@ describe('Overlay', () => {
                 .toBeTrue();
         
             expect(mockAutohideService.resumeAutohide)
-                .toHaveBeenCalledTimes(1)
+                .toHaveBeenCalledTimes(1);
         });
 
         describe('encounter update', () => {
@@ -339,16 +339,16 @@ describe('Overlay', () => {
                         dps: 20000, 
                         damage: 2000000, 
                         class: 'PLD',
-                        critDirectHitPercent: "15",
-                        critPercent: "30",
-                        directHitPercent: "30",
+                        critDirectHitPercent: '15',
+                        critPercent: '30',
+                        directHitPercent: '30',
                         deaths: 0,
                         dpsPercent: 100,
-                        damageFormatted: "2,000,000",
+                        damageFormatted: '2,000,000',
                         hps: 0,
-                        maxhitamount: "35k",
+                        maxhitamount: '35k',
                         misses: 0,
-                        overhealPercent: "0",
+                        overhealPercent: '0',
                         rank: 1
                     }
                 ]
@@ -389,7 +389,7 @@ describe('Overlay', () => {
             });
 
             it('should reset autohide on active encounter update', async () => {
-                spyOn(mockAutohideService, "resetAutohideTimer");
+                spyOn(mockAutohideService, 'resetAutohideTimer');
 
                 mockUpdater.onEncounterUpdated.dispatch({ encounter: testEncounter, active: true });
                 await pageModel.waitForUpdates();
@@ -399,7 +399,7 @@ describe('Overlay', () => {
             });
 
             it('should not reset autohide on inactive encounter update', async () => {
-                spyOn(mockAutohideService, "resetAutohideTimer");
+                spyOn(mockAutohideService, 'resetAutohideTimer');
 
                 mockUpdater.onEncounterUpdated.dispatch({ encounter: testEncounter, active: false });
                 await pageModel.waitForUpdates();
@@ -413,13 +413,13 @@ describe('Overlay', () => {
                 await pageModel.waitForUpdates();
 
                 expect(pageModel.getAreaHeaderText())
-                    .toBe("Area:Test Zone");
+                    .toBe('Area:Test Zone');
                 
                 expect(pageModel.getDpsHeaderText())
-                    .toBe("Total DPS:20,000");
+                    .toBe('Total DPS:20,000');
                 
                 expect(pageModel.getDurationHeaderText())
-                    .toBe("Duration:01:40");
+                    .toBe('Duration:01:40');
             });
         });
     });

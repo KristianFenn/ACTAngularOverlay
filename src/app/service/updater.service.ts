@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { EventDispatcher } from './event.dispatcher';
 import { IConfigService } from './config.service';
 
-import { ActUpdate, ActUpdateCombatant } from '../models/update.model';
+import { ActUpdate } from '../models/update.model';
 import { IEncounter, Encounter } from '../models/encounter.model';
 import { Player } from '../models/player.model';
 import { OverlayConfig } from '../models/config.model';
@@ -32,21 +32,20 @@ export class Updater extends IUpdater {
     
     updateEncounter(data: ActUpdate, encounter: Encounter) {
         encounter.updateEncounter(data.Encounter);
-        let players = new Array<Player>();
+        const players = new Array<Player>();
         let topDps = 0;
 
-        for (let combatant in data.Combatant) {
-            let current: ActUpdateCombatant;
-            current = data.Combatant[combatant];
+        for (const combatant in data.Combatant) {
+            const current = data.Combatant[combatant];
 
-            let player = new Player(current);
+            const player = new Player(current);
             players.push(player);
         }
 
         if (players.length !== 0) {
             players.sort((a, b) => b.dps - a.dps);
             topDps = players[0].dps;
-            players.forEach((p, i) => { p.dpsPercent = (p.dps * (100 / topDps)); p.rank = i + 1; })
+            players.forEach((p, i) => { p.dpsPercent = (p.dps * (100 / topDps)); p.rank = i + 1; });
         }
 
         encounter.players = players;

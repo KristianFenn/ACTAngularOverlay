@@ -1,10 +1,9 @@
 import * as qs from 'query-string';
 import { Injectable } from '@angular/core';
 
-import { OverlayConfig, Theme, Layout } from "../models/config.model";
-import { QueryString } from "../models/queryString.model";
+import { OverlayConfig, Theme, Layout } from '../models/config.model';
+import { QueryString } from '../models/queryString.model';
 import { EventDispatcher } from './event.dispatcher';
-import { Player } from '../models/player.model';
 
 const AutoSizeThreshold = 10;
 
@@ -31,16 +30,15 @@ export class ConfigService extends IConfigService {
             return this._currentConfig;
         }
 
-        var config = this.parseConfigFromQs();
-
+        const config = this.parseConfigFromQs();
         this._currentConfig = config;
 
         return config;
     }
 
     private parseConfigFromQs(): OverlayConfig {
-        var queryString = this.getQueryString();
-        var config = new OverlayConfig();
+        const queryString = this.getQueryString();
+        const config = new OverlayConfig();
 
         if (queryString.partyLayout) {
             if (Object.values<string>(Layout).includes(queryString.partyLayout)) {
@@ -70,7 +68,7 @@ export class ConfigService extends IConfigService {
         }
 
         if (queryString.fontSize) {
-            let fontSize = parseInt(queryString.fontSize);
+            const fontSize = parseInt(queryString.fontSize);
 
             if (isNaN(fontSize)) {
                 console.error(`Specified font size '${queryString.fontSize}' is not a number`);
@@ -89,7 +87,7 @@ export class ConfigService extends IConfigService {
         }
 
         if (queryString.autohide) {
-            let autoHide = parseInt(queryString.autohide);
+            const autoHide = parseInt(queryString.autohide);
 
             if (isNaN(autoHide)) {
                 console.error(`Specified autohide interval '${queryString.fontSize}' is not a number`);
@@ -102,7 +100,7 @@ export class ConfigService extends IConfigService {
     }
 
     setConfig(config: OverlayConfig) {
-        var queryString: QueryString = {
+        const queryString: QueryString = {
             partyLayout: config.partyLayout,
             allianceLayout: config.allianceLayout,
             playerName: config.mainPlayerName,

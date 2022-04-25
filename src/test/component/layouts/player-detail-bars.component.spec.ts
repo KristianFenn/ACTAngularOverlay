@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { PlayerDetailBarsComponent } from "src/app/component/layouts/player-detail-bars.component";
+import { PlayerDetailBarsComponent } from 'src/app/component/layouts/player-detail-bars.component';
 import { PlayerDetailBarsComponentPageModel, PlayerDetailBarsBarPageModel } from './player-detail-bars.component.pagemodel';
 import { IConfigService } from 'src/app/service/config.service';
 import { EventDispatcher } from 'src/app/service/event.dispatcher';

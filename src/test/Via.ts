@@ -1,4 +1,4 @@
-import { Predicate, DebugElement } from '@angular/core'
+import { Predicate, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 export class Via {

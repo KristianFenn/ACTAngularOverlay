@@ -268,14 +268,14 @@ describe('Overlay Config', () => {
 
             pageModel.clickSetOptions();
 
-            const expected = new OverlayConfig
+            const expected = new OverlayConfig;
             expected.theme = Theme.FFXIV;
             expected.partyLayout = Layout.Bars;
             expected.allianceLayout = Layout.Table;
             expected.autohide = 0;
             expected.fontSize = 16;
-            expected.mainPlayerName = "YOU";
-            expected.test = "";
+            expected.mainPlayerName = 'YOU';
+            expected.test = '';
 
             expect(mockConfigService.setConfig)
                 .toHaveBeenCalledOnceWith(expected);
@@ -292,14 +292,14 @@ describe('Overlay Config', () => {
 
             pageModel.clickSetOptions();
 
-            const expected = new OverlayConfig
+            const expected = new OverlayConfig;
             expected.theme = Theme.FFLogs;
             expected.partyLayout = Layout.Table;
             expected.allianceLayout = Layout.Pills;
             expected.autohide = 30;
             expected.fontSize = 12;
-            expected.mainPlayerName = "YOU";
-            expected.test = "";
+            expected.mainPlayerName = 'YOU';
+            expected.test = '';
 
             expect(mockConfigService.setConfig)
                 .toHaveBeenCalledOnceWith(expected);

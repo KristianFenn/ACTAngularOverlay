@@ -1,11 +1,10 @@
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { IConfigService, ConfigService } from 'src/app/service/config.service';
+import { IConfigService } from 'src/app/service/config.service';
 import { PlayerDetailComponent } from 'src/app/component/player-detail.component';
 import { OverlayConfig, Layout, Theme } from 'src/app/models/config.model';
 import { EventDispatcher } from 'src/app/service/event.dispatcher';
-import { PlayerDetailPillsComponent } from 'src/app/component/layouts/player-detail-pills.component';
 import { PlayerDetailComponentPageModel } from './player-detail.component.pagemodel';
 import { TestPlayerData } from '../test.data';
 
@@ -80,7 +79,7 @@ describe('Player Detail', () => {
         describe('layout selection tests', () => {
             it('should pass number of players to config service', async () => {
                 targetViewModel.players = TestPlayerData;
-                spyOn(mockConfigService, "getCurrentLayout");
+                spyOn(mockConfigService, 'getCurrentLayout');
 
                 await pageModel.waitForUpdates();
 
@@ -89,7 +88,7 @@ describe('Player Detail', () => {
             });
 
             it('should show bars when layout is bars', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Bars);
                 
                 await pageModel.waitForUpdates();
@@ -105,7 +104,7 @@ describe('Player Detail', () => {
             });
 
             it('should show table when layout is table', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Table);
                 
                 await pageModel.waitForUpdates();
@@ -121,7 +120,7 @@ describe('Player Detail', () => {
             });
             
             it('should show pills when layout is pills', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Pills);
                 
                 await pageModel.waitForUpdates();
@@ -139,7 +138,7 @@ describe('Player Detail', () => {
 
         describe('theme tests', () => {
             it('should assign FFXIV theme class to bars', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Bars);
                 
                 targetViewModel.theme = Theme.FFXIV;
@@ -151,7 +150,7 @@ describe('Player Detail', () => {
             });
 
             it('should assign FFLogs theme class to bars', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Bars);
                 
                 targetViewModel.theme = Theme.FFLogs;
@@ -163,7 +162,7 @@ describe('Player Detail', () => {
             });
 
             it('should assign FFXIV theme class to table', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Table);
                 
                 targetViewModel.theme = Theme.FFXIV;
@@ -175,7 +174,7 @@ describe('Player Detail', () => {
             });
 
             it('should assign FFLogs theme class to bars', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Table);
                 
                 targetViewModel.theme = Theme.FFLogs;
@@ -187,7 +186,7 @@ describe('Player Detail', () => {
             });
 
             it('should assign FFXIV theme class to pills', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Pills);
                 
                 targetViewModel.theme = Theme.FFXIV;
@@ -199,7 +198,7 @@ describe('Player Detail', () => {
             });
 
             it('should assign FFLogs theme class to pills', async () => {
-                spyOn(mockConfigService, "getCurrentLayout")
+                spyOn(mockConfigService, 'getCurrentLayout')
                     .and.returnValue(Layout.Pills);
                 
                 targetViewModel.theme = Theme.FFLogs;

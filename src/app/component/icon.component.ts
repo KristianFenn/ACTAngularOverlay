@@ -10,7 +10,7 @@ export class IconComponent {
     @Input() iconSize: number;
 
     constructor() {
-        this.iconName = "Unknown";
+        this.iconName = 'Unknown';
         this.iconSize = 1;
     }
 

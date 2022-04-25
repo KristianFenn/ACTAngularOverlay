@@ -1,4 +1,4 @@
-import { IconComponent } from '../../app/component/icon.component'
+import { IconComponent } from '../../app/component/icon.component';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 
 describe('Icon Component', () => {
@@ -28,7 +28,7 @@ describe('Icon Component', () => {
         });
 
         it('should render the correct icon src', () => {
-            targetViewModel.iconName = "PLD";
+            targetViewModel.iconName = 'PLD';
             fixture.detectChanges();
 
             expect(imageNode.src)

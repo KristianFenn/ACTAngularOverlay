@@ -10,7 +10,7 @@ import version from '../../version.json';
     styleUrls: [ 'overlay-config.component.scss' ]
 })
 export class OverlayConfigComponent {
-    @Output() onCloseRequested: EventEmitter<any> = new EventEmitter();
+    @Output() closeRequested: EventEmitter<void> = new EventEmitter();
 
     config: OverlayConfig;
     configService: IConfigService;
@@ -73,6 +73,6 @@ export class OverlayConfigComponent {
         this.config.allianceLayout = this.allianceLayout;
         this.config.autohide = this.autohide;
         this.configService.setConfig(this.config);
-        this.onCloseRequested.emit();
+        this.closeRequested.emit();
     }
 }

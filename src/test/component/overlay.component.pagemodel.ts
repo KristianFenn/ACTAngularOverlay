@@ -1,24 +1,28 @@
-import { BasePageModel } from './base.pagemodel';
+import { BasePageModel, TestSelectors } from './base.pagemodel';
 import { OverlayComponent } from 'src/app/component/overlay.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { ActUpdateEvent, ActUpdate } from 'src/app/models/update.model';
 
-const TestIds = {
-    overlayContainer: 'overlay-container',
-    loadAlliance: 'overlay-load-alliance',
-    loadParty: 'overlay-load-party',
-    toggleOptions: 'overlay-toggle-options',
-    hideOverlay: 'overlay-hide-overlay',
-    headerDuration: 'overlay-header-duration',
-    header: 'overlay-header',
-    headerDps: 'overlay-header-dps',
-    headerArea: 'overlay-header-area',
-    playerTable: 'overlay-player-table',
-    noDataMessage: 'overlay-no-data',
-    playerDetailComponent: 'overlay-player-detail',
-    overlayConfigComponent: 'overlay-overlay-config',
-    overlayHidden: 'overlay-hidden',
-    showOverlay: 'overlay-show-overlay'
+const Selectors: TestSelectors = {
+    TestId: {
+        overlayContainer: 'overlay-container',
+        loadAlliance: 'overlay-load-alliance',
+        loadParty: 'overlay-load-party',
+        toggleOptions: 'overlay-toggle-options',
+        hideOverlay: 'overlay-hide-overlay',
+        headerDuration: 'overlay-header-duration',
+        header: 'overlay-header',
+        headerDps: 'overlay-header-dps',
+        headerArea: 'overlay-header-area',
+        playerTable: 'overlay-player-table',
+        noDataMessage: 'overlay-no-data',
+        playerDetailComponent: 'overlay-player-detail',
+        overlayConfigComponent: 'overlay-overlay-config',
+        overlayHidden: 'overlay-hidden',
+        showOverlay: 'overlay-show-overlay'
+    },
+    TestClass: {
+    }
 };
 
 export class OverlayComponentPageModel extends BasePageModel<OverlayComponent> {
@@ -27,56 +31,56 @@ export class OverlayComponentPageModel extends BasePageModel<OverlayComponent> {
     }
 
     testButtonsVisible(): boolean {
-        return this.elementVisible(TestIds.loadAlliance)
-            || this.elementVisible(TestIds.loadParty);
+        return this.elementVisible(Selectors.TestId.loadAlliance)
+            || this.elementVisible(Selectors.TestId.loadParty);
     }
 
     clickTestAlliance(): void {
-        this.clickElementByTestId(TestIds.loadAlliance);
+        this.clickElementByTestId(Selectors.TestId.loadAlliance);
     }
 
     clickTestParty() {
-        this.clickElementByTestId(TestIds.loadParty);
+        this.clickElementByTestId(Selectors.TestId.loadParty);
     }
 
     clickToggleOptions() {
-        this.clickElementByTestId(TestIds.toggleOptions);
+        this.clickElementByTestId(Selectors.TestId.toggleOptions);
     }
 
     overlayConfigVisible() {
-        return this.elementVisible(TestIds.overlayConfigComponent);
+        return this.elementVisible(Selectors.TestId.overlayConfigComponent);
     }
 
     playerTableVisible() {
-        return this.elementVisible(TestIds.playerTable);
+        return this.elementVisible(Selectors.TestId.playerTable);
     }
 
     overlayContainerVisible() {
-        return this.elementVisible(TestIds.overlayContainer);
+        return this.elementVisible(Selectors.TestId.overlayContainer);
     }
 
     overlayHiddenVisible() {
-        return this.elementVisible(TestIds.overlayHidden);
+        return this.elementVisible(Selectors.TestId.overlayHidden);
     }
 
     clickHideOverlay() {
-        this.clickElementByTestId(TestIds.hideOverlay);
+        this.clickElementByTestId(Selectors.TestId.hideOverlay);
     }
 
     clickShowOverlay() {
-        this.clickElementByTestId(TestIds.showOverlay);
+        this.clickElementByTestId(Selectors.TestId.showOverlay);
     }
 
     noDataMessageVisible() {
-        return this.elementVisible(TestIds.noDataMessage);
+        return this.elementVisible(Selectors.TestId.noDataMessage);
     }
 
     playerDetailVisible() {
-        return this.elementVisible(TestIds.playerDetailComponent);
+        return this.elementVisible(Selectors.TestId.playerDetailComponent);
     }
 
     headerVisible() {
-        return this.elementVisible(TestIds.header);
+        return this.elementVisible(Selectors.TestId.header);
     }
 
     fireEncounterUpdateEvent(update: ActUpdate) {
@@ -86,14 +90,14 @@ export class OverlayComponentPageModel extends BasePageModel<OverlayComponent> {
     }
 
     getDurationHeaderText(): string {
-        return this.getElementTextByTestId(TestIds.headerDuration);
+        return this.getElementTextByTestId(Selectors.TestId.headerDuration);
     }
 
     getAreaHeaderText(): string {
-        return this.getElementTextByTestId(TestIds.headerArea);
+        return this.getElementTextByTestId(Selectors.TestId.headerArea);
     }
     
     getDpsHeaderText(): string {
-        return this.getElementTextByTestId(TestIds.headerDps);
+        return this.getElementTextByTestId(Selectors.TestId.headerDps);
     }
 }

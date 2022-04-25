@@ -1,7 +1,15 @@
 import { ComponentFixture } from '@angular/core/testing';
-import { Via } from '../Via';
 import { DebugElement } from '@angular/core';
-import { HttpBackend } from '@angular/common/http';
+import { Via } from '../Via';
+
+export interface TestSelectors {
+    TestClass: {
+        [name: string]: string
+    },
+    TestId: {
+        [name: string]: string
+    }
+}
 
 export class BasePageModel<T> {
     protected _fixture: ComponentFixture<T>;

@@ -1,4 +1,4 @@
-import { BasePageModel } from '../base.pagemodel'
+import { BasePageModel } from '../base.pagemodel';
 import { ComponentFixture } from '@angular/core/testing';
 import { PlayerDetailBarsComponent } from 'src/app/component/layouts/player-detail-bars.component';
 import { DebugElement } from '@angular/core';
@@ -18,7 +18,7 @@ const Selectors = {
         playerDeaths: 'player-bar-deaths',
         playerCrits: 'player-bar-crits'
     }
-}
+};
 
 export class PlayerDetailBarsComponentPageModel extends BasePageModel<PlayerDetailBarsComponent> {
     constructor(fixture: ComponentFixture<PlayerDetailBarsComponent>) {
@@ -31,7 +31,7 @@ export class PlayerDetailBarsComponentPageModel extends BasePageModel<PlayerDeta
 
     getBarAtIndex(index: number): PlayerDetailBarsBarPageModel {
         if (index >= this.getPlayerBarCount()) {
-            throw `Index out of range`;
+            throw 'Index out of range';
         }
 
         const bars = this.getElementsByTestClass(Selectors.TestClass.playerBar)

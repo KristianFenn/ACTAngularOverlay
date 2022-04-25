@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { EventDispatcher } from "./event.dispatcher";
-import { IConfigService } from "./config.service";
-import { OverlayConfig } from "../models/config.model";
+import { EventDispatcher } from './event.dispatcher';
+import { IConfigService } from './config.service';
+import { OverlayConfig } from '../models/config.model';
 
 export abstract class IAutoHideService {
     abstract onShouldShowChanged: EventDispatcher<boolean>;
@@ -24,7 +24,7 @@ export class AutoHideService extends IAutoHideService {
         this.autohideDelay = 0;
         this.timeoutHandle = null;
 
-        let config = configService.getConfiguration();
+        const config = configService.getConfiguration();
         this.configureAutohide(config);
         
         configService.onConfigChanged.subscribe(config => {

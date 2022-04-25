@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IConfigService } from 'src/app/service/config.service';
-import { LayoutBase } from './layout.base';
 import { Player } from 'src/app/models/player.model';
+import { LayoutBase } from './layout.base';
 
 @Component({
     selector: 'player-detail-pills',

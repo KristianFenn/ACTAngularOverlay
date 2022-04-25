@@ -19,11 +19,11 @@ export class PlayerDetailTableComponent extends LayoutBase {
         this.players = [];
 
         this.tableFields = [
-            new PlayerTableField(10, "DPS", (p) => p.dps, this.mainPlayerFn),
-            new PlayerTableField(10, "Class", (p) => p.class, () => "", true),
-            new PlayerTableField(30, "Player", (p) => p.name, this.mainPlayerFn),
-            new PlayerTableField(40, "Highest Hit", (p) => p.maxhit, () => ""),
-            new PlayerTableField(10, "Death", (p) => p.deaths, (p) => this.redTextFn(p.deaths))
+            new PlayerTableField(10, 'DPS', (p) => p.dps, this.mainPlayerFn),
+            new PlayerTableField(10, 'Class', (p) => p.class, () => '', true),
+            new PlayerTableField(30, 'Player', (p) => p.name, this.mainPlayerFn),
+            new PlayerTableField(40, 'Highest Hit', (p) => p.maxhit, () => ''),
+            new PlayerTableField(10, 'Death', (p) => p.deaths, (p) => this.redTextFn(p.deaths))
         ];
     }
 

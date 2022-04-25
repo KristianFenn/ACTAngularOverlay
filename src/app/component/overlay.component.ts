@@ -48,7 +48,7 @@ export class OverlayComponent {
     this.testMode = false;
 
     const config = configService.getConfiguration();
-    this.fontSize = config.fontSize
+    this.fontSize = config.fontSize;
 
     if (config.test) {
       this.testMode = true;
@@ -85,7 +85,7 @@ export class OverlayComponent {
   }
 
   getDpsFormatted() {
-    return this.encounter.dps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return this.encounter.dps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   private loadTestData(dataSet: string) {
