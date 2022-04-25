@@ -15,8 +15,7 @@
                 <div class="player-class-icon">
                     <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="1.2"></icon>
                 </div>
-                <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">
-                    {{ field.getValue(player) }}</p>
+                <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">{{ field.getValue(player) }}</p>
             </div>
         </div>
     </div>

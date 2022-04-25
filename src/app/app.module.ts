@@ -12,6 +12,7 @@ import { IAutoHideService, AutoHideService } from './service/autohide.service';
 import { PlayerDetailBarsComponent } from './component/layouts/player-detail-bars.component';
 import { PlayerDetailTableComponent } from './component/layouts/player-detail-table.component';
 import { PlayerDetailPillsComponent } from './component/layouts/player-detail-pills.component';
+import { AbbreviateNumberPipe } from './pipes/abbreviate-number.pipe';
 
 @NgModule({
   imports:      [ 
@@ -26,7 +27,8 @@ import { PlayerDetailPillsComponent } from './component/layouts/player-detail-pi
     OverlayConfigComponent,
     PlayerDetailBarsComponent,
     PlayerDetailTableComponent,
-    PlayerDetailPillsComponent
+    PlayerDetailPillsComponent,
+    AbbreviateNumberPipe
   ],
   bootstrap:    [ 
     OverlayComponent 
@@ -34,7 +36,8 @@ import { PlayerDetailPillsComponent } from './component/layouts/player-detail-pi
   providers:    [ 
     { provide: IUpdater, useClass: Updater },
     { provide: IConfigService, useClass: ConfigService },
-    { provide: IAutoHideService, useClass: AutoHideService }
+    { provide: IAutoHideService, useClass: AutoHideService },
+    AbbreviateNumberPipe
   ]
 })
 export default class AppModule { }

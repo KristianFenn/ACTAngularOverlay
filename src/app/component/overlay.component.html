@@ -1,28 +1,30 @@
-<div class="overlay-container" *ngIf="showOverlay" [style.font-size.px]="fontSize" data-test-id="overlay-container">
-    <div class="overlay-header-container">
-        <div class="overlay-header-group" *ngIf="encounter.players.length" data-test-id="overlay-header">
-            <span class="overlay-header" data-test-id="overlay-header-duration"><span class="overlay-header-label">Duration:</span>{{encounter.duration}}</span>
-            <span class="overlay-header" data-test-id="overlay-header-dps"><span class="overlay-header-label">Total DPS:</span>{{getDpsFormatted()}}</span>
-            <span class="overlay-header" data-test-id="overlay-header-area"><span class="overlay-header-label">Area:</span>{{encounter.area}}</span>
+<div class="overlay-container" *ngIf="showOverlay">
+    <div class="overlay-background" [style.font-size.px]="fontSize" data-test-id="overlay-container">
+        <div class="overlay-header-container">
+            <div class="overlay-header-group" *ngIf="encounter.players.length" data-test-id="overlay-header">
+                <span class="overlay-header" data-test-id="overlay-header-duration"><span class="overlay-header-label">Duration:</span>{{encounter.duration}}</span>
+                <span class="overlay-header" data-test-id="overlay-header-dps"><span class="overlay-header-label">Total DPS:</span>{{encounter.dps | number}}</span>
+                <span class="overlay-header" data-test-id="overlay-header-area"><span class="overlay-header-label">Area:</span>{{encounter.area}}</span>
+            </div>
+            <div class="overlay-header-group-right">
+                <a (click)="loadAlliance()" *ngIf="testMode" data-test-id="overlay-load-alliance">[ Test-A ]</a>
+                <a (click)="loadParty()" *ngIf="testMode" data-test-id="overlay-load-party">[ Test-P ]</a>
+                <a (click)="toggleOptions()" data-test-id="overlay-toggle-options">[ ⚙ ]</a>
+                <a (click)="toggleHide()" data-test-id="overlay-hide-overlay">[ - ]</a>
+            </div>
         </div>
-        <div class="overlay-header-group-right">
-            <a (click)="loadAlliance()" *ngIf="testMode" data-test-id="overlay-load-alliance">[ Test-A ]</a>
-            <a (click)="loadParty()" *ngIf="testMode" data-test-id="overlay-load-party">[ Test-P ]</a>
-            <a (click)="toggleOptions()" data-test-id="overlay-toggle-options">[ ⚙ ]</a>
-            <a (click)="toggleHide()" data-test-id="overlay-hide-overlay">[ - ]</a>
+        <hr />
+        <div *ngIf="!showOptions" class="player-table-container" data-test-id="overlay-player-table">
+            <div *ngIf="!encounter.players.length">
+                <p data-test-id="overlay-no-data">No data to show.</p>
+            </div>
+            <div *ngIf="encounter.players.length">
+                <player-detail [players]="encounter.players" data-test-id="overlay-player-detail"></player-detail>
+            </div>
         </div>
-    </div>
-    <hr />
-    <div *ngIf="!showOptions" class="player-table-container" data-test-id="overlay-player-table">
-        <div *ngIf="!encounter.players.length">
-            <p data-test-id="overlay-no-data">No data to show.</p>
+        <div *ngIf="showOptions">
+            <overlay-config (closeRequested)="toggleOptions()" data-test-id="overlay-overlay-config"></overlay-config>
         </div>
-        <div *ngIf="encounter.players.length">
-            <player-detail [players]="encounter.players" data-test-id="overlay-player-detail"></player-detail>
-        </div>
-    </div>
-    <div *ngIf="showOptions">
-        <overlay-config (closeRequested)="toggleOptions()" data-test-id="overlay-overlay-config"></overlay-config>
     </div>
 </div>
 

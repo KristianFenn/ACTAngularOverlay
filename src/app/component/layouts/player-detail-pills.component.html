@@ -15,7 +15,7 @@
                     <p [ngClass]="{ 'main-player': isMainPlayer(player) }">{{ player.name }}</p>
                 </div>
                 <div class="ellipsis-overflow">
-                    <p>{{ player.maxhit || 'N/A' }}</p>
+                    <p>{{ player.maxHitAmount | abbreviateNumber }} - {{ player.maxHitName }}</p>
                 </div>
             </div>
         </div>

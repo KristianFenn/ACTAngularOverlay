@@ -84,10 +84,6 @@ export class OverlayComponent {
     this.loadTestData('party');
   }
 
-  getDpsFormatted() {
-    return this.encounter.dps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-
   private loadTestData(dataSet: string) {
     this.httpClient.get<ActUpdate>(`/assets/test/${dataSet}.json`).subscribe((data: ActUpdate) => {
       this.updater.updateEncounter(data, this.encounter);

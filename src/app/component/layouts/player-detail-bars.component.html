@@ -16,14 +16,14 @@
                     <p class="player-table-text" [ngClass]="{ 'main-player': isMainPlayer(player) }" data-test-id="player-bar-name">{{ player.name }}</p>
                 </div>
                 <div class="player-detail-row">
-                    <p class="player-table-text" data-test-id="player-bar-maxhit">{{ player.maxhit || 'N/A' }}</p>
+                    <p class="player-table-text" data-test-id="player-bar-maxhit">{{ player.maxHitAmount | abbreviateNumber }} - {{ player.maxHitName }}</p>
                 </div>
             </div>
 
             <div class="flex-15">
                 <div class="player-icon-row">
                     <icon iconName="DPS" [iconSize]="1"></icon>
-                    <p class="player-table-text" data-test-id="player-bar-totaldamage">{{ player.damageFormatted }}</p>
+                    <p class="player-table-text" data-test-id="player-bar-totaldamage">{{ player.damage | number }}</p>
                 </div>
                 <div class="player-icon-row">
                     <icon iconName="heal" [iconSize]="1"></icon>

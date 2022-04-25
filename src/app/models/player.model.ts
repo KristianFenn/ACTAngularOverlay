@@ -6,25 +6,20 @@ export class Player {
     class: string;
     dps: number;
     damage: number;
-    damageFormatted: string;
     deaths: number;
-    misses: number;
     critPercent: string;
-    maxhit: string;
-    maxhitamount: string;
+    maxHitName: string;
+    maxHitAmount: number;
     dpsPercent: number;
     hps: number;
     overhealPercent: string;
-    rank: number;
     directHitPercent: string;
     critDirectHitPercent: string;
 
     constructor(data: ActUpdateCombatant) {
         this.name = data.name;
         this.class = (data.Job.toUpperCase() || data.name.toUpperCase()).replace(' ', '_');
-        this.maxhitamount = '';
         this.dpsPercent = 0;
-        this.rank = 0;
         
         // is this a pet?
         if (this.name.includes('(')) {
@@ -39,16 +34,22 @@ export class Player {
             }
         }
 
-        const parsePerSecond = (v: string) => v !== '∞' ? parseInt(v) : 0;
-        this.dps = parsePerSecond(data.ENCDPS);
+        // Damage
+        const parsePossibleInf = (v: string) => v !== '∞' ? parseInt(v) : 0;
+        this.dps = parsePossibleInf(data.ENCDPS);
         this.damage = data.damage;
-        this.damageFormatted = this.damage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        this.critPercent = data['crithit%'];
+        
+        const maxhitSplit = data.maxhit.split('-');
+        this.maxHitName = maxhitSplit[0];
+        this.maxHitAmount = parseInt(maxhitSplit[1]);
         this.deaths = data.deaths;
-        this.maxhit = `${data['MAXHIT-*']} - ${data.maxhit.split('-')[0]}`;
-        this.misses = data.misses;
-        this.hps = parsePerSecond(data.ENCHPS);
+
+        // Healing
+        this.hps = parsePossibleInf(data.ENCHPS);
         this.overhealPercent = data.OverHealPct;
+
+        // Crits
+        this.critPercent = data['crithit%'];
         this.critDirectHitPercent = data.CritDirectHitPct;
         this.directHitPercent = data.DirectHitPct;
 

@@ -55,9 +55,7 @@ describe('Overlay', () => {
             Encounter: {
                 CurrentZoneName: 'Test Zone',
                 ENCDPS: 20000,
-                damage: '200000',
-                duration: '00:10',
-                maxhit: 'Woah - 35k'
+                duration: '00:10'
             },
             isActive: 'true'
         };
@@ -335,7 +333,8 @@ describe('Overlay', () => {
                 maxhit: 'Woah - 35k',
                 players: [{ 
                         name: 'Dude McFace', 
-                        maxhit: 'Woah - 35k', 
+                        maxHitName: 'Woah', 
+                        maxHitAmount: 35000,
                         dps: 20000, 
                         damage: 2000000, 
                         class: 'PLD',
@@ -344,12 +343,8 @@ describe('Overlay', () => {
                         directHitPercent: '30',
                         deaths: 0,
                         dpsPercent: 100,
-                        damageFormatted: '2,000,000',
                         hps: 0,
-                        maxhitamount: '35k',
-                        misses: 0,
-                        overhealPercent: '0',
-                        rank: 1
+                        overhealPercent: '0'
                     }
                 ]
             };

@@ -11,9 +11,7 @@ export interface ActUpdate {
 export interface ActUpdateEncounter {
     CurrentZoneName: string;
     duration: string;
-    damage: string;
     ENCDPS: number;
-    maxhit: string;
 }
 
 export interface ActUpdateCombatant {
@@ -24,8 +22,6 @@ export interface ActUpdateCombatant {
     'crithit%': string;
     deaths: number;
     maxhit: string;
-    'MAXHIT-*': string;
-    misses: number;
     ENCHPS: string;
     OverHealPct: string;
     CritDirectHitPct: string;

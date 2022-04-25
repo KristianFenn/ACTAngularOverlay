@@ -7,6 +7,7 @@ import { IConfigService } from 'src/app/service/config.service';
 import { EventDispatcher } from 'src/app/service/event.dispatcher';
 import { OverlayConfig, Layout, Theme } from 'src/app/models/config.model';
 import { TestPlayerData } from 'src/test/test.data';
+import { AbbreviateNumberPipe } from 'src/app/pipes/abbreviate-number.pipe';
 
 describe('Bars Layout', () => {
     let targetViewModel: PlayerDetailBarsComponent;
@@ -41,7 +42,8 @@ describe('Bars Layout', () => {
                 NO_ERRORS_SCHEMA
             ],
             declarations: [
-                PlayerDetailBarsComponent
+                PlayerDetailBarsComponent,
+                AbbreviateNumberPipe
             ]
         });
 

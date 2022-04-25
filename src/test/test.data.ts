@@ -8,16 +8,13 @@ export const TestPlayerData: Player[] = [
         critPercent: '50%',
         directHitPercent: '45%',
         damage: 25000,
-        damageFormatted: '25,000',
         deaths: 1,
         dps: 2500,
         dpsPercent: 100,
         hps: 50,
-        maxhit: '25k - Woah',
-        maxhitamount: '25k',
-        misses: 0,
-        overhealPercent: '0%',
-        rank: 1
+        maxHitName: 'Woah',
+        maxHitAmount: 25000,
+        overhealPercent: '0%'
     },
     {
         name: 'Paladin Paladin',
@@ -26,16 +23,13 @@ export const TestPlayerData: Player[] = [
         critPercent: '30%',
         directHitPercent: '35%',
         damage: 20000,
-        damageFormatted: '20,000',
         deaths: 0,
         dps: 2000,
         dpsPercent: 80,
         hps: 200,
-        maxhit: '15k - Sword',
-        maxhitamount: '15k',
-        misses: 0,
-        overhealPercent: '15%',
-        rank: 2
+        maxHitName: 'Sword',
+        maxHitAmount: 15000,
+        overhealPercent: '15%'
     },
     {
         name: 'Scholar Scholar',
@@ -44,15 +38,12 @@ export const TestPlayerData: Player[] = [
         critPercent: '35%',
         directHitPercent: '15%',
         damage: 15000,
-        damageFormatted: '15,000',
         deaths: 2,
         dps: 1500,
         dpsPercent: 60,
         hps: 1200,
-        maxhit: '10k - Book',
-        maxhitamount: '10k',
-        misses: 0,
-        overhealPercent: '30%',
-        rank: 3
+        maxHitName: 'Book',
+        maxHitAmount: 10000,
+        overhealPercent: '30%'
     }
 ];
