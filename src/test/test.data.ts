@@ -32,8 +32,8 @@ export const TestPlayerData: Player[] = [
         overhealPercent: '15%'
     },
     {
-        name: 'Scholar Scholar',
-        class: 'SCH',
+        name: 'Sage Sage',
+        class: 'SGE',
         critDirectHitPercent: '10%',
         critPercent: '35%',
         directHitPercent: '15%',
@@ -42,7 +42,7 @@ export const TestPlayerData: Player[] = [
         dps: 1500,
         dpsPercent: 60,
         hps: 1200,
-        maxHitName: 'Book',
+        maxHitName: 'Laser',
         maxHitAmount: 10000,
         overhealPercent: '30%'
     }

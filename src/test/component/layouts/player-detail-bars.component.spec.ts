@@ -192,9 +192,9 @@ describe('Bars Layout', () => {
             playerPageModel = pageModel.getBarAtIndex(2);
         });
 
-        it('should be Scholar Scholar', () => {
+        it('should be Sage Sage', () => {
             expect(playerPageModel.getPlayerName())
-                .toBe('Scholar Scholar');
+                .toBe('Sage Sage');
 
             expect(playerPageModel.nameHasMainPlayerClass())
                 .toBeFalse();
@@ -215,12 +215,12 @@ describe('Bars Layout', () => {
 
         it('should have correct icon', () => {
             expect(playerPageModel.getIconName())
-                .toBe('SCH');
+                .toBe('SGE');
         });
         
         it('should have correct maxhit', () => {
             expect(playerPageModel.getMaxHit())
-                .toBe('10k - Book');
+                .toBe('10k - Laser');
         });
 
         it('should have correct damage', () => {

@@ -22,7 +22,7 @@ export const AllClasses = [
     'GNB',
     'CNJ',
     'WHM',
-    'SCH',
+    'SGE',
     'AST',
     'SGE',
     'PGL',

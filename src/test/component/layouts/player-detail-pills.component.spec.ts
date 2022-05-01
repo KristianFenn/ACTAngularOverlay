@@ -141,9 +141,9 @@ describe('Player Table', () => {
             playerPageModel = pageModel.getPlayers()[2];
         });
 
-        it('should be Scholar Scholar', () => {
+        it('should be Sage Sage', () => {
             expect(playerPageModel.getPlayerName())
-                .toBe('Scholar Scholar');
+                .toBe('Sage Sage');
         });
 
         it('should have correct DPS', () => {
@@ -153,12 +153,12 @@ describe('Player Table', () => {
 
         it('should have correct icon name', () => {
             expect(playerPageModel.getPlayerIconName())
-                .toBe('SCH');
+                .toBe('SGE');
         });
 
         it('should have correct maxhit', () => {
             expect(playerPageModel.getPlayerMaxHit())
-                .toBe('10k - Book');
+                .toBe('10k - Laser');
         });
 
         it('should not be main player', () => {

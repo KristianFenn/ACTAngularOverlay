@@ -219,10 +219,10 @@ describe('Player Table', () => {
                 playerPageModel = players[2];
             });
 
-            it('should be Scholar Scholar', () => {
+            it('should be Sage Sage', () => {
                 const fields = playerPageModel.getPlayerFields();
                 expect(fields[2].getFieldText())
-                    .toBe('Scholar Scholar');
+                    .toBe('Sage Sage');
             });
 
             it('should have correct DPS', () => {
@@ -234,13 +234,13 @@ describe('Player Table', () => {
             it('should have correct Icon', () => {
                 const fields = playerPageModel.getPlayerFields();
                 expect(fields[1].getFieldIconName())
-                    .toBe('SCH');
+                    .toBe('SGE');
             });
 
             it('should have correct maxhit', () => {
                 const fields = playerPageModel.getPlayerFields();
                 expect(fields[3].getFieldText())
-                    .toBe('10k - Book');
+                    .toBe('10k - Laser');
             });
 
             it('should have correct deaths', () => {
