@@ -1,8 +1,8 @@
 import { Player } from './player.model';
 
 export class PlayerTableField {
-    protected cssClass: (value: Player) => string;
-    protected isIcon: boolean;
+    cssClass: (value: Player) => string;
+    isIcon: boolean;
     width: number;
     fieldTitle: string;
     valueFn: (player: Player) => string;
