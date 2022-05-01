@@ -14,7 +14,7 @@ const Selectors: TestSelectors = {
     TestClass: {
         player: 'player-pills-player',
     }
-}
+};
 
 export class PlayerDetailPillsComponentPageModel extends BasePageModel<PlayerDetailPillsComponent> {
     constructor(fixture: ComponentFixture<PlayerDetailPillsComponent>) {
