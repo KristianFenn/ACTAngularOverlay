@@ -136,6 +136,20 @@ describe('Player Table', () => {
                 expect(fields[4].fieldHasTextRedClass())
                     .toBeTrue();
             });
+
+            it('should have correct background width', () => {
+                expect(playerPageModel.getPlayerBackgroundWidth())
+                    .toBe('100%');
+            });
+
+            it('should not have main player classes', () => {
+                const fields = playerPageModel.getPlayerFields();
+                expect(fields[0].fieldHasMainPlayerClass())
+                    .toBeFalse();
+
+                expect(fields[2].fieldHasMainPlayerClass())
+                    .toBeFalse();
+            });
         });
 
         describe('second combatant', () => {
@@ -181,6 +195,20 @@ describe('Player Table', () => {
                 expect(fields[4].fieldHasTextRedClass())
                     .toBeFalse();
             });
+
+            it('should have correct background width', () => {
+                expect(playerPageModel.getPlayerBackgroundWidth())
+                    .toBe('80%');
+            });
+
+            it('should have main player classes', () => {
+                const fields = playerPageModel.getPlayerFields();
+                expect(fields[0].fieldHasMainPlayerClass())
+                    .toBeTrue();
+
+                expect(fields[2].fieldHasMainPlayerClass())
+                    .toBeTrue();
+            });
         });
 
         describe('third combatant', () => {
@@ -225,6 +253,20 @@ describe('Player Table', () => {
                 const fields = playerPageModel.getPlayerFields();
                 expect(fields[4].fieldHasTextRedClass())
                     .toBeTrue();
+            });
+
+            it('should have correct background width', () => {
+                expect(playerPageModel.getPlayerBackgroundWidth())
+                    .toBe('60%');
+            });
+
+            it('should not have main player classes', () => {
+                const fields = playerPageModel.getPlayerFields();
+                expect(fields[0].fieldHasMainPlayerClass())
+                    .toBeFalse();
+
+                expect(fields[2].fieldHasMainPlayerClass())
+                    .toBeFalse();
             });
         });
     });

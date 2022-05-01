@@ -3,7 +3,6 @@ import { ComponentFixture } from '@angular/core/testing';
 import { BasePageModel, TestSelectors } from '../base.pagemodel';
 
 import { PlayerDetailTableComponent } from 'src/app/component/layouts/player-detail-table.component';
-import { Via } from 'src/test/Via';
 
 const Selectors: TestSelectors = {
     TestId: {
@@ -43,6 +42,17 @@ export class PlayerDetailTablePlayerPageModel extends BasePageModel<PlayerDetail
         return this.getElementsByTestClass(Selectors.TestClass.playerField)
             .map(ele => new PlayerDetailTablePlayerFieldPageModel(this._fixture, ele));
     }
+
+    getPlayerBackgroundWidth(): string {
+        const backgroundElement = this.getElementByTestId(Selectors.TestId.playerBackground);
+        const width = backgroundElement.styles['width'];
+
+        if (!width) {
+            throw `Background for ${this.getPlayerFields()[2].getFieldText()} does not have width`;
+        }
+
+        return width;
+    }
 }
 
 export class PlayerDetailTablePlayerFieldPageModel extends BasePageModel<PlayerDetailTableComponent> {
@@ -61,5 +71,9 @@ export class PlayerDetailTablePlayerFieldPageModel extends BasePageModel<PlayerD
 
     fieldHasTextRedClass(): boolean {
         return this.elementHasClassByTestId(Selectors.TestId.playerFieldText, 'text-red');
+    }
+
+    fieldHasMainPlayerClass(): boolean {
+        return this.elementHasClassByTestId(Selectors.TestId.playerFieldText, 'main-player');
     }
 }
