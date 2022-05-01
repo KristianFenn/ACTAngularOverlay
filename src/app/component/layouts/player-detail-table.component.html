@@ -1,21 +1,20 @@
 <div class="player-table">
     <div class="player-table-header">
-        <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-header-field">
-            {{ field.fieldTitle }}
-        </div>
+        <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" 
+            class="player-table-header-field" data-test-class="player-table-header-title">{{ field.fieldTitle }}</div>
     </div>
 
-    <div class="player" *ngFor="let player of players" [ngClass]="player.class">
+    <div class="player" *ngFor="let player of players" [ngClass]="player.class" data-test-class="player-table-player">
         <div class="player-background">
-            <div class="player-background-solid" [style.width]="player.dpsPercent + '%'"></div>
+            <div class="player-background-solid" [style.width]="player.dpsPercent + '%'" data-test-id="player-table-player-background"></div>
             <div class="player-background-fade"></div>
         </div>
         <div class="player-foreground">
-            <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-field">
-                <div class="player-class-icon">
-                    <icon *ngIf="field.isIcon" [iconName]="player.class" [iconSize]="1.2"></icon>
+            <div *ngFor="let field of tableFields" [style.flex-grow]="field.width" class="player-table-field" data-test-class="player-table-player-field">
+                <div class="player-class-icon" *ngIf="field.isIcon">
+                    <icon [iconName]="player.class" [iconSize]="1.2" data-test-id="player-table-player-field-icon"></icon>
                 </div>
-                <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text">{{ field.getValue(player) }}</p>
+                <p *ngIf="!field.isIcon" [ngClass]="field.getClass(player)" class="player-table-text" data-test-id="player-table-player-field-text">{{ field.getValue(player) }}</p>
             </div>
         </div>
     </div>

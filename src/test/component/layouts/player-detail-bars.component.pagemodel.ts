@@ -1,9 +1,9 @@
-import { BasePageModel } from '../base.pagemodel';
 import { ComponentFixture } from '@angular/core/testing';
-import { PlayerDetailBarsComponent } from 'src/app/component/layouts/player-detail-bars.component';
 import { DebugElement } from '@angular/core';
+import { BasePageModel, TestSelectors } from '../base.pagemodel';
+import { PlayerDetailBarsComponent } from 'src/app/component/layouts/player-detail-bars.component';
 
-const Selectors = {
+const Selectors: TestSelectors = {
     TestClass: {
         playerBar: 'player-bar'
     },

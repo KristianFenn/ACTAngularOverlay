@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { LayoutBase } from './layout.base';
 import { IConfigService } from 'src/app/service/config.service';
-import { PlayerTableField } from 'src/app/models/player-table.model';
+import { PlayerTableField, MainPlayerTableField, IconPlayerTableField, DeathsPlayerTableField } from 'src/app/models/player-table.model';
 import { Player } from 'src/app/models/player.model';
 import { AbbreviateNumberPipe } from 'src/app/pipes/abbreviate-number.pipe';
 
@@ -19,16 +19,12 @@ export class PlayerDetailTableComponent extends LayoutBase {
 
         this.players = [];
         
-        const formatMaxHitFn = (p: Player) => `${abbreviateNumber.transform(p.maxHitAmount)} - ${p.maxHitName}`;
-        const mainPlayerFn = (p: Player) => this.isMainPlayer(p)  ? 'main-player' : '';
-        const redTextFn = (v: number) => v > 0 ? 'text-red' : '';
-
         this.tableFields = [
-            new PlayerTableField(10, 'DPS', (p) => p.dps, mainPlayerFn),
-            new PlayerTableField(10, 'Class', (p) => p.class, () => '', true),
-            new PlayerTableField(30, 'Player', (p) => p.name, mainPlayerFn),
-            new PlayerTableField(40, 'Highest Hit', formatMaxHitFn, () => ''),
-            new PlayerTableField(10, 'Death', (p) => p.deaths, (p) => redTextFn(p.deaths))
+            new MainPlayerTableField(10, 'DPS', p => p.dps.toString(), this.mainPlayerName),
+            new IconPlayerTableField(10, 'Class', p => p.class),
+            new MainPlayerTableField(30, 'Player', p => p.name, this.mainPlayerName),
+            new PlayerTableField(40, 'Max Hit', p => `${abbreviateNumber.transform(p.maxHitAmount)} - ${p.maxHitName}`),
+            new DeathsPlayerTableField(10, 'Deaths')
         ];
     }
 }

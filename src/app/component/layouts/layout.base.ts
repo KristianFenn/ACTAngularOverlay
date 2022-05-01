@@ -2,7 +2,7 @@ import { IConfigService } from 'src/app/service/config.service';
 import { Player } from 'src/app/models/player.model';
 
 export class LayoutBase {
-    private mainPlayerName: string;
+    protected mainPlayerName: string;
 
     constructor(configService: IConfigService) {
         const config = configService.getConfiguration();
