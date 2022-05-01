@@ -1,5 +1,5 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and lint the code
-name: Build & Lint
+# This workflow will do a clean installation of node dependencies, cache/restore them, build and lint the source code and run the tests
+name: overlay-ci
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build Tests
@@ -20,3 +20,4 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm run build
+    - run: npm test
