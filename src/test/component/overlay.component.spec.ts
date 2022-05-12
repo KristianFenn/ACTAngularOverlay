@@ -349,15 +349,6 @@ describe('Overlay', () => {
                 ]
             };
 
-            it('should call updater when ACT update event triggers', () => {
-                spyOn(mockUpdater, 'updateEncounter');
-
-                pageModel.fireEncounterUpdateEvent(mockUpdate);
-
-                expect(mockUpdater.updateEncounter)
-                    .toHaveBeenCalledOnceWith(mockUpdate, targetViewModel.encounter);
-            });
-
             it('should show no header and no data message when no data', () => {
                 expect(pageModel.headerVisible())
                     .toBeFalse();

@@ -1,7 +1,6 @@
 import { BasePageModel, TestSelectors } from './base.pagemodel';
 import { OverlayComponent } from 'src/app/component/overlay.component';
 import { ComponentFixture } from '@angular/core/testing';
-import { ActUpdateEvent, ActUpdate } from 'src/app/models/update.model';
 
 const Selectors: TestSelectors = {
     TestId: {
@@ -81,12 +80,6 @@ export class OverlayComponentPageModel extends BasePageModel<OverlayComponent> {
 
     headerVisible() {
         return this.elementVisible(Selectors.TestId.header);
-    }
-
-    fireEncounterUpdateEvent(update: ActUpdate) {
-        const event = new Event('onOverlayDataUpdate') as ActUpdateEvent;
-        event.detail = update;
-        document.dispatchEvent(event);
     }
 
     getDurationHeaderText(): string {

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
+import { OverlayAPI } from 'ffxiv-overlay-api';
 
 import { EventDispatcher } from './event.dispatcher';
-import { IConfigService } from './config.service';
 
 import { ActUpdate } from '../models/update.model';
 import { IEncounter, Encounter } from '../models/encounter.model';
 import { Player } from '../models/player.model';
-import { OverlayConfig } from '../models/config.model';
 
 export interface OverlayUpdateEvent {
     active: boolean;
@@ -21,16 +20,23 @@ export abstract class IUpdater {
 @Injectable()
 export class Updater extends IUpdater {
     onEncounterUpdated: EventDispatcher<OverlayUpdateEvent>;
-    config: OverlayConfig;
+    private overlayApi: OverlayAPI;
 
-    constructor(configService: IConfigService) {
+    constructor() {
         super();
-
-        this.config = configService.getConfiguration();
         this.onEncounterUpdated = new EventDispatcher<OverlayUpdateEvent>();
+
+        this.overlayApi = new OverlayAPI();
+
+        this.overlayApi.addListener('CombatData', data => {
+          this.updateEncounter(data as any);
+        });
+    
+        this.overlayApi.startEvent();
     }
     
-    updateEncounter(data: ActUpdate, encounter: Encounter) {
+    updateEncounter(data: ActUpdate) {
+        const encounter = new Encounter();
         encounter.updateEncounter(data.Encounter);
         const players = new Array<Player>();
         let topDps = 0;

@@ -1,4 +1,4 @@
 {
-    "version": "22.11.1",
-    "description": "SCH Fix"
+    "version": "22.12",
+    "description": "Migrate to ffxiv-overlay-api"
 }

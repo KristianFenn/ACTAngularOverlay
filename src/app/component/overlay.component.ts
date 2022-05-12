@@ -1,17 +1,18 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { IConfigService } from '../service/config.service';
 import { IUpdater } from '../service/updater.service';
 import { IAutoHideService } from '../service/autohide.service';
 
-import { ActUpdateEvent, ActUpdate } from '../models/update.model';
+import { ActUpdate } from '../models/update.model';
 import { IEncounter, Encounter } from '../models/encounter.model';
 
 @Component({
   selector: 'overlay',
   templateUrl: 'overlay.component.html',
-  styleUrls: [ 'overlay.component.scss' ]
+  styleUrls: [ 'overlay.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class OverlayComponent {
   private updater: IUpdater;
@@ -24,7 +25,7 @@ export class OverlayComponent {
   testMode: boolean;
 
   constructor(
-    updater: IUpdater, configService: IConfigService, httpClient: HttpClient, autohideService: IAutoHideService) {
+    updater: IUpdater, configService: IConfigService, httpClient: HttpClient, autohideService: IAutoHideService, ref: ChangeDetectorRef) {
     this.updater = updater;
     this.httpClient = httpClient;
     this.autohideService = autohideService;
@@ -38,6 +39,7 @@ export class OverlayComponent {
       if (data.active) {
         this.autohideService.resetAutohideTimer();
       }
+      ref.detectChanges();
     });
     
     configService.onConfigChanged.subscribe(config => 
@@ -88,10 +90,5 @@ export class OverlayComponent {
     this.httpClient.get<ActUpdate>(`/assets/test/${dataSet}.json`).subscribe((data: ActUpdate) => {
       this.updater.updateEncounter(data, this.encounter);
     });
-  }
-
-  @HostListener('document:onOverlayDataUpdate', ['$event'])
-  onDataUpdate(event: ActUpdateEvent) {
-    this.updater.updateEncounter(event.detail, this.encounter);
   }
 }
