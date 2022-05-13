@@ -1,4 +1,4 @@
 {
-    "version": "22.12",
-    "description": "Migrate to ffxiv-overlay-api"
+    "version": "22.13",
+    "description": "overlay api refactor"
 }
