@@ -5,7 +5,6 @@ export interface IEncounter {
     area: string;
     duration: string;
     dps: number;
-    maxhit: string;
     players: Array<Player>;
 }
 
@@ -13,7 +12,6 @@ export class Encounter {
     area: string;
     duration: string;
     dps: number;
-    maxhit: string;
     players: Array<Player>;
 
     constructor() {
@@ -21,7 +19,6 @@ export class Encounter {
         this.area = '';
         this.duration = '';
         this.dps = 0;
-        this.maxhit = '';
     }
 
     updateEncounter(data: ActUpdateEncounter) {

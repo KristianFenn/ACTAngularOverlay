@@ -13,6 +13,7 @@ import { PlayerDetailBarsComponent } from './component/layouts/player-detail-bar
 import { PlayerDetailTableComponent } from './component/layouts/player-detail-table.component';
 import { PlayerDetailPillsComponent } from './component/layouts/player-detail-pills.component';
 import { AbbreviateNumberPipe } from './pipes/abbreviate-number.pipe';
+import { IOverlayService, OverlayService } from './service/overlay.service';
 
 @NgModule({
   imports:      [ 
@@ -37,6 +38,7 @@ import { AbbreviateNumberPipe } from './pipes/abbreviate-number.pipe';
     { provide: IUpdater, useClass: Updater },
     { provide: IConfigService, useClass: ConfigService },
     { provide: IAutoHideService, useClass: AutoHideService },
+    { provide: IOverlayService, useClass: OverlayService },
     AbbreviateNumberPipe
   ]
 })

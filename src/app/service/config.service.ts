@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { OverlayConfig, Theme, Layout } from '../models/config.model';
 import { QueryString } from '../models/queryString.model';
 import { EventDispatcher } from './event.dispatcher';
+import { IOverlayService } from './overlay.service';
 
 const AutoSizeThreshold = 10;
 
@@ -16,24 +17,27 @@ export abstract class IConfigService {
 
 @Injectable()
 export class ConfigService extends IConfigService {
-    private _currentConfig: OverlayConfig | null;
+    private _currentConfig: OverlayConfig;
     onConfigChanged: EventDispatcher<OverlayConfig>;
 
-    constructor() {
+    constructor(overlayService: IOverlayService) {
         super();
+
         this.onConfigChanged = new EventDispatcher<OverlayConfig>();
-        this._currentConfig = null;
+        this._currentConfig = this.getConfiguration();
+
+        overlayService.onPlayerChange.subscribe(name => {
+            this._currentConfig.mainPlayerName = name;
+            this.onConfigChanged.dispatch(this._currentConfig);
+        });
     }
 
     getConfiguration(): OverlayConfig {
-        if (this._currentConfig) {
-            return this._currentConfig;
+        if (!this._currentConfig) {
+            this._currentConfig = this.parseConfigFromQs();
         }
 
-        const config = this.parseConfigFromQs();
-        this._currentConfig = config;
-
-        return config;
+        return this._currentConfig;
     }
 
     private parseConfigFromQs(): OverlayConfig {

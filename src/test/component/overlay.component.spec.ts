@@ -330,7 +330,6 @@ describe('Overlay', () => {
                 area: 'Test Zone',
                 dps: 20000,
                 duration: '01:40',
-                maxhit: 'Woah - 35k',
                 players: [{ 
                         name: 'Dude McFace', 
                         maxHitName: 'Woah', 

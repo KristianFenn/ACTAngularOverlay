@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { OverlayAPI } from 'ffxiv-overlay-api';
 
 import { EventDispatcher } from './event.dispatcher';
 
 import { ActUpdate } from '../models/update.model';
 import { IEncounter, Encounter } from '../models/encounter.model';
 import { Player } from '../models/player.model';
+import { IOverlayService } from './overlay.service';
 
 export interface OverlayUpdateEvent {
     active: boolean;
@@ -19,42 +19,32 @@ export abstract class IUpdater {
 
 @Injectable()
 export class Updater extends IUpdater {
+    private encounter: Encounter;
     onEncounterUpdated: EventDispatcher<OverlayUpdateEvent>;
-    private overlayApi: OverlayAPI;
 
-    constructor() {
+    constructor(overlayService: IOverlayService) {
         super();
+        this.encounter = new Encounter();
         this.onEncounterUpdated = new EventDispatcher<OverlayUpdateEvent>();
-
-        this.overlayApi = new OverlayAPI();
-
-        this.overlayApi.addListener('CombatData', data => {
-          this.updateEncounter(data as any);
-        });
-    
-        this.overlayApi.startEvent();
+        overlayService.onCombatUpdate.subscribe(data => this.updateEncounter(data));
     }
     
     updateEncounter(data: ActUpdate) {
-        const encounter = new Encounter();
-        encounter.updateEncounter(data.Encounter);
+        this.encounter.updateEncounter(data.Encounter);
         const players = new Array<Player>();
-        let topDps = 0;
 
-        for (const combatant in data.Combatant) {
-            const current = data.Combatant[combatant];
-
-            const player = new Player(current);
+        for (const playerName in data.Combatant) {
+            const player = new Player(data.Combatant[playerName]);
             players.push(player);
         }
 
         if (players.length !== 0) {
             players.sort((a, b) => b.dps - a.dps);
-            topDps = players[0].dps;
+            const topDps = players[0].dps;
             players.forEach(p => p.dpsPercent = (p.dps * (100 / topDps)));
         }
 
-        encounter.players = players;
+        this.encounter.players = players;
 
         let active = true;
 
@@ -63,6 +53,6 @@ export class Updater extends IUpdater {
             active = data.isActive == 'true';
         }
 
-        this.onEncounterUpdated.dispatch({ encounter, active });
+        this.onEncounterUpdated.dispatch({ encounter: this.encounter, active });
     }
 }

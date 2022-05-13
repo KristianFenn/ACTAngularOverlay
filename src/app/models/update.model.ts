@@ -4,7 +4,7 @@ export interface ActUpdateEvent extends Event {
 
 export interface ActUpdate {
     Encounter: ActUpdateEncounter;
-    Combatant: any;
+    Combatant: { [playerName: string]: ActUpdateCombatant };
     isActive: string | undefined;
 }
 
