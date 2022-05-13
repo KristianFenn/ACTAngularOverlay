@@ -2,8 +2,10 @@ param(
     [switch]$Deploy
 )
 
-if (-not $Deploy) {
-    Write-Warning "Script run without deploy switch; running in What-If mode";
+if ($Deploy) {
+    Write-Host "Script is running in deploy mode; live files will be overwritten." -ForegroundColor Red
+} elseif (-not $Deploy) {
+    Write-Host "Script run without deploy switch; running in What-If mode" -ForegroundColor Yellow;
 }
 
 Write-Host "Linting";
