@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { IConfigService } from '../service/config.service';
@@ -11,8 +11,7 @@ import { IEncounter, Encounter } from '../models/encounter.model';
 @Component({
   selector: 'overlay',
   templateUrl: 'overlay.component.html',
-  styleUrls: [ 'overlay.component.scss' ],
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: [ 'overlay.component.scss' ]
 })
 export class OverlayComponent {
   private updater: IUpdater;
@@ -31,19 +30,18 @@ export class OverlayComponent {
     this.autohideService = autohideService;
     this.encounter = new Encounter();
 
-    this.autohideService.onShouldShowChanged.subscribe(
-      shouldShow => this.showOverlay = shouldShow);
+    this.autohideService.onShouldShowChanged.subscribe(shouldShow => {
+      this.showOverlay = shouldShow;
+    });
       
     this.updater.onEncounterUpdated.subscribe((data) => {
       this.encounter = data.encounter;
-      if (data.active) {
-        this.autohideService.resetAutohideTimer();
-      }
       ref.detectChanges();
     });
     
-    configService.onConfigChanged.subscribe(config => 
-      this.fontSize = config.fontSize);
+    configService.onConfigChanged.subscribe(config => {
+      this.fontSize = config.fontSize;
+    });
 
     this.showOptions = false;
     this.showOverlay = true;

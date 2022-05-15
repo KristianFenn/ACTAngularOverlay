@@ -7,7 +7,13 @@
     {
       "files": [
         "*.ts"
-      ],
+      ],    
+      "env": {
+        "browser": true
+      },
+      "globals": {
+        "NodeJS": true
+      },
       "parserOptions": {
         "project": [
           "tsconfig.json"
@@ -19,7 +25,8 @@
       ],
       "extends": [
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -46,6 +53,14 @@
         "require-await": "error",
         "prefer-template": "error",
         "unused-imports/no-unused-imports": "error"
+      }
+    },
+    {
+      "files": [
+        "**/*.spec.ts"
+      ],
+      "env": {
+        "jasmine": true
       }
     },
     {

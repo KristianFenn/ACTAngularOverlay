@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { EventDispatcher } from './event.dispatcher';
 import { IConfigService } from './config.service';
-import { OverlayConfig } from '../models/config.model';
+import { IUpdater } from './updater.service';
 
 export abstract class IAutoHideService {
     abstract onShouldShowChanged: EventDispatcher<boolean>;
@@ -17,7 +17,7 @@ export class AutoHideService extends IAutoHideService {
     onShouldShowChanged: EventDispatcher<boolean>;
     timeoutHandle: NodeJS.Timeout | null;
 
-    constructor(configService: IConfigService) {
+    constructor(configService: IConfigService, updater: IUpdater) {
         super();
         
         this.onShouldShowChanged = new EventDispatcher<boolean>();
@@ -25,10 +25,16 @@ export class AutoHideService extends IAutoHideService {
         this.timeoutHandle = null;
 
         const config = configService.getConfiguration();
-        this.configureAutohide(config);
+        this.configureAutohide(config.autohide);
         
         configService.onConfigChanged.subscribe(config => {
-            this.configureAutohide(config);
+            this.configureAutohide(config.autohide);
+        });
+
+        updater.onEncounterUpdated.subscribe(data => {
+            if (data.active) {
+                this.resetAutohideTimer();
+            }
         });
     }
 
@@ -50,8 +56,8 @@ export class AutoHideService extends IAutoHideService {
         }
     }
 
-    private configureAutohide(config: OverlayConfig) {
-        this.autohideDelay = config.autohide;
+    private configureAutohide(autohideDelay: number) {
+        this.autohideDelay = autohideDelay;
 
         this.setupAutohide();
     }
