@@ -373,26 +373,6 @@ describe('Overlay', () => {
                     .toBeTrue();
             });
 
-            it('should reset autohide on active encounter update', async () => {
-                spyOn(mockAutohideService, 'resetAutohideTimer');
-
-                mockUpdater.onEncounterUpdated.dispatch({ encounter: testEncounter, active: true });
-                await pageModel.waitForUpdates();
-
-                expect(mockAutohideService.resetAutohideTimer)
-                    .toHaveBeenCalledTimes(1);
-            });
-
-            it('should not reset autohide on inactive encounter update', async () => {
-                spyOn(mockAutohideService, 'resetAutohideTimer');
-
-                mockUpdater.onEncounterUpdated.dispatch({ encounter: testEncounter, active: false });
-                await pageModel.waitForUpdates();
-
-                expect(mockAutohideService.resetAutohideTimer)
-                    .not.toHaveBeenCalled();
-            });
-
             it('should populate expected header values', async () => {
                 mockUpdater.onEncounterUpdated.dispatch({ encounter: testEncounter, active: true });
                 await pageModel.waitForUpdates();
