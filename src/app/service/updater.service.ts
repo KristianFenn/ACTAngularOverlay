@@ -7,6 +7,8 @@ import { IEncounter, Encounter } from '../models/encounter.model';
 import { Player } from '../models/player.model';
 import { IOverlayService } from './overlay.service';
 
+const IGNORE_KEY = 'ABILITY_IGNORE';
+
 export interface OverlayUpdateEvent {
     active: boolean;
     encounter: IEncounter;
@@ -34,6 +36,10 @@ export class Updater extends IUpdater {
         const players = new Array<Player>();
 
         for (const playerName in data.Combatant) {
+            if (playerName == IGNORE_KEY) {
+                continue;
+            }
+
             const player = new Player(data.Combatant[playerName]);
             players.push(player);
         }
