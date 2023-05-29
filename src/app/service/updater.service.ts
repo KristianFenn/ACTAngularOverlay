@@ -23,12 +23,14 @@ export abstract class IUpdater {
 export class Updater extends IUpdater {
     private encounter: Encounter;
     onEncounterUpdated: EventDispatcher<OverlayUpdateEvent>;
+    lastDuration: string;
 
     constructor(overlayService: IOverlayService) {
         super();
         this.encounter = new Encounter();
         this.onEncounterUpdated = new EventDispatcher<OverlayUpdateEvent>();
         overlayService.onCombatUpdate.subscribe(data => this.updateEncounter(data));
+        this.lastDuration = '';
     }
     
     updateEncounter(data: ActUpdate) {
@@ -51,12 +53,12 @@ export class Updater extends IUpdater {
         }
 
         this.encounter.players = players;
-
         let active = true;
 
-        // compatibility with older overlay plugin
-        if (data.isActive) {
-            active = data.isActive == 'true';
+        if (data.Encounter.duration !== this.lastDuration) {
+            this.lastDuration = data.Encounter.duration;
+        } else {
+            active = false;
         }
 
         this.onEncounterUpdated.dispatch({ encounter: this.encounter, active });
