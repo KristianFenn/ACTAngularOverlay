@@ -60,6 +60,10 @@
         @include player-row-background(150, 90, 144);
     }
 
+    .VPR {
+        @include player-row-background(16, 130, 16);
+    }
+
     .ARC,
     .BRD {
         @include player-row-background(145, 186, 94);
@@ -86,6 +90,10 @@
 
     .RDM {
         @include player-row-background(232, 123, 123);
+    }
+
+    .PCT {
+        @include player-row-background(252, 146, 225);
     }
 
     .BLU {

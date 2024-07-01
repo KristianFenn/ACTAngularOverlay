@@ -27,6 +27,7 @@
     .NIN,
     .SAM,
     .RPR,
+    .VPR,
     .ARC,
     .BRD,
     .MCH,
@@ -37,6 +38,7 @@
     .SMN,
     .Egi,
     .RDM,
+    .PCT,
     .BLU {
         @include player-row-background(173, 0, 0);
     }
